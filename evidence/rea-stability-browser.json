@@ -1,0 +1,502 @@
+{
+  "evidence_id": "ev_bae0c6a51df8227827a02d03b3673640290f3992454c65e7f2c5fdf7360a4ebb",
+  "subject": null,
+  "provider": {
+    "id": "rea-playwright-browser-scenario",
+    "name": "REA Playwright browser scenario capture provider",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.browser-scenario-capture",
+  "operation": "capture_browser_scenario",
+  "parameters": {
+    "browser": {
+      "mode": "launch",
+      "executable_path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+      "headless": true
+    },
+    "start_url": {
+      "url": "http://127.0.0.1:8088/g2all/",
+      "query": []
+    },
+    "environment": {
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "device_scale_factor": 1
+      },
+      "locale": "en-US",
+      "timezone": "UTC",
+      "color_scheme": "light",
+      "reduced_motion": "reduce",
+      "service_workers": "block"
+    },
+    "actions": [
+      {
+        "step_id": "settle",
+        "action": "wait_for_timeout",
+        "duration_ms": 500
+      }
+    ],
+    "storage": {
+      "cookies": [],
+      "local_storage": [],
+      "session_storage": []
+    },
+    "secrets": [],
+    "capture": {
+      "after_each_step": [],
+      "at_end": [
+        "dom",
+        "accessibility",
+        "url"
+      ],
+      "events": [
+        "page-errors",
+        "network"
+      ],
+      "network": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "scenario_sha256": "9f9fe181bbc1a027bf2a62fa5c7548615267a8b234d21d6d27ae04a90697c65c"
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.47"
+    },
+    "scenario": {
+      "start_origin": "http://127.0.0.1:8088",
+      "action_count": 1,
+      "secret_references": [],
+      "network_content": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "event_families": [
+        "network",
+        "page-errors"
+      ],
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "duration_ms": 821,
+    "steps": [
+      {
+        "step_index": 0,
+        "step_id": "scenario_start",
+        "action": "goto_start",
+        "elapsed_ms": 220,
+        "before_url": {
+          "url": "about:blank",
+          "origin": null,
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "http://127.0.0.1:8088/g2all/",
+          "origin": "http://127.0.0.1:8088",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 9,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "not_requested"
+          },
+          "url": {
+            "state": "not_requested"
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 1,
+        "step_id": "settle",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 520,
+        "before_url": {
+          "url": "http://127.0.0.1:8088/g2all/",
+          "origin": "http://127.0.0.1:8088",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "http://127.0.0.1:8088/g2all/",
+          "origin": "http://127.0.0.1:8088",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 10,
+        "event_sequence_end": 9,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "captured",
+            "value": {
+              "sha256": "fd0ad9a5d46f3f15ec9a0bc877511eef3ca0366c4b990d154da3cbfb1bfc54a8",
+              "bytes": 6465,
+              "text": "<!DOCTYPE html><html><head>\n<title>PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack</title>\n<link rel=\"stylesheet\" href=\"../style.css\">\n</head>\n<body>\n<script>\nvar uaFull = navigator.userAgent;\nvar match = uaFull.match(/PlayStation 4[ /]([\\d.]+)/i);\nvar isPS4 = match !== null;\nvar fwVersion = isPS4 ? match[1] : \"Unknown\";\nvar fwNum = parseFloat(fwVersion);\n\nfunction onScriptError() {\n    msgs.innerHTML = \"Content not Found! - Clear Browser Data and Re-Install Cache ...\";\n}\n\nvar hostStarted = false;\nvar cacheWaiting = false;\nfunction startHost() {\nif (hostStarted) return;\nif (!isPS4) {\n    msgs.innerHTML = \"Only for PS4 with Firmware 5.05 and 7.00 to 13.52\";\n} else {\n    var supported = fwNum == 5.05 || fwNum == 5.07 ||\n        (fwNum >= 7.00 && fwNum <= 8.52) || (fwNum >= 9.00 && fwNum <= 9.60) ||\n        (fwNum >= 10.00 && fwNum <= 11.02) || (fwNum >= 11.50 && fwNum <= 12.02) ||\n        (fwNum >= 12.50 && fwNum <= 13.00) || (fwNum >= 13.02 && fwNum <= 13.52);\n    if (!supported) {\n        msgs.textContent = \"Unsupported Firmware: \" + fwVersion;\n        return;\n    }\n    var cache = window.applicationCache;\n    if (!cache || typeof cache.status !== \"number\") {\n        msgs.textContent = \"Offline cache is unavailable. Open this host in the PS4 browser.\";\n        return;\n    }\n    if (cache.status === 2 || cache.status === 3) {\n        msgs.textContent = \"Checking or updating offline cache... Please Wait\";\n        if (!cacheWaiting) {\n            cacheWaiting = true;\n            cache.addEventListener(\"noupdate\", startHost, false);\n            cache.addEventListener(\"cached\", function () {\n                msgs.textContent = \"Cache Installed Successfully. Close And Re-Open Your Browser.\";\n            }, false);\n            cache.addEventListener(\"updateready\", function () {\n                msgs.textContent = \"Cache Updated. Close And Re-Open Your Browser.\";\n            }, false);\n            cache.addEventListener(\"error\", function () {\n                // An offline update check may fail while a complete cache stays usable.\n                if (cache.status === 1) startHost();\n                else msgs.textContent = \"Cache check failed. Close And Re-Open Your Browser.\";\n            }, false);\n            cache.addEventListener(\"obsolete\", function () {\n                msgs.textContent = \"Offline cache is obsolete. Clear Browser Data and Re-Install Cache.\";\n            }, false);\n        }\n        return;\n    }\n    if (cache.status !== 0 && cache.status !== 1) {\n        msgs.textContent = cache.status === 4 ?\n            \"Cache Updated. Close And Re-Open Your Browser.\" :\n            \"Offline cache is unavailable or obsolete. Clear Browser Data and Re-Install Cache.\";\n        return;\n    }\n    hostStarted = true;\n    if (window.applicationCache.status == '0') {\n        if (fwNum == 5.05 || fwNum == 5.07) {\n            window.location.replace(\"cache505.html\");\n        } else if (fwNum >= 7.00 && fwNum <= 8.52) {\n            window.location.replace(\"cache700.html\");\n        } else if (fwNum >= 9.00 && fwNum <= 9.60) {\n            window.location.replace(\"cache900.html\");\n        } else if (fwNum >= 10.00 && fwNum <= 11.02) {\n            window.location.replace(\"cachecss.html\");\n        } else if (fwNum >= 11.50 && fwNum <= 13.52) {\n            window.location.replace(\"cacheslopkit.html\");\n        } else {\n            document.addEventListener(\"DOMContentLoaded\", () => {\n                msgs.innerHTML = 'Unsupported Firmware: <span style=\"color: red;\">' + fwVersion + '</span>';\n            });\n        }\n    } else {\n        if (fwNum == 5.05 || fwNum == 5.07) {\n            var script = document.createElement('script');\n            script.src = \"505/exploit.js\";\n            script.onerror = onScriptError;\n            document.head.appendChild(script);\n        }\n        else if (fwNum >= 7.00 && fwNum <= 8.52) {\n            var script = document.createElement('script');\n            script.type = 'module';\n            script.src = \"700/alert.js\";\n            script.onerror = onScriptError;\n            document.head.appendChild(script);\n        }\n        else if (fwNum >= 9.00 && fwNum <= 9.60) {\n            var script = document.createElement('script');\n            script.type = 'module';\n            script.src = \"900/alert.js\";\n            script.onerror = onScriptError;\n            document.head.appendChild(script);\n        }\n        else if (fwNum >= 10.00 && fwNum <= 11.02) {\n            var script = document.createElement('script');\n            script.src = \"css/main.js\";\n            script.onerror = onScriptError;\n            script.onload = function () {\n                setTimeout(function () {\n                    doJb();\n                }, 500);\n            };\n            document.head.appendChild(script);\n        }\n        else if (fwNum >= 11.50 && fwNum <= 12.02) {\n            var script = document.createElement('script');\n            script.type = 'module';\n            script.src = \"slopkit/chain_lapse.js\";\n            script.onerror = onScriptError;\n            document.head.appendChild(script);\n        }\n        else if (fwNum >= 12.50 && fwNum <= 13.00) {\n            var script = document.createElement('script');\n            script.type = 'module';\n            script.src = \"slopkit/chain_poops.js\";\n            script.onerror = onScriptError;\n            document.head.appendChild(script);\n        }\n        else if (fwNum >= 13.02 && fwNum <= 13.52) {\n            var script = document.createElement('script');\n            script.type = 'module';\n            script.src = \"slopkit/jb.js?v=19\";\n            script.onerror = onScriptError;\n            document.head.appendChild(script);\n        }\n    }\n}\n}\n// The status element must exist before any console script can run or report an error.\nif (document.readyState === \"loading\") {\n    document.addEventListener(\"DOMContentLoaded\", startHost, false);\n} else {\n    startHost();\n}\n</script>\n<h1>PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack</h1>\n<hr>\n<br>\n<h1 id=\"msgs\" style=\"font-size: 30px;margin-top: 77px;margin-bottom: 455px;\">Only for PS4 with Firmware 5.05 and 7.00 to 13.52</h1>\n<h1 style=\"margin-top: 43px;\">Special Thanks to:<a href=\"https://twitter.com/_AlAzif\" style=\"color: #f31414;margin-left: 10px;margin-right: 10px;\">@_AlAzif</a>ChendoChap<a href=\"https://x.com/Kameleonre_\" style=\"color: #f31414;margin-left: 10px;margin-right: 10px;\">@Kameleonre_</a>SiSTR0 Abc</h1>\n\n\n</body></html>"
+            }
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "fc5ae288920dc52c1bb8445806d50ece5e239c380447e9a8831d7fce94c0f4a2",
+              "bytes": 471,
+              "text": "- document:\n  - heading \"PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack\" [level=1]\n  - separator\n  - heading \"Only for PS4 with Firmware 5.05 and 7.00 to 13.52\" [level=1]\n  - heading \"Special Thanks to:@_AlAzifChendoChap@Kameleonre_SiSTR0 Abc\" [level=1]:\n    - text: \"Special Thanks to:\"\n    - link \"@_AlAzif\":\n      - /url: https://twitter.com/_AlAzif\n    - text: ChendoChap\n    - link \"@Kameleonre_\":\n      - /url: https://x.com/Kameleonre_\n    - text: SiSTR0 Abc"
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "http://127.0.0.1:8088/g2all/",
+              "origin": "http://127.0.0.1:8088",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      }
+    ],
+    "events": {
+      "retained": 9,
+      "dropped": 0,
+      "items": [
+        {
+          "sequence": 1,
+          "step_index": 0,
+          "transaction_id": "request-1",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/g2all/",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "document",
+          "header_names": [
+            "accept-language",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent"
+          ],
+          "kind": "request",
+          "status": null,
+          "failure": null
+        },
+        {
+          "sequence": 2,
+          "step_index": 0,
+          "transaction_id": "request-1",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/g2all/",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "document",
+          "header_names": [
+            "cache-control",
+            "content-length",
+            "content-type",
+            "date",
+            "server"
+          ],
+          "kind": "response",
+          "status": 200,
+          "failure": null
+        },
+        {
+          "sequence": 3,
+          "step_index": 0,
+          "transaction_id": "request-2",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/style.css",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "stylesheet",
+          "header_names": [
+            "accept-language",
+            "referer",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "user-agent"
+          ],
+          "kind": "request",
+          "status": null,
+          "failure": null
+        },
+        {
+          "sequence": 4,
+          "step_index": 0,
+          "transaction_id": "request-1",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/g2all/",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "document",
+          "header_names": [
+            "accept-language",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent"
+          ],
+          "kind": "request-finished",
+          "status": null,
+          "failure": null
+        },
+        {
+          "sequence": 5,
+          "step_index": 0,
+          "transaction_id": "request-2",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/style.css",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "stylesheet",
+          "header_names": [
+            "cache-control",
+            "content-length",
+            "content-type",
+            "date",
+            "server"
+          ],
+          "kind": "response",
+          "status": 200,
+          "failure": null
+        },
+        {
+          "sequence": 6,
+          "step_index": 0,
+          "transaction_id": "request-2",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/style.css",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "stylesheet",
+          "header_names": [
+            "accept-language",
+            "referer",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "user-agent"
+          ],
+          "kind": "request-finished",
+          "status": null,
+          "failure": null
+        },
+        {
+          "sequence": 7,
+          "step_index": 0,
+          "transaction_id": "request-3",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/img.jpg",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "image",
+          "header_names": [
+            "accept-language",
+            "referer",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "user-agent"
+          ],
+          "kind": "request",
+          "status": null,
+          "failure": null
+        },
+        {
+          "sequence": 8,
+          "step_index": 0,
+          "transaction_id": "request-3",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/img.jpg",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "image",
+          "header_names": [
+            "cache-control",
+            "content-length",
+            "content-type",
+            "date",
+            "server"
+          ],
+          "kind": "response",
+          "status": 200,
+          "failure": null
+        },
+        {
+          "sequence": 9,
+          "step_index": 0,
+          "transaction_id": "request-3",
+          "redirected_from_transaction_id": null,
+          "redirected_from_transaction_state": "root",
+          "method": "GET",
+          "url": {
+            "url": "http://127.0.0.1:8088/img.jpg",
+            "origin": "http://127.0.0.1:8088",
+            "query_parameter_names": [],
+            "redacted": false
+          },
+          "resource_type": "image",
+          "header_names": [
+            "accept-language",
+            "referer",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "user-agent"
+          ],
+          "kind": "request-finished",
+          "status": null,
+          "failure": null
+        }
+      ],
+      "omissions": {
+        "by_kind": [],
+        "network_transactions": [],
+        "network_transaction_range": null
+      }
+    },
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "limitations": [
+      "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+      "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+      "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+      "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+      "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+      "Storage values are hashed only after declared-secret redaction."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "controlled-replay",
+  "environment": {
+    "id": "Chromium@156.0.8078.47",
+    "platform": "unknown",
+    "architecture": "unknown",
+    "isolation": "process"
+  },
+  "limitations": [
+    "Artifact identity is unavailable for this observation.",
+    "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+    "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+    "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+    "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+    "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+    "Storage values are hashed only after declared-secret redaction.",
+    "Browser host platform and architecture were not observed."
+  ],
+  "relationship_coverage": null,
+  "locations": [],
+  "evidence_links": []
+}

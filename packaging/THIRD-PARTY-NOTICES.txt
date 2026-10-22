@@ -1,0 +1,27 @@
+GoldHEN Local Host 1.0.1
+
+This package preserves the authorship notices in the downloaded site files.
+The local host wrapper and installer do not claim authorship of GoldHEN, PSFree,
+Lapse, Slopkit, or the original GamerHack site.
+
+Site: https://gamerhack.github.io/g2all/
+Repository: https://github.com/GamerHack/GamerHack.github.io
+Snapshot: 23c946a7f85f1338ea2b78163e72e0ce9bc82b68
+GoldHEN: https://github.com/GoldHEN/GoldHEN
+GoldHEN payload included: goldhen_2.4b18.12.bin (293120 bytes)
+
+Source and notices remain in dist/ and source/. The original upstream hash
+inventory and six local launcher/manifest changes are recorded in evidence/.
+Original pre-edit launcher and manifest copies are under source/original-launcher.
+PSFree files carrying GNU Affero General Public License version 3-or-later
+notices retain them; a copy of AGPL version 3 is in licenses/AGPL-3.0.txt.
+Other third-party scripts/assets/payloads retain their upstream terms and notices.
+This file does not relicense components whose original terms are different.
+
+Bundled runtime: CPython 3.11.9, Python Software Foundation and contributors.
+See licenses/PYTHON-LICENSE.txt for the runtime and included third-party notices.
+Executable bundler: PyInstaller 6.22.3, with its bootloader distribution exception.
+Its license and notices are included under licenses/pyinstaller/.
+
+Build sources are included in source/. Building executables requires Windows,
+Python and PyInstaller; using the installed host requires none of those tools.

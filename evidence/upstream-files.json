@@ -1,0 +1,651 @@
+{
+  "source": "https://gamerhack.github.io/g2all/",
+  "repository_commit": "23c946a7f85f1338ea2b78163e72e0ce9bc82b68",
+  "acquired_utc": "2026-10-21T15:00:56.606337+00:00",
+  "files": [
+    {
+      "path": "g2all/505.manifest",
+      "bytes": 111,
+      "sha256": "63797cce4b9a0e1453be7e75de457a39091aa888d27aadca2e0a44c9053e3fbe",
+      "git_blob_sha": "46aed091aae8f0b78ffac0eff492c0b006a24c4a",
+      "source_url": "https://gamerhack.github.io/g2all/505.manifest"
+    },
+    {
+      "path": "g2all/505/exploit.js",
+      "bytes": 886393,
+      "sha256": "b10db21cae89a2de6f1a0623577a4df4c41aa005969b01119469cd33db2ebee3",
+      "git_blob_sha": "81a83570567133b04a2c8a2abbc1f91047d3b805",
+      "source_url": "https://gamerhack.github.io/g2all/505/exploit.js"
+    },
+    {
+      "path": "g2all/700.manifest",
+      "bytes": 558,
+      "sha256": "5526f0d137abbbc7e3bda143876d131618c2156e952fb4bfc62530808bdf41e6",
+      "git_blob_sha": "fec6413139d92502b2486df9d079a18600a209cb",
+      "source_url": "https://gamerhack.github.io/g2all/700.manifest"
+    },
+    {
+      "path": "g2all/700/alert.js",
+      "bytes": 1697,
+      "sha256": "b3352504520ecf2a187d21cc3de4b1db93dedbfacd9d238e84428d5b0714759b",
+      "git_blob_sha": "6029793a6f04f4e58533de255284914185440a96",
+      "source_url": "https://gamerhack.github.io/g2all/700/alert.js"
+    },
+    {
+      "path": "g2all/700/config.js",
+      "bytes": 2609,
+      "sha256": "f31906b947300e11642f571e779a00468a2bd9993083dcd232bd4e6b6a8c0f83",
+      "git_blob_sha": "dd17f1e0c66aea866e90994fdbe1c218502f3019",
+      "source_url": "https://gamerhack.github.io/g2all/700/config.js"
+    },
+    {
+      "path": "g2all/700/kpatch/700.elf",
+      "bytes": 6208,
+      "sha256": "7fe2f30c64e2acaf41924e385e81b4d1bdb6dd7a217faf91cdb580fd82cde851",
+      "git_blob_sha": "0050f3aacb95cbc4f41fa8b866ccb581d74836d4",
+      "source_url": "https://gamerhack.github.io/g2all/700/kpatch/700.elf"
+    },
+    {
+      "path": "g2all/700/kpatch/750.elf",
+      "bytes": 6384,
+      "sha256": "1f46037bd232cb40ce7f85100350af86acda6aed92ffa0cfaf18fa15b924691b",
+      "git_blob_sha": "3b3348e98056da54b32ae9f7b1ce7d12602d272d",
+      "source_url": "https://gamerhack.github.io/g2all/700/kpatch/750.elf"
+    },
+    {
+      "path": "g2all/700/kpatch/800.elf",
+      "bytes": 6368,
+      "sha256": "8e766df1049d302c01a9c538a92303a3a78f335e007f1139f44a75cc1d8f6fac",
+      "git_blob_sha": "16304d9c7f5097cfca70cc61e8e116f6054dca41",
+      "source_url": "https://gamerhack.github.io/g2all/700/kpatch/800.elf"
+    },
+    {
+      "path": "g2all/700/kpatch/850.elf",
+      "bytes": 6368,
+      "sha256": "313b9048b41f1110bc2c7128059cb009d310bb4f014739b3c10809b60d395f03",
+      "git_blob_sha": "55274c94e42da0a96dfc3c0ca6784d436d2a65e5",
+      "source_url": "https://gamerhack.github.io/g2all/700/kpatch/850.elf"
+    },
+    {
+      "path": "g2all/700/lapse.js",
+      "bytes": 56892,
+      "sha256": "49eba7b707128361056fbd8abbbb57c0ec5f79020f1f430e485f23e4099e662f",
+      "git_blob_sha": "eec5988167fe7828da703eca94a7e41deac8ad36",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse.js"
+    },
+    {
+      "path": "g2all/700/lapse/700.js",
+      "bytes": 1175,
+      "sha256": "4b498ef300ddf5dd449250854537db74ef19c0142c4e68f7434a3ed74b8419da",
+      "git_blob_sha": "daefcf485f903a5a662ab7771c92c7942790f6ff",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse/700.js"
+    },
+    {
+      "path": "g2all/700/lapse/750.js",
+      "bytes": 1163,
+      "sha256": "861d6d5ea39c11763cdf302794a5332936a5c55c13a47b1e88bdcfa047030323",
+      "git_blob_sha": "e723a469bed75cd9f8c203435586537dbf8a674a",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse/750.js"
+    },
+    {
+      "path": "g2all/700/lapse/751.js",
+      "bytes": 1407,
+      "sha256": "7ce2bdb60147d176cc2b8f86d0794fdb33ec88759d6e6195598bea6f2ae4f4b8",
+      "git_blob_sha": "fbdaf60eddf738caf0e22e4a3a3689dbba14de83",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse/751.js"
+    },
+    {
+      "path": "g2all/700/lapse/800.js",
+      "bytes": 1175,
+      "sha256": "3eeac8d233ca472ddcdfb1581885a4dc24df9a66d6ab4215e9279f4a5d0448ce",
+      "git_blob_sha": "8e8b023fe709a63873549593cb1deb9c985c9e7b",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse/800.js"
+    },
+    {
+      "path": "g2all/700/lapse/850.js",
+      "bytes": 1162,
+      "sha256": "64ccda645684670511afa45d258878eedf1b6ce7a3109f72b4f545bd6cfc6b5e",
+      "git_blob_sha": "7565319470dc700ebd6b3864869856afe3eeef9f",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse/850.js"
+    },
+    {
+      "path": "g2all/700/lapse/852.js",
+      "bytes": 1162,
+      "sha256": "95149b692401fe2345683865ca5c589d214610edf22a067c81809d8351b9ed63",
+      "git_blob_sha": "f3887827acb2edcc5275afd6a1aecfb8dc992415",
+      "source_url": "https://gamerhack.github.io/g2all/700/lapse/852.js"
+    },
+    {
+      "path": "g2all/700/module/chain.js",
+      "bytes": 15173,
+      "sha256": "78379e8307b848676de1b6fbfd11c38901ca6522e7d21d1a97339bd5f4d1f3e3",
+      "git_blob_sha": "7f42c091e507e5b58e67b7d274e16f9fb06f6e96",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/chain.js"
+    },
+    {
+      "path": "g2all/700/module/int64.js",
+      "bytes": 3176,
+      "sha256": "cdd42b5e94f19b3eb821beb8417032a4068282d6f5f7ddd23be32d749c5e3e2e",
+      "git_blob_sha": "c35f893d47a8db97d76a935268427e23ab023e44",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/int64.js"
+    },
+    {
+      "path": "g2all/700/module/mem.js",
+      "bytes": 10871,
+      "sha256": "3d3e476455d751d09a1108818b8d016cf026229dbacafe9b47e923d4191bcbb8",
+      "git_blob_sha": "9ea3b76fcfb2636498ab9de80b92306ee0980146",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/mem.js"
+    },
+    {
+      "path": "g2all/700/module/memtools.js",
+      "bytes": 8342,
+      "sha256": "576357a691a279f1aee7398eb7743d861fe2d9734a16b57761814bec9201f4f3",
+      "git_blob_sha": "930d30f0a497a397eb25aa5bd0534f1888925d0f",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/memtools.js"
+    },
+    {
+      "path": "g2all/700/module/offset.js",
+      "bytes": 1930,
+      "sha256": "88ae276045da184e796b08fe951eae176e7b76f657d561a5803a62006d24a34b",
+      "git_blob_sha": "fe8f66f10f4e9dfd7985e2225183e49f8ae1b79d",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/offset.js"
+    },
+    {
+      "path": "g2all/700/module/rw.js",
+      "bytes": 4090,
+      "sha256": "b7effb458d101b060fd167c5d310f44970c04f01c96cb21abeb5beb8187a7218",
+      "git_blob_sha": "1e1a363610714f90f526a6108e1e0faf8e0576ff",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/rw.js"
+    },
+    {
+      "path": "g2all/700/module/utils.js",
+      "bytes": 4829,
+      "sha256": "ab3e616088723a092e4057250e927ecabf4b73be044dc7fbdbe54abb31f414fd",
+      "git_blob_sha": "55f5568a1992677d1ab5742572b426567f4431d8",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/utils.js"
+    },
+    {
+      "path": "g2all/700/module/view.js",
+      "bytes": 6272,
+      "sha256": "86365d053a7fb2f0f63dd1ebe230a57fbdeb7573d4e4a0ad9c35195db9d019d6",
+      "git_blob_sha": "ecbfe656d351294d99697ddd2b6322afba80e1af",
+      "source_url": "https://gamerhack.github.io/g2all/700/module/view.js"
+    },
+    {
+      "path": "g2all/700/psfree.js",
+      "bytes": 25793,
+      "sha256": "005372f285712c889cab04130cfffdcbd6d251da14a53f5c3b56d28863718978",
+      "git_blob_sha": "9fc7f84873042fadf5a5b311f05cdf85e298cf90",
+      "source_url": "https://gamerhack.github.io/g2all/700/psfree.js"
+    },
+    {
+      "path": "g2all/700/rop/700.js",
+      "bytes": 8344,
+      "sha256": "20f780459e9a028aa3b9949e2b5c06a74bf82d5473160d8a7288892e1228cb3f",
+      "git_blob_sha": "6840821c5408310a655332e45c68b9b2921910f2",
+      "source_url": "https://gamerhack.github.io/g2all/700/rop/700.js"
+    },
+    {
+      "path": "g2all/700/rop/750.js",
+      "bytes": 8344,
+      "sha256": "53448317f194ec686242009bd39e1e99d8d4cbf9ef453d09206df6bfd0a4540f",
+      "git_blob_sha": "bf44f5eb1e5e51cf9c8ff93fa890c69c85400cde",
+      "source_url": "https://gamerhack.github.io/g2all/700/rop/750.js"
+    },
+    {
+      "path": "g2all/700/rop/800.js",
+      "bytes": 8342,
+      "sha256": "348ed5378369cfe2876a871066b0bb2265732e2de40f6d49131b0ff9b8f3c6de",
+      "git_blob_sha": "b3449fd66e4efea564f973c2872141a170d3fe91",
+      "source_url": "https://gamerhack.github.io/g2all/700/rop/800.js"
+    },
+    {
+      "path": "g2all/700/rop/850.js",
+      "bytes": 8336,
+      "sha256": "44c16bf8225c36e4a940120e2cae7c19cfc50a3089ea16bfbeb7ef193916367f",
+      "git_blob_sha": "eb7be7a8063bed73adb4c738ebe50bd31e5a638a",
+      "source_url": "https://gamerhack.github.io/g2all/700/rop/850.js"
+    },
+    {
+      "path": "g2all/700/send.js",
+      "bytes": 7346,
+      "sha256": "dcb3682deadc1e1e7a382e0de0421e616d918829097024b70e36ca16021ff2b0",
+      "git_blob_sha": "af601d40a28ef2be46cb71a858876c9204a4265a",
+      "source_url": "https://gamerhack.github.io/g2all/700/send.js"
+    },
+    {
+      "path": "g2all/900.manifest",
+      "bytes": 482,
+      "sha256": "109e2a79c9c27e4c6af40bd0e958a86df4b0521429a1adb5048af33ecdd33cc1",
+      "git_blob_sha": "fb7e9080b01f653ea99bbe1793e2de0d4075e7e4",
+      "source_url": "https://gamerhack.github.io/g2all/900.manifest"
+    },
+    {
+      "path": "g2all/900/alert.js",
+      "bytes": 1809,
+      "sha256": "2ab0603afd508f1df66df097ef422b439223cf8069c05264458e026e8e963ff1",
+      "git_blob_sha": "d8f3b4bd76438fcfb89e623fe21735a4c739d07e",
+      "source_url": "https://gamerhack.github.io/g2all/900/alert.js"
+    },
+    {
+      "path": "g2all/900/config.js",
+      "bytes": 2609,
+      "sha256": "f31906b947300e11642f571e779a00468a2bd9993083dcd232bd4e6b6a8c0f83",
+      "git_blob_sha": "dd17f1e0c66aea866e90994fdbe1c218502f3019",
+      "source_url": "https://gamerhack.github.io/g2all/900/config.js"
+    },
+    {
+      "path": "g2all/900/kpatch/900.elf",
+      "bytes": 6368,
+      "sha256": "650033d4b7e5686624a325e29e1de50efcdbbd164a4862bf2be7a909c8e8b2e2",
+      "git_blob_sha": "7d4dc9d81317c5042e1a5f3b754cbbd47ee361c1",
+      "source_url": "https://gamerhack.github.io/g2all/900/kpatch/900.elf"
+    },
+    {
+      "path": "g2all/900/kpatch/903.elf",
+      "bytes": 6368,
+      "sha256": "5f34a7c7f026310cbf63eddc3fe515d8cee99420c9d1d9b086ee01645f86a3bc",
+      "git_blob_sha": "d3e4ead4dd4d3db9b4cc8827c194e2fbf792e804",
+      "source_url": "https://gamerhack.github.io/g2all/900/kpatch/903.elf"
+    },
+    {
+      "path": "g2all/900/kpatch/950.elf",
+      "bytes": 6368,
+      "sha256": "50aa27d6fbde784ec41e7c24ebf928a7286e273bb5ab03e6c47e7cd70e56d2fb",
+      "git_blob_sha": "ab9d66d8ae7f0dc19abef0ca75ed3747f250a86b",
+      "source_url": "https://gamerhack.github.io/g2all/900/kpatch/950.elf"
+    },
+    {
+      "path": "g2all/900/lapse.js",
+      "bytes": 58113,
+      "sha256": "17946e2088bd62e923cb290a86fbb1124db43f6e9d9cc11348863500ce6d0a33",
+      "git_blob_sha": "c6558934c267bcccdba2865db427b4155bb468b1",
+      "source_url": "https://gamerhack.github.io/g2all/900/lapse.js"
+    },
+    {
+      "path": "g2all/900/lapse/900.js",
+      "bytes": 1205,
+      "sha256": "835b6cb43c0f825baef5f005c60ee99c54fe53d6dcac15d5d056d5a6ff3db239",
+      "git_blob_sha": "109c4f344b3847089517d64ae4dc6d201f0ba70e",
+      "source_url": "https://gamerhack.github.io/g2all/900/lapse/900.js"
+    },
+    {
+      "path": "g2all/900/lapse/903.js",
+      "bytes": 1211,
+      "sha256": "98eda13aaf1d565dbe0ec4e711b811411310c1d6202a197e451fa8c1e93639bd",
+      "git_blob_sha": "e4001aa8abd847c6015294bfbaa78f3f0ba311f1",
+      "source_url": "https://gamerhack.github.io/g2all/900/lapse/903.js"
+    },
+    {
+      "path": "g2all/900/lapse/950.js",
+      "bytes": 1220,
+      "sha256": "a3ddceca71cce8ef9c4aca386cab9a0851afaee9c0aec3420a50734fe8fe2961",
+      "git_blob_sha": "b8f6261e85c0cdd27bcc32111cf2aa8eea6d457b",
+      "source_url": "https://gamerhack.github.io/g2all/900/lapse/950.js"
+    },
+    {
+      "path": "g2all/900/module/chain.js",
+      "bytes": 16305,
+      "sha256": "7e4350d207ad943de7632942a91bd148190756ef0072e43e035796c1aaf25d3e",
+      "git_blob_sha": "ac05df5a91492566325ebd3e5d029b13c4e8d6a8",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/chain.js"
+    },
+    {
+      "path": "g2all/900/module/constants.js",
+      "bytes": 773,
+      "sha256": "27ce6981d3a26ce5ae125bceef73daf62040394e5c10541c1527bd15e66a86a7",
+      "git_blob_sha": "268f079e30b9ac30083ff7631184311dfb266aed",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/constants.js"
+    },
+    {
+      "path": "g2all/900/module/int64.js",
+      "bytes": 3560,
+      "sha256": "46a2d5113d4aaa367463675cee605062c1a17dade7214d80b5428e67a0ba383c",
+      "git_blob_sha": "248872ed06ac90d78a7de07be60f2e099f8dda83",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/int64.js"
+    },
+    {
+      "path": "g2all/900/module/mem.js",
+      "bytes": 19339,
+      "sha256": "7afbad5850cda8e972a5c1981e1acff69b391edc3af9fd8a6cb1ae1715d35787",
+      "git_blob_sha": "09f18f3233a05d68d6773e2f6dcbdb16c39ee527",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/mem.js"
+    },
+    {
+      "path": "g2all/900/module/memtools.js",
+      "bytes": 8942,
+      "sha256": "52ac8d514ab4709ff3b322a0692f394301da980d0de833712d2fe47e4ac4c730",
+      "git_blob_sha": "5d8a5481866e33cb6c3f3d829f96e916626b43b6",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/memtools.js"
+    },
+    {
+      "path": "g2all/900/module/offset.js",
+      "bytes": 1931,
+      "sha256": "1966bff1bd12a296bf8f1f0e6510416d2d9c2d40c20bfb85959034b281c955e1",
+      "git_blob_sha": "74c9dc007199714c263a1440393d8e00fe33a485",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/offset.js"
+    },
+    {
+      "path": "g2all/900/module/rw.js",
+      "bytes": 4104,
+      "sha256": "d605153f35655b6706e5c4bb4e752f490af56436e4d0956430bde90b12085e15",
+      "git_blob_sha": "f031736835c81ca499ceaad2ce9e5a196f0e27d3",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/rw.js"
+    },
+    {
+      "path": "g2all/900/module/utils.js",
+      "bytes": 4829,
+      "sha256": "ab3e616088723a092e4057250e927ecabf4b73be044dc7fbdbe54abb31f414fd",
+      "git_blob_sha": "55f5568a1992677d1ab5742572b426567f4431d8",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/utils.js"
+    },
+    {
+      "path": "g2all/900/module/view.js",
+      "bytes": 6712,
+      "sha256": "bec9fa5d8a44a8d4d64ad039908761c6f4ea6913735338cffbf1594d669b8449",
+      "git_blob_sha": "62ec0780af34b00ac877fd4abed71c1dc0a4b827",
+      "source_url": "https://gamerhack.github.io/g2all/900/module/view.js"
+    },
+    {
+      "path": "g2all/900/psfree.js",
+      "bytes": 26500,
+      "sha256": "2566fe070e0aabb4f1cb370f0dddc1aa0fa5e56ec7a8c8429a119de313f84ee3",
+      "git_blob_sha": "2ee1e231762349ff9919881e3261fdf2404164cb",
+      "source_url": "https://gamerhack.github.io/g2all/900/psfree.js"
+    },
+    {
+      "path": "g2all/900/rop/900.js",
+      "bytes": 11095,
+      "sha256": "499f8fd2fd7fd62b66830d632096dfeedd7c728a0f906d4f313df5c9b8e80cc1",
+      "git_blob_sha": "987f32b8fdebd01cb04e8fd0ba081af7f90d63ce",
+      "source_url": "https://gamerhack.github.io/g2all/900/rop/900.js"
+    },
+    {
+      "path": "g2all/900/rop/950.js",
+      "bytes": 11366,
+      "sha256": "0170174aab2093c747739808829b398d61e3c21b604f428e422d943cad60abf7",
+      "git_blob_sha": "0334a9d610c24b99d35039a86143394ca4706f02",
+      "source_url": "https://gamerhack.github.io/g2all/900/rop/950.js"
+    },
+    {
+      "path": "g2all/900/send.js",
+      "bytes": 7635,
+      "sha256": "d915c293b1f1f3c2bbdb0af692e711cb0691edbc6cd92f230034f4b2a0555a33",
+      "git_blob_sha": "281f0721e9f1755680e413ac7d3e0ac80cf8465a",
+      "source_url": "https://gamerhack.github.io/g2all/900/send.js"
+    },
+    {
+      "path": "g2all/cache505.html",
+      "bytes": 1469,
+      "sha256": "c95171657051e9282dd76bdbce0b9088183142801327bcce2a35e521542b82c8",
+      "git_blob_sha": "6aa5c11370d6dfa2c4607d2dd0674992c8c3532d",
+      "source_url": "https://gamerhack.github.io/g2all/cache505.html"
+    },
+    {
+      "path": "g2all/cache700.html",
+      "bytes": 1469,
+      "sha256": "219aa73ca93c702ae44fd878c8b8fd1ebabddcae466c034eb6ed4f34643a6190",
+      "git_blob_sha": "a3014d969a5290bdfd55a56ddc78a618f489a597",
+      "source_url": "https://gamerhack.github.io/g2all/cache700.html"
+    },
+    {
+      "path": "g2all/cache900.html",
+      "bytes": 1469,
+      "sha256": "e321d0542943d70db1ef506e8e4c7b53c4aa1229e5ff424a2b0fac75ade5eac5",
+      "git_blob_sha": "77f6c9fdcb52e6b07227fd3e49ef30509c8a1f3e",
+      "source_url": "https://gamerhack.github.io/g2all/cache900.html"
+    },
+    {
+      "path": "g2all/cachecss.html",
+      "bytes": 1469,
+      "sha256": "580b9de499965b5818277f55256d3e55d909ab1f729cef419a08220f2f93ae32",
+      "git_blob_sha": "43d2eb41ca45c938e32c1ba5a9a3eab7efdad9ef",
+      "source_url": "https://gamerhack.github.io/g2all/cachecss.html"
+    },
+    {
+      "path": "g2all/cacheslopkit.html",
+      "bytes": 1473,
+      "sha256": "0c212a19bf2b564a3a8047d3bf66177f188e73b3febae665231d21b89896ab9f",
+      "git_blob_sha": "a47250a393c4673fe53b5bbdc5828072b2dd1ef8",
+      "source_url": "https://gamerhack.github.io/g2all/cacheslopkit.html"
+    },
+    {
+      "path": "g2all/css.manifest",
+      "bytes": 330,
+      "sha256": "7f92062b0ddf9e16ad805de2286553cade91353d16c98dd55005d404961a35cf",
+      "git_blob_sha": "55bc8a7d2ce8498b61a4713ccf52c1bfed2b738b",
+      "source_url": "https://gamerhack.github.io/g2all/css.manifest"
+    },
+    {
+      "path": "g2all/css/lapse.js",
+      "bytes": 35571,
+      "sha256": "8a3841c61ff8219c9b996672da74dbf65a57f5265265d6665c30449a14b4aeae",
+      "git_blob_sha": "a87ac90f86d2fb0d6f9979c667338e05077a576c",
+      "source_url": "https://gamerhack.github.io/g2all/css/lapse.js"
+    },
+    {
+      "path": "g2all/css/loader.js",
+      "bytes": 1842,
+      "sha256": "57f9bce0340bb5c7d59b24a5370c86300063edec435ece75c1491e55dbd980c8",
+      "git_blob_sha": "2274b5363f8b61cd7296ff63b12cdb6d361e3f41",
+      "source_url": "https://gamerhack.github.io/g2all/css/loader.js"
+    },
+    {
+      "path": "g2all/css/main.js",
+      "bytes": 3178,
+      "sha256": "e72782026cc40951f14ab11a28ce69c41b686b18beb05d7cca3f381e6b105c78",
+      "git_blob_sha": "ee0f96fff4d9a133c2682604bdcaaee65eac6717",
+      "source_url": "https://gamerhack.github.io/g2all/css/main.js"
+    },
+    {
+      "path": "g2all/css/misc.js",
+      "bytes": 11592,
+      "sha256": "bf509655b71295e6731a205f69992076619133a2230db230fb26d3248ed206d1",
+      "git_blob_sha": "80d3be0851d3c2243a18c7dd5dbbb51da8c2c891",
+      "source_url": "https://gamerhack.github.io/g2all/css/misc.js"
+    },
+    {
+      "path": "g2all/css/ps4/constants.js",
+      "bytes": 23889,
+      "sha256": "52c6af4a7f75c87238345ad6f6e0761a04e3c54a052ed68a5363461a5a92ef72",
+      "git_blob_sha": "881827d21b1238416b5e77592f09dbfad21f855a",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/constants.js"
+    },
+    {
+      "path": "g2all/css/ps4/kernel.js",
+      "bytes": 17818,
+      "sha256": "bb184cf282dcb9c94aec0a39306e93923ece1b549f847010fc8eb1fe0468ff33",
+      "git_blob_sha": "5cacc1b9b1e66467c0154b4daf2806daf5dd3e5f",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/kernel.js"
+    },
+    {
+      "path": "g2all/css/ps4/patches/1000.bin",
+      "bytes": 589,
+      "sha256": "954ff624c9c92ab991c3e92a93fde1583da291dfd9674e245354c7efdcd07cf8",
+      "git_blob_sha": "ef6bf1d6dcc7183126b80dc427ea988aadb9a04a",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/patches/1000.bin"
+    },
+    {
+      "path": "g2all/css/ps4/patches/1050.bin",
+      "bytes": 632,
+      "sha256": "fbf815d2d47a707cf788815ef11558fa6d8f718e628d508e8540417083c55e1f",
+      "git_blob_sha": "5e9d3772ae9906eb252c2c948317446b1092ee9b",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/patches/1050.bin"
+    },
+    {
+      "path": "g2all/css/ps4/patches/1100.bin",
+      "bytes": 632,
+      "sha256": "15497a2b748dafd49bfb89c51ed048d0c5ba3c5092c5254da46dd4443f80983b",
+      "git_blob_sha": "cfd3515b4ae9a1e46fcd8f92b05e89b9d2c7c01b",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/patches/1100.bin"
+    },
+    {
+      "path": "g2all/css/ps4/patches/1102.bin",
+      "bytes": 632,
+      "sha256": "4634f7bcdaeea7a48307a6b0c2f0575dc131d4fcf15138c6678f18b4f19058fd",
+      "git_blob_sha": "214da06f6b8261b708d48d4d7d5dc2bad34f3014",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/patches/1102.bin"
+    },
+    {
+      "path": "g2all/css/ps4/userland.js",
+      "bytes": 37526,
+      "sha256": "dc1ae1fd99829511818dd0ecde813e75287f804b4543af4186d09ab875d5c2a4",
+      "git_blob_sha": "11cd3226639527eda6e3fabb83a652bbbba03add",
+      "source_url": "https://gamerhack.github.io/g2all/css/ps4/userland.js"
+    },
+    {
+      "path": "g2all/css/worker.js",
+      "bytes": 1683,
+      "sha256": "8fe6249292dcea160ee71d5fa0e969d146d3ffb58790785b2d55136757cde32e",
+      "git_blob_sha": "b4e40f9e42ead1ac3da50f57566096a4fe8b7256",
+      "source_url": "https://gamerhack.github.io/g2all/css/worker.js"
+    },
+    {
+      "path": "g2all/css/workers.js",
+      "bytes": 3311,
+      "sha256": "a92b0f6f72948fb281fb1ef04aad48ec481b94f7a3344d2ca7c98c43cb920ff3",
+      "git_blob_sha": "de29c8cd43b9b0b439cbd757c9ff1551560da06a",
+      "source_url": "https://gamerhack.github.io/g2all/css/workers.js"
+    },
+    {
+      "path": "g2all/goldhen_2.4b18.12.bin",
+      "bytes": 293120,
+      "sha256": "df3f27c1b35bc7c40e3a08caab948930914dc7d0301a73b68945cf6ffe40ea12",
+      "git_blob_sha": "b9c254cb5171f82d8824794c184b968e5c604b24",
+      "source_url": "https://gamerhack.github.io/g2all/goldhen_2.4b18.12.bin"
+    },
+    {
+      "path": "g2all/index.html",
+      "bytes": 4119,
+      "sha256": "497511a39c071068b028383c814a2b9d0b340bd1ed5a66233cd9091b9d32e0bb",
+      "git_blob_sha": "1b8cb1143339b4500dcd0a63bcbdb8c490ad8f95",
+      "source_url": "https://gamerhack.github.io/g2all/index.html"
+    },
+    {
+      "path": "g2all/slopkit.manifest",
+      "bytes": 446,
+      "sha256": "80ca6562e884f73869459f3e5531658eea59e14c64048bc3debf3ccc5a553024",
+      "git_blob_sha": "d42680e627a6afa90547a3a7b7959bafe88ec7b5",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit.manifest"
+    },
+    {
+      "path": "g2all/slopkit/chain_lapse.js",
+      "bytes": 209270,
+      "sha256": "96f376429f5214bc97b53f42a3b1c500ef3d5b193e99644e5e10765e533adbd1",
+      "git_blob_sha": "c219c64171363580e81f0072dd7004d1131a123a",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/chain_lapse.js"
+    },
+    {
+      "path": "g2all/slopkit/chain_poops.js",
+      "bytes": 135998,
+      "sha256": "63320b4c953655f7a8f343af31466e3c6481f361f6e07bb54c90527fc9c1263e",
+      "git_blob_sha": "78a0ec2cdca28e5235922f7b3d1850a221401211",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/chain_poops.js"
+    },
+    {
+      "path": "g2all/slopkit/core.js",
+      "bytes": 43266,
+      "sha256": "3acf7e09988f10f800ca22bac1d4965b89ebb5ce2da4850089918fd1a457df4e",
+      "git_blob_sha": "56b0349f0ce59884271070e6bb9635a78edd75a1",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/core.js"
+    },
+    {
+      "path": "g2all/slopkit/int64.js",
+      "bytes": 2787,
+      "sha256": "a79a3334a3f2c75b9a238ab1093796e326251c97ac5d02663eae5b14bf80f652",
+      "git_blob_sha": "824fa3941fbdd0f9fb0da8cf3d90ed5ef6f398bc",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/int64.js"
+    },
+    {
+      "path": "g2all/slopkit/jb.js",
+      "bytes": 115292,
+      "sha256": "0be4d65905387d5513aa4cd26225991dc42d4c9ac936962f2c109d859c72a0c3",
+      "git_blob_sha": "35e008f6795147db3f671b847afa23769fec3b08",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/jb.js"
+    },
+    {
+      "path": "g2all/slopkit/mem.js",
+      "bytes": 28202,
+      "sha256": "4a1b688e8061372bc8400e911c8e191b7e19e4b6286dcdeb3eef4971c5168a22",
+      "git_blob_sha": "63b86c43f87515044612a1c2163f613123b4feb0",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/mem.js"
+    },
+    {
+      "path": "g2all/slopkit/patches/1150.bin",
+      "bytes": 632,
+      "sha256": "d4e3a514e462b973842e634eba6c90136dbfd864a208f8c39c229055e5f2e1f9",
+      "git_blob_sha": "acc7deebf8567f82f34ee81c57915b4cdfc628a2",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1150.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1200.bin",
+      "bytes": 632,
+      "sha256": "87f1d40aea8fbf3adee7b8b5599d90c9d868436c15a498f2dce6bf5d96ae4d27",
+      "git_blob_sha": "0207c2ba8dec6c253fb1b31b7601c3e6227635c1",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1200.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1250.bin",
+      "bytes": 314,
+      "sha256": "5baaf0bb2663064db1eb1bfd976bc3aa5087ab7f0963648cb6fcb216adce714d",
+      "git_blob_sha": "d8102ca1d836699ae3f940c8188fe9fb1aa4e60a",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1250.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1300.bin",
+      "bytes": 314,
+      "sha256": "be70930d96c40b8d7ba03a57e2ea5c834b606fb74ed118756b4dea7fffaa1d57",
+      "git_blob_sha": "093f6be6d4a741f88d0e63396768ee7a9928d544",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1300.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1302.bin",
+      "bytes": 632,
+      "sha256": "235a051f5a066daa546253de6eb61c1223a2682cb34edd916fc4565bb2c02fc6",
+      "git_blob_sha": "6a3870d35b37684c39ad7049e17c3eee08f7d821",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1302.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1350.bin",
+      "bytes": 632,
+      "sha256": "f771c196d012496c01f575674e95a74d7b00b7c1bc22325c7321f3ab6eb77b56",
+      "git_blob_sha": "4ff57da79d2b85483b6d27ca513aa95e53d9d299",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1350.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1352.bin",
+      "bytes": 632,
+      "sha256": "adfb9771904f71cd1f5a82cbded8ac46c7ffeb3df974579535cf711904ac347e",
+      "git_blob_sha": "cb07a2b2340e054f1b823245ccf74cfe47d36839",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1352.bin"
+    },
+    {
+      "path": "g2all/slopkit/ps4_offsets.js",
+      "bytes": 16104,
+      "sha256": "5f00b9482b1b41038e8e882ca3cec010f1eec8777a1b05a88ba8849033931e37",
+      "git_blob_sha": "ef53aef6ab4e7bea08ed65390c6ca06195c11f9e",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/ps4_offsets.js"
+    },
+    {
+      "path": "g2all/slopkit/rpc_worker.js",
+      "bytes": 5395,
+      "sha256": "483925eafec03037596a71b95f046ba0ed1ab9018300ffd5ff718e2ce8c181dd",
+      "git_blob_sha": "6c2f6fb91fa36cb3c05d7fe2f712cc552a6e7305",
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/rpc_worker.js"
+    },
+    {
+      "path": "img.jpg",
+      "bytes": 93467,
+      "sha256": "9002befdc689a4e29bd7988a2a815aa94ec01072f38c6b172fea9d78c02a0451",
+      "git_blob_sha": "04413908fada0d93d185ef85f1c79a7a8f8c40e8",
+      "source_url": "https://gamerhack.github.io/img.jpg"
+    },
+    {
+      "path": "style.css",
+      "bytes": 1285,
+      "sha256": "8165adbe3e2127d83175f65d004b0d64cbd4083a36b1511158ccbb2cacea491d",
+      "git_blob_sha": "1bef851f2a140b0a577d80497dc4e4455b6b0466",
+      "source_url": "https://gamerhack.github.io/style.css"
+    }
+  ]
+}

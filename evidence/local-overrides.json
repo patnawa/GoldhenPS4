@@ -1,0 +1,35 @@
+{
+  "revision": "host-stability-1",
+  "files": [
+    {
+      "path": "g2all/index.html",
+      "bytes": 6457,
+      "sha256": "d23017ebe0e91cd6903bae8bc29c30751e556e55d24611de57b0f370dfd0e4a5"
+    },
+    {
+      "path": "g2all/505.manifest",
+      "bytes": 158,
+      "sha256": "2efc8cc8f2ca2384ebdd68d52f9e2f3bc784de28132de25d07176ce067700adb"
+    },
+    {
+      "path": "g2all/700.manifest",
+      "bytes": 605,
+      "sha256": "982cb86a840067090858cb2c790c97ef030e3f02421e570a97439508b7d93061"
+    },
+    {
+      "path": "g2all/900.manifest",
+      "bytes": 529,
+      "sha256": "44202a5ac7f2f07fb21af08285e57fe88af5201ba09b2a0b6a8ac915a5a4f8a9"
+    },
+    {
+      "path": "g2all/css.manifest",
+      "bytes": 377,
+      "sha256": "09a2c931db44436827d73e8cef52c53be2926abd839476ba1a3ed87bc71d6557"
+    },
+    {
+      "path": "g2all/slopkit.manifest",
+      "bytes": 493,
+      "sha256": "8c8fd547b35d736fda8e7f177d403528a68e236666dd92d8e9d4dd5892b1a981"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "verified_utc": "2026-10-21T15:08:01.613282+00:00",
+  "base_url": "http://127.0.0.1:8088/",
+  "assets_verified": 92,
+  "manifest_resources": {
+    "505.manifest": 5,
+    "700.manifest": 31,
+    "900.manifest": 26,
+    "css.manifest": 17,
+    "slopkit.manifest": 20
+  },
+  "root_redirect": "passed",
+  "mime_types": "passed",
+  "head": "passed",
+  "query_strings": "passed",
+  "backslash_paths": "passed",
+  "server_boundaries": "passed",
+  "console_execution": "not tested; requires PS4 hardware"
+}

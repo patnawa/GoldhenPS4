@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script>
+var uaFull = navigator.userAgent;
+var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
+var isPS4 = match !== null;
+var fwVersion = isPS4 ? match[1] : "Unknown";
+var fwNum = parseFloat(fwVersion);
+
+function onScriptError() {
+    msgs.innerHTML = "Content not Found! - Clear Browser Data and Re-Install Cache ...";
+}
+
+var hostStarted = false;
+var cacheWaiting = false;
+function startHost() {
+if (hostStarted) return;
+if (!isPS4) {
+    msgs.innerHTML = "Only for PS4 with Firmware 5.05 and 7.00 to 13.52";
+} else {
+    var supported = fwNum == 5.05 || fwNum == 5.07 ||
+        (fwNum >= 7.00 && fwNum <= 8.52) || (fwNum >= 9.00 && fwNum <= 9.60) ||
+        (fwNum >= 10.00 && fwNum <= 11.02) || (fwNum >= 11.50 && fwNum <= 12.02) ||
+        (fwNum >= 12.50 && fwNum <= 13.00) || (fwNum >= 13.02 && fwNum <= 13.52);
+    if (!supported) {
+        msgs.textContent = "Unsupported Firmware: " + fwVersion;
+        return;
+    }
+    var cache = window.applicationCache;
+    if (!cache || typeof cache.status !== "number") {
+        msgs.textContent = "Offline cache is unavailable. Open this host in the PS4 browser.";
+        return;
+    }
+    if (cache.status === 2 || cache.status === 3) {
+        msgs.textContent = "Checking or updating offline cache... Please Wait";
+        if (!cacheWaiting) {
+            cacheWaiting = true;
+            cache.addEventListener("noupdate", startHost, false);
+            cache.addEventListener("cached", function () {
+                msgs.textContent = "Cache Installed Successfully. Close And Re-Open Your Browser.";
+            }, false);
+            cache.addEventListener("updateready", function () {
+                msgs.textContent = "Cache Updated. Close And Re-Open Your Browser.";
+            }, false);
+            cache.addEventListener("error", function () {
+                // An offline update check may fail while a complete cache stays usable.
+                if (cache.status === 1) startHost();
+                else msgs.textContent = "Cache check failed. Close And Re-Open Your Browser.";
+            }, false);
+            cache.addEventListener("obsolete", function () {
+                msgs.textContent = "Offline cache is obsolete. Clear Browser Data and Re-Install Cache.";
+            }, false);
+        }
+        return;
+    }
+    if (cache.status !== 0 && cache.status !== 1) {
+        msgs.textContent = cache.status === 4 ?
+            "Cache Updated. Close And Re-Open Your Browser." :
+            "Offline cache is unavailable or obsolete. Clear Browser Data and Re-Install Cache.";
+        return;
+    }
+    hostStarted = true;
+    if (window.applicationCache.status == '0') {
+        if (fwNum == 5.05 || fwNum == 5.07) {
+            window.location.replace("cache505.html");
+        } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+            window.location.replace("cache700.html");
+        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+            window.location.replace("cache900.html");
+        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+            window.location.replace("cachecss.html");
+        } else if (fwNum >= 11.50 && fwNum <= 13.52) {
+            window.location.replace("cacheslopkit.html");
+        } else {
+            document.addEventListener("DOMContentLoaded", () => {
+                msgs.innerHTML = 'Unsupported Firmware: <span style="color: red;">' + fwVersion + '</span>';
+            });
+        }
+    } else {
+        if (fwNum == 5.05 || fwNum == 5.07) {
+            var script = document.createElement('script');
+            script.src = "505/exploit.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 7.00 && fwNum <= 8.52) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "700/alert.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 9.00 && fwNum <= 9.60) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "900/alert.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 10.00 && fwNum <= 11.02) {
+            var script = document.createElement('script');
+            script.src = "css/main.js";
+            script.onerror = onScriptError;
+            script.onload = function () {
+                setTimeout(function () {
+                    doJb();
+                }, 500);
+            };
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 11.50 && fwNum <= 12.02) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "slopkit/chain_lapse.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 12.50 && fwNum <= 13.00) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "slopkit/chain_poops.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 13.02 && fwNum <= 13.52) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "slopkit/jb.js?v=19";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+    }
+}
+}
+// The status element must exist before any console script can run or report an error.
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startHost, false);
+} else {
+    startHost();
+}
+</script>
+<h1>PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack</h1>
+<hr>
+<br>
+<h1 id=msgs style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">Loading GoldHEN v2.4b18.12... Please Wait</h1>
+<h1 style="margin-top: 43px;">Special Thanks to:<a href="https://twitter.com/_AlAzif" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@_AlAzif</a>ChendoChap<a href="https://x.com/Kameleonre_" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@Kameleonre_</a>SiSTR0 Abc</h1>
+</body>
+</html>
