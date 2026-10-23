@@ -1,7 +1,14 @@
-GoldHEN Local Host 1.0.1 - Windows 10/11 x64
+GoldHEN Local Host 1.0.2 - Windows 10/11 x64
+
+ONLINE WEBSITE
+https://patnawa.github.io/GoldhenPS4/g2all/
+The path is case-sensitive: use GoldhenPS4 exactly as shown.
+
+Version 1.0.2 updates the site to GoldHEN v2.4b18.12 Host by patnawa,
+corrects the displayed firmware ranges, and refreshes the offline cache revision.
 
 INSTALL
-Run GoldHEN-Local-Host-Setup-1.0.1-x64.exe. Choose a writable installation folder
+Run GoldHEN-Local-Host-Setup-1.0.2-x64.exe. Choose a writable installation folder
 and click Install. Everything is bundled: no Python installation, internet
 download, or development tools are needed. It installs for your Windows user
 with Start menu shortcuts and an optional desktop shortcut.

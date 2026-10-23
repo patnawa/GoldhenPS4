@@ -6,10 +6,9 @@ import shutil
 import sys
 import sysconfig
 import zipfile
-from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGE = ROOT / 'build/package/GoldHEN-Server'
+STAGE = ROOT / 'build/package-1.0.2/GoldHEN-Server'
 
 
 def copy(source, destination):
@@ -18,6 +17,7 @@ def copy(source, destination):
 
 
 def main():
+    (ROOT / 'release/v1.0.2').mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / 'dist', STAGE / 'dist', dirs_exist_ok=True)
     for name in ('upstream-files.json', 'local-overrides.json'):
         copy(ROOT / 'evidence' / name, STAGE / 'evidence' / name)
@@ -39,7 +39,7 @@ def main():
     shutil.copytree(license_source, STAGE / 'licenses/pyinstaller', dirs_exist_ok=True)
     license_file = STAGE / 'licenses/AGPL-3.0.txt'
     if not license_file.exists():
-        license_file.write_bytes(urlopen('https://www.gnu.org/licenses/agpl-3.0.txt', timeout=30).read())
+        copy(ROOT / 'licenses/AGPL-3.0.txt', license_file)
     files = sorted(p for p in STAGE.rglob('*') if p.is_file())
     forbidden = [p for p in files if '.runtime' in p.parts or '__pycache__' in p.parts]
     if forbidden: raise RuntimeError('Runtime artifacts cannot be packaged: ' + str(forbidden))
@@ -48,7 +48,7 @@ def main():
     with zipfile.ZipFile(ROOT / 'packaging/payload.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in files:
             archive.write(source, source.relative_to(STAGE).as_posix())
-    with zipfile.ZipFile(ROOT / 'release/GoldHEN-Local-Host-Portable-1.0.1-x64.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+    with zipfile.ZipFile(ROOT / 'release/v1.0.2/GoldHEN-Local-Host-Portable-1.0.2-x64.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in files:
             archive.write(source, 'GoldHEN Local Host/' + source.relative_to(STAGE).as_posix())
     print(f'Staged {len(files)} files. Runtime logs, original machine addresses, and browser captures excluded.')

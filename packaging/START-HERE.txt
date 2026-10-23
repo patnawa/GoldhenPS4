@@ -1,0 +1,46 @@
+GoldHEN Local Host - ready to copy to another Windows PC
+
+ONLINE WEBSITE
+https://patnawa.github.io/GoldhenPS4/g2all/
+The address is case-sensitive: use GoldhenPS4 exactly as written.
+
+VERSION 1.0.2
+Updated host name: GoldHEN v2.4b18.12 Host by patnawa.
+Firmware labels match the launcher routes, and offline cache revisions are updated.
+
+RECOMMENDED
+Copy GoldHEN-Local-Host-Setup-1.0.2-x64.exe to the other computer and run it.
+Choose Install, then start GoldHEN Host from the Start menu or desktop.
+Open the PS4 network address printed by the launcher in the console's browser.
+No Python installation or internet download is required.
+
+Windows 10/11, 64-bit Intel/AMD target. The package includes the GoldHEN payload
+and the current site files with the updated branding and firmware labels.
+
+If the PS4 cannot connect, run Allow PS4 Network Access from the Start menu.
+That optional helper requests Windows administrator permission and allows only
+this executable/port on Private networks, for devices on the local subnet.
+
+PORTABLE ALTERNATIVE
+Extract GoldHEN-Local-Host-Portable-1.0.2-x64.zip completely into a writable folder.
+Open the extracted GoldHEN Local Host folder and run Start-Host.cmd.
+Keep the entire folder together. Do not run files directly inside the ZIP.
+
+DEFAULT PORT: 8088. Edit settings.json if needed. The new PC's IP is detected
+at launch; do not reuse the original PC's network address.
+
+Tests passed: isolated installation, bundled runtime with no Python on PATH,
+setup UI initialization, seven Start menu shortcuts, all 92 served asset hashes,
+repeat start, stop, uninstall, and preservation of user files.
+The original user reported PS4 success. Testing on a second physical PC was
+not available. The installer is locally built and is not code-signed.
+
+SHA256SUMS.txt records the transfer checksums. In PowerShell:
+  Get-FileHash .\GoldHEN-Local-Host-Setup-1.0.2-x64.exe -Algorithm SHA256
+
+UPGRADING
+Stop the old host and uninstall the previous installed version before installing
+1.0.2. For portable use, extract 1.0.2 into a new folder. After updating, allow
+the PS4 cache update to finish and close/reopen the browser when instructed.
+
+Full usage, network, uninstall, credits and license notes are bundled.
