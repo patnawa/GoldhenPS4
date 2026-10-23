@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack</title>
+<title>GoldHEN v2.4b18.12 Host by patnawa</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -21,7 +21,7 @@ var cacheWaiting = false;
 function startHost() {
 if (hostStarted) return;
 if (!isPS4) {
-    msgs.innerHTML = "Only for PS4 with Firmware 5.05 and 7.00 to 13.52";
+    msgs.innerHTML = "Open this host in the PS4 browser.<br>Supported firmware: 5.05, 5.07, 7.00-8.52, 9.00-9.60, 10.00-11.02, 11.50-12.02, 12.50-13.00, and 13.02-13.52";
 } else {
     var supported = fwNum == 5.05 || fwNum == 5.07 ||
         (fwNum >= 7.00 && fwNum <= 8.52) || (fwNum >= 9.00 && fwNum <= 9.60) ||
@@ -144,10 +144,11 @@ if (document.readyState === "loading") {
     startHost();
 }
 </script>
-<h1>PS4 [5.05] 7.00 - 13.52 FW GoldHEN Host by GamerHack</h1>
+<h1>GoldHEN v2.4b18.12 Host by patnawa</h1>
 <hr>
 <br>
 <h1 id=msgs style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">Loading GoldHEN v2.4b18.12... Please Wait</h1>
 <h1 style="margin-top: 43px;">Special Thanks to:<a href="https://twitter.com/_AlAzif" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@_AlAzif</a>ChendoChap<a href="https://x.com/Kameleonre_" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@Kameleonre_</a>SiSTR0 Abc</h1>
+<p>Original host by <a href="https://gamerhack.github.io/g2all/" style="color: white;">GamerHack</a>. Hosted by patnawa.</p>
 </body>
 </html>

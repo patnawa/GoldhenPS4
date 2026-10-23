@@ -10,7 +10,7 @@ GitHub Pages publishes `dist/` through `.github/workflows/pages.yml`. Site chang
 
 Download **GoldHEN-Local-Host-Setup-1.0.1-x64.exe** from the [v1.0.1 release](https://github.com/patnawa/GoldhenPS4/releases/tag/v1.0.1) for Windows 10/11 x64. It bundles the runtime, working site, GoldHEN payload, shortcuts and uninstall support. No Python installation is needed on the destination PC. The release also includes a portable ZIP, a static site ZIP, `SHA256SUMS.txt`, and `START-HERE.txt` with transfer and network instructions. Built packages are release attachments and are not stored in Git. The package was tested through installation, all 92 HTTP asset hashes, start/stop, shortcut registration and uninstall in a separate folder with Python excluded from PATH. The original user reported that the PS4 host works; no firmware version was supplied.
 
-A local copy of https://gamerhack.github.io/g2all/ with preventive launcher checks and a verified-file HTTP server. Firmware-specific scripts, native payloads, styling and background remain byte-for-byte upstream copies. The launcher and five cache manifest revision comments have local edits, recorded in `evidence/local-overrides.json`. The original author credits are preserved.
+A local copy of https://gamerhack.github.io/g2all/ with preventive launcher checks and a verified-file HTTP server. Firmware-specific scripts, native payloads, styling and background remain byte-for-byte upstream copies. The launcher, five cache installation pages, and five cache manifest revision comments have local edits, recorded in `evidence/local-overrides.json`. The original author credits are preserved.
 
 ## Open and run
 
@@ -33,7 +33,7 @@ Use a network address that the console can reach. If the PC page opens but the P
 
 ## Files
 
-- `dist/`: the 92 preserved site files, including six documented host edits, plus the GitHub Pages root redirect.
+- `dist/`: the 92 preserved site files, including eleven documented host edits, plus the GitHub Pages root redirect.
 - `server.py`: standard-library HTTP server with the required JavaScript and AppCache MIME types.
 - `ANALYSIS.md`: behavior, firmware routing, evidence and limitations.
 - `evidence/`: downloaded-file hashes, REA captures, screenshot and HTTP verification result.
