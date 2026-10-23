@@ -1,5 +1,11 @@
 # Local GoldHEN host
 
+## Online website
+
+Open **https://patnawa.github.io/GoldhenPS4/** in the PS4 browser. The root page forwards to the host at https://patnawa.github.io/GoldhenPS4/g2all/. The online version does not require the PC server to be running. Desktop browsers intentionally display the PS4-only message; console execution and offline cache installation still require PS4 hardware testing.
+
+GitHub Pages publishes `dist/` through `.github/workflows/pages.yml`. Site changes pushed to `main` deploy automatically after file-integrity and launcher checks pass. You can also run **Deploy GitHub Pages** manually from the repository's Actions tab. Repository **Settings → Pages → Source** must be **GitHub Actions**. Only the static site is published; the Python server is used for local hosting.
+
 ## Install on another computer
 
 Download **GoldHEN-Local-Host-Setup-1.0.1-x64.exe** from the [v1.0.1 release](https://github.com/patnawa/GoldhenPS4/releases/tag/v1.0.1) for Windows 10/11 x64. It bundles the runtime, working site, GoldHEN payload, shortcuts and uninstall support. No Python installation is needed on the destination PC. The release also includes a portable ZIP, a static site ZIP, `SHA256SUMS.txt`, and `START-HERE.txt` with transfer and network instructions. Built packages are release attachments and are not stored in Git. The package was tested through installation, all 92 HTTP asset hashes, start/stop, shortcut registration and uninstall in a separate folder with Python excluded from PATH. The original user reported that the PS4 host works; no firmware version was supplied.
@@ -27,7 +33,7 @@ Use a network address that the console can reach. If the PC page opens but the P
 
 ## Files
 
-- `dist/`: the 92 site files, including six documented host edits, served as the HTTP root.
+- `dist/`: the 92 preserved site files, including six documented host edits, plus the GitHub Pages root redirect.
 - `server.py`: standard-library HTTP server with the required JavaScript and AppCache MIME types.
 - `ANALYSIS.md`: behavior, firmware routing, evidence and limitations.
 - `evidence/`: downloaded-file hashes, REA captures, screenshot and HTTP verification result.
