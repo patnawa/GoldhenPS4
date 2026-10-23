@@ -40,11 +40,36 @@ function hostOk() {
     }
 }
 
-function hostFail() {
+let failureReason = "";
+function hostFail(detail, beforeExecution) {
+    if (detail) failureReason = String(detail);
+    if (!failureReason) {
+        failureReason = stateEl.textContent || "See the diagnostic log below.";
+    }
     var m = document.getElementById("msgs");
     if (m) {
-        m.innerHTML = "Failed to Load! Restart Your Console ...";
+        m.textContent = (beforeExecution
+            ? "Required file could not load. Check the host connection, then close and re-open the browser. "
+            : "Failed to Load! Restart Your Console ... ") + failureReason;
         m.style.color = "yellow";
+    }
+    // Keep diagnostics available on the console, including when offline.
+    // The original POST logger has no receiver on GitHub Pages or this host.
+    outEl.setAttribute("style", "position:fixed;left:2%;right:2%;bottom:0;" +
+        "max-height:40vh;overflow:auto;white-space:pre-wrap;word-wrap:break-word;" +
+        "background:#111;color:#fff;padding:12px;font-size:16px;text-align:left;z-index:1000;");
+    outEl.scrollTop = outEl.scrollHeight;
+}
+
+async function fetchRequiredAsset(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const bytes = new Uint8Array(await response.arrayBuffer());
+        if (!bytes.length) throw new Error("empty response");
+        return bytes;
+    } catch (e) {
+        throw new Error(url + ": " + (e && e.message ? e.message : String(e)));
     }
 }
 
@@ -239,6 +264,7 @@ function makeRpc(worker) {
 (async function () {
     let worker = null;
     let p = null, sc = null, stubOf = null;
+    let primitiveStarted = false;
     try {
         const params = new URLSearchParams(location.search);
 
@@ -247,15 +273,8 @@ function makeRpc(worker) {
         const kpatchName = fwResolved.off && fwResolved.off.kpatch
             ? "slopkit/patches/" + fwResolved.off.kpatch
             : fwKey ? "slopkit/patches/" + fwKey.replace(".", "") + ".bin" : null;
-        let kpatch = null;
-        try {
-            if (kpatchName) {
-                const rsp = await fetch(kpatchName);
-                if (rsp.ok) kpatch = new Uint8Array(await rsp.arrayBuffer());
-            }
-        } catch (e) {
-            mark("KPATCH-FETCH-FAILED", (e && e.message) ? e.message : String(e));
-        }
+        if (!kpatchName) throw new Error("No patch file for this firmware");
+        const kpatch = await fetchRequiredAsset(kpatchName);
 
         const KPATCH_JMP_SITES = [];
         if (kpatch) {
@@ -275,13 +294,7 @@ function makeRpc(worker) {
             : (kpatchName ? "NOT LOADED (" + kpatchName + ") -- stage 9 will not run"
                           : "no firmware key, so no blob name -- stage 9 will not run"));
 
-        let payload = null;
-        try {
-            const prsp = await fetch("goldhen_2.4b18.12.bin");
-            if (prsp.ok) payload = new Uint8Array(await prsp.arrayBuffer());
-        } catch (e) {
-            mark("PAYLOAD-FETCH-FAILED", (e && e.message) ? e.message : String(e));
-        }
+        const payload = await fetchRequiredAsset("goldhen_2.4b18.12.bin");
         mark("PAYLOAD-BLOB", payload
             ? "bytes=" + payload.length + " head=" + hexBytes(payload.subarray(0, 12))
                 + (payload[0] === 0xe9 ? " entry=e9-jmp-rel32"
@@ -332,6 +345,7 @@ function makeRpc(worker) {
         state("running the primitive...", "warn");
 
         await new Promise(function (r) { setTimeout(r, 0); });
+        primitiveStarted = true;
         const carrier = await establishPrimitive({
             maxAttempts: 6,
 
@@ -3631,7 +3645,7 @@ function makeRpc(worker) {
             stateEl.textContent = "FAILED -- see log";
             stateEl.className = "bad";
         } catch (e2) { }
-        hostFail();
+        hostFail(e && e.message ? e.message : String(e), !primitiveStarted);
     } finally {
 
         const teardown = !committed || repaired;

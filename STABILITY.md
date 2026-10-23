@@ -1,5 +1,17 @@
 # Preventive stability review
 
+## Firmware 11.50 loading investigation (2026-10-23)
+
+The user reports intermittent `Failed to Load! Restart Your Console ...` on firmware 11.50 using the GitHub Pages host, sometimes followed by a system lockup that prevents normal shutdown/reboot and requires the power button. This selects `slopkit/chain_lapse.js`. That message is shared by exhausted attempts, caught exceptions, payload launch failures, and unrepaired execution state; the message alone does not identify which occurred on the console. The reported lockup makes an unrepaired execution state a concern, but no console trace establishes the failing stage. The host preflight repair below is not a verified fix for this lockup.
+
+REA 6.7.0 MCP was available and used to analyze the shipped JavaScript. Its partial analysis reached the selected semantic-node limit, and message-based graph traces returned no matched seed. These results do not establish a console root cause. The retained summary and trace limitations are in `evidence/rea-1150-analysis.json`; the full local bundle is `.runtime/rea-1150-evidence.json` (not published).
+
+`node tools/test-lapse-host.cjs` reproduced two host defects using the real entry script with inert imports: failed/empty patch or payload requests still reached the primitive, and the outer catch discarded the exception from the visible message while the log remained off-screen. The original code failed 9/9 initial checks. This harness never executes the browser primitive, kernel operations or payload. Its injected primitive error reproduces the generic reporting behavior, not the user's intermittent hardware failure.
+
+The repair requires successful, nonempty patch and payload downloads before beginning execution. Preflight failures identify the file and HTTP/network error and ask for a host-connection check and browser reopen. Once primitive execution has begun, failures retain conservative console restart advice, show the exception where available, and expose the existing log on screen, including offline. Repeated failure reporting retains the original reason. The Slopkit manifest revision triggers an offline-cache update, and integrity overrides include the changed entry script. Native bytes, offsets, race parameters, retry counts and cleanup remain unchanged.
+
+Validation: all 11 Lapse host regression checks pass. An actual PS4 execution trace is still needed to determine whether the reported intermittent failure is an asset problem, a primitive failure, or a later kernel/payload-stage failure. No improvement to hardware success rate is claimed. If it recurs after the cache update, capture the visible error and last diagnostic lines before following the restart instruction.
+
 ## Local launcher repair (version 1.0.1)
 
 The original local Stop command reproduced `InvokeMethodOnNull`: Windows exposed PID 2216 and its creation time but returned null for its command line and executable path. The current shell was not elevated; the old server had been launched elevated. The original script called `.Contains()` on that missing command line. Start then reported already running because the server had never stopped.

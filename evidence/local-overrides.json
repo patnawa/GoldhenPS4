@@ -1,5 +1,5 @@
 {
-  "revision": "host-branding-2",
+  "revision": "lapse-host-preflight-3",
   "files": [
     {
       "path": "g2all/index.html",
@@ -28,8 +28,8 @@
     },
     {
       "path": "g2all/slopkit.manifest",
-      "bytes": 506,
-      "sha256": "6e6c0207da74b262983d69c7475073f605838dbacdfa1dcb6e09233582bcc61d"
+      "bytes": 527,
+      "sha256": "253d00e5066e0276888e4b3c372666d75725f9a18383ce24637798529d68935e"
     },
     {
       "path": "g2all/cache505.html",
@@ -55,6 +55,11 @@
       "path": "g2all/cacheslopkit.html",
       "bytes": 1562,
       "sha256": "17f4828f42a31dca729be3a02d46b7e2e43701a363ce16ff659131f499a3fa84"
+    },
+    {
+      "path": "g2all/slopkit/chain_lapse.js",
+      "bytes": 210223,
+      "sha256": "36f42eeed6149fc3b0e8ac4a0a8db6a2505cb89fc4f05f89ac61c8466b36bf8b"
     }
   ]
 }

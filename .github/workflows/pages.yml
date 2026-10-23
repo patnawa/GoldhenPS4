@@ -9,6 +9,7 @@ on:
       - 'evidence/local-overrides.json'
       - 'server.py'
       - 'tools/test-host.cjs'
+      - 'tools/test-lapse-host.cjs'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -36,6 +37,8 @@ jobs:
         run: python3 server.py --check
       - name: Check launcher behavior
         run: node tools/test-host.cjs
+      - name: Check Lapse asset failures and diagnostics
+        run: node tools/test-lapse-host.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
