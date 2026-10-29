@@ -28,8 +28,8 @@
     },
     {
       "path": "g2all/slopkit.manifest",
-      "bytes": 505,
-      "sha256": "82882803622a453922d87631629f8f722cbc50092ecb179ee3197306a9f99a19"
+      "bytes": 492,
+      "sha256": "9c0098893b2d5da1e3695dcf78cfe47dfed7a7b480ff5da3fc439115204e66b7"
     },
     {
       "path": "g2all/cache505.html",
@@ -58,8 +58,8 @@
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
-      "bytes": 216885,
-      "sha256": "203068caa956f860c987d237f48a802a4ef129daab3440f5069798ebb346e41b"
+      "bytes": 218149,
+      "sha256": "ed7b6705971ae5f9f3ef309ac8fa5e1361ea0fca87b275ff7ca3f122a69af0ee"
     },
     {
       "path": "g2all/slopkit/core.js",
