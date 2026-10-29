@@ -10,8 +10,9 @@ from urllib.request import build_opener, ProxyHandler
 import winreg
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGET = ROOT / 'build/Install Test 1.0.2'
-SETUP = ROOT / 'release/v1.0.2/GoldHEN-Local-Host-Setup-1.0.2-x64.exe'
+VERSION = '1.0.3'
+TARGET = ROOT / f'build/Install Test {VERSION}'
+SETUP = ROOT / f'release/v{VERSION}/GoldHEN-Local-Host-Setup-{VERSION}-x64.exe'
 PORT = 18188
 REGISTRY = r'Software\Microsoft\Windows\CurrentVersion\Uninstall\GoldHENLocalHost'
 ENV = {**os.environ, 'PATH': os.environ['WINDIR'] + r'\System32;' + os.environ['WINDIR'] + r'\System32\WindowsPowerShell\v1.0'}
@@ -94,7 +95,7 @@ def main():
     RESULT['uninstall_and_preserve_user_files'] = 'passed'
     RESULT['firewall_rule_execution'] = 'not run; opt-in helper syntax checked only'
     RESULT['other_computer_execution'] = 'not available; isolated install tested on this PC'
-    (ROOT / 'release/v1.0.2/package-test.json').write_text(json.dumps(RESULT, indent=2))
+    (ROOT / f'release/v{VERSION}/package-test.json').write_text(json.dumps(RESULT, indent=2))
     print(json.dumps(RESULT, indent=2))
 
 

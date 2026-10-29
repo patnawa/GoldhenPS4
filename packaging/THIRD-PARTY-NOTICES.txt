@@ -1,4 +1,4 @@
-GoldHEN Local Host 1.0.2
+GoldHEN Local Host 1.0.3
 
 This package preserves the authorship notices in the downloaded site files.
 The local host wrapper and installer do not claim authorship of GoldHEN, PSFree,

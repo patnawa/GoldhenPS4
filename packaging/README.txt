@@ -1,14 +1,21 @@
-GoldHEN Local Host 1.0.2 - Windows 10/11 x64
+GoldHEN Local Host 1.0.3 - Windows 10/11 x64
 
 ONLINE WEBSITE
 https://patnawa.github.io/GoldhenPS4/g2all/
 The path is case-sensitive: use GoldhenPS4 exactly as shown.
 
-Version 1.0.2 updates the site to GoldHEN v2.4b18.12 Host by patnawa,
-corrects the displayed firmware ranges, and refreshes the offline cache revision.
+Version 1.0.3 hardens the 11.50 load path: the primitive releases its grooming
+memory between retries instead of stacking ~130 MB heaps (the intermittent
+freeze while loading), a session whose last run left the kernel unsafe refuses
+to relaunch and asks for a power cycle, the race heartbeat stops when
+execution fails, stage-2 leak failures report their exact reason, and the
+success banner tells you to close the browser before shutting down (powering
+off with the exploit page in the foreground matches the flashing-white
+shutdown hang reported on PS4 Pro). The host also records the console's own
+diagnostic posts in .runtime\console-diag.log.
 
 INSTALL
-Run GoldHEN-Local-Host-Setup-1.0.2-x64.exe. Choose a writable installation folder
+Run GoldHEN-Local-Host-Setup-1.0.3-x64.exe. Choose a writable installation folder
 and click Install. Everything is bundled: no Python installation, internet
 download, or development tools are needed. It installs for your Windows user
 with Start menu shortcuts and an optional desktop shortcut.

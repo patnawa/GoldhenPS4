@@ -8,7 +8,8 @@ import sysconfig
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGE = ROOT / 'build/package-1.0.2/GoldHEN-Server'
+VERSION = '1.0.3'
+STAGE = ROOT / f'build/package-{VERSION}/GoldHEN-Server'
 
 
 def copy(source, destination):
@@ -17,7 +18,7 @@ def copy(source, destination):
 
 
 def main():
-    (ROOT / 'release/v1.0.2').mkdir(parents=True, exist_ok=True)
+    (ROOT / f'release/v{VERSION}').mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / 'dist', STAGE / 'dist', dirs_exist_ok=True)
     for name in ('upstream-files.json', 'local-overrides.json'):
         copy(ROOT / 'evidence' / name, STAGE / 'evidence' / name)
@@ -48,7 +49,7 @@ def main():
     with zipfile.ZipFile(ROOT / 'packaging/payload.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in files:
             archive.write(source, source.relative_to(STAGE).as_posix())
-    with zipfile.ZipFile(ROOT / 'release/v1.0.2/GoldHEN-Local-Host-Portable-1.0.2-x64.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+    with zipfile.ZipFile(ROOT / f'release/v{VERSION}/GoldHEN-Local-Host-Portable-{VERSION}-x64.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in files:
             archive.write(source, 'GoldHEN Local Host/' + source.relative_to(STAGE).as_posix())
     print(f'Staged {len(files)} files. Runtime logs, original machine addresses, and browser captures excluded.')
