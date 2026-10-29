@@ -1,5 +1,5 @@
 {
-  "revision": "lapse-load-stability-4",
+  "revision": "lapse-stage2-telemetry-5",
   "files": [
     {
       "path": "g2all/index.html",
@@ -28,8 +28,8 @@
     },
     {
       "path": "g2all/slopkit.manifest",
-      "bytes": 547,
-      "sha256": "645eddf2cbfe34ea7cae739daca7a0467d00974a626b9e911167e970a6f1e759"
+      "bytes": 521,
+      "sha256": "3badf1d6d35072ba2274c5fdcf842d6741a5a9645894787bf8c907848c652348"
     },
     {
       "path": "g2all/cache505.html",
@@ -58,8 +58,8 @@
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
-      "bytes": 211473,
-      "sha256": "36e4ac6e20509231238b62b8695738a78a366761fde1a229c5119ce23207c573"
+      "bytes": 213211,
+      "sha256": "3d315030fe53c28efc578d8c53af63fa6897f055968064af5e08f2d7e4b9c03c"
     },
     {
       "path": "g2all/slopkit/core.js",
