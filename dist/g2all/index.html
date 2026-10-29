@@ -177,10 +177,43 @@ if (document.readyState === "loading") {
 <div class="brand">PlayStation 4 - Local Host</div>
 <h1 class="title">GoldHEN v2.4b18.12</h1>
 <p class="sub">Host by patnawa</p>
-<div class="chip">Host build 1.0.4</div>
+<div><span class="chip">Host build 1.0.4</span><span class="chip" id="revchip" style="display:none;">Site revision</span></div>
 <h1 id="msgs">Loading GoldHEN v2.4b18.12... Please Wait</h1>
 <hr class="rule">
 <p class="credits">Special thanks to <a href="https://twitter.com/_AlAzif">@_AlAzif</a>, ChendoChap, <a href="https://x.com/Kameleonre_">@Kameleonre_</a>, SiSTR0 and Abc.<br>Original host by <a href="https://gamerhack.github.io/g2all/">GamerHack</a> - hosted by patnawa.</p>
 </div>
+
+<script>
+(function () {
+    var manifestName = (function () {
+        var name = null;
+        try {
+            if (typeof fwNum === "number" && typeof isPS4 !== "undefined" && isPS4) {
+                name = fwNum >= 11.50 && fwNum <= 13.52 ? "slopkit.manifest"
+                    : fwNum >= 10.00 && fwNum <= 11.02 ? "css.manifest"
+                    : fwNum >= 9.00 && fwNum <= 9.60 ? "900.manifest"
+                    : fwNum >= 7.00 && fwNum <= 8.52 ? "700.manifest"
+                    : (fwNum === 5.05 || fwNum === 5.07) ? "505.manifest" : null;
+            }
+        } catch (eFw) { }
+        return name;
+    })();
+    if (!manifestName) return;
+    try {
+        fetch(manifestName + "?cb=" + Date.now()).then(function (r) {
+            if (!r.ok) throw new Error("http " + r.status);
+            return r.text();
+        }).then(function (text) {
+            var m = text.match(/revision (\d+)/);
+            if (!m) return;
+            var chip = document.getElementById("revchip");
+            if (chip) {
+                chip.style.display = "inline-block";
+                chip.textContent = "Site revision " + m[1] + " (online)";
+            }
+        }).catch(function () { });
+    } catch (eRev) { }
+})();
+</script>
 </body>
 </html>

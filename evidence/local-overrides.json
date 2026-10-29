@@ -3,58 +3,58 @@
   "files": [
     {
       "path": "g2all/index.html",
-      "bytes": 8863,
-      "sha256": "c1b85b465a843dc6d6075a101e1a1d8f1c9c6af5279084cff93794ab2e94454c"
+      "bytes": 10409,
+      "sha256": "0449add206a11b912a7dfcabb7674f0c977d66c3d3e47befdee7c66cf41e9ece"
     },
     {
       "path": "g2all/505.manifest",
-      "bytes": 169,
-      "sha256": "018415489444d7b7980e2ae16bad1535f992fed4f109e7f7c56f05f94732cef9"
+      "bytes": 161,
+      "sha256": "fb1bd1a3c9f6b2db0febea8eddb2eeb0501d838af25d3e09e4b4203e711449f5"
     },
     {
       "path": "g2all/700.manifest",
-      "bytes": 616,
-      "sha256": "05c6b3d03d6b8d2d8e7d674dbaf001f830f5e08072f63dfb3524c3cdd49fda81"
+      "bytes": 608,
+      "sha256": "b37d663f5e8f57350cc77e1b218b7795e2cd8711072a4365f947c5c91dbb8e15"
     },
     {
       "path": "g2all/900.manifest",
-      "bytes": 540,
-      "sha256": "4d90c416c5f19d14617f0e504d05479e6c51f4a36694b8073777cd0724903926"
+      "bytes": 532,
+      "sha256": "f9014596ae5d9e4d06f73db3e020f3b2876fa1476f85dd33b631be33a9bc07b0"
     },
     {
       "path": "g2all/css.manifest",
-      "bytes": 388,
-      "sha256": "acbff601f17f1aab88b086551b0171867d2f3226cd67d59228f1422d1b7ab1a6"
+      "bytes": 380,
+      "sha256": "ed49dc6cd78bdef0e41f9456021f2a2eabb126a4509bb9a3aa050d3d64cae8a4"
     },
     {
       "path": "g2all/slopkit.manifest",
-      "bytes": 492,
-      "sha256": "9c0098893b2d5da1e3695dcf78cfe47dfed7a7b480ff5da3fc439115204e66b7"
+      "bytes": 498,
+      "sha256": "401b70976f7251e1ea6e395bf3eceb28b6e4705ac8e7aaaf4dd2337904887d0f"
     },
     {
       "path": "g2all/cache505.html",
-      "bytes": 2958,
-      "sha256": "7a13cd77ff9465979222e0c247b8bffb880bea92e0df747eb6105ae6a90795c2"
+      "bytes": 3781,
+      "sha256": "8f9a89e49ad20dbb9b6dac1994395d3a3c07f01f706af26e17e57f34cc0bf981"
     },
     {
       "path": "g2all/cache700.html",
-      "bytes": 2958,
-      "sha256": "6664d325529b1bac3bcefef19f69bc23811ba6064a920024f811dff207bb4568"
+      "bytes": 3781,
+      "sha256": "319fa95f9639d37ca8a7d341eede30efc0ddd775858f1cd334289606c879557b"
     },
     {
       "path": "g2all/cache900.html",
-      "bytes": 2958,
-      "sha256": "8da319272101ffd56e1de8dd2fe32d1b94022effb26e88704e9c1d848d128ff2"
+      "bytes": 3781,
+      "sha256": "df5ad821ec1f0f0d49ea8a23e083a557c559cf6406c133a3e30677388a5bbf91"
     },
     {
       "path": "g2all/cachecss.html",
-      "bytes": 2958,
-      "sha256": "adea7a8ecf212fd9c64f0fe1b5b4c2242bb1799fa4bcdcdebe1f866cdbdce529"
+      "bytes": 3781,
+      "sha256": "28c546dbfdd60422d24bf6113560ed87348efc6cc0cd657a11d02d96fb44a56e"
     },
     {
       "path": "g2all/cacheslopkit.html",
-      "bytes": 2962,
-      "sha256": "3f3d6177bc5788ebe0141e9a54f82db40a909749fe8eed0a765719132498f290"
+      "bytes": 3789,
+      "sha256": "128edde44ffd964dca620936ddd5e90549101ec127901e0c07d0f9f52389d88f"
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
