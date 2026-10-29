@@ -1,0 +1,17 @@
+{
+  "note": "REA capture of the LIVE GitHub Pages host after the load-stability + stage-2 telemetry deployment (commits ae1cce6, bcdfb72; slopkit.manifest revision 5). Desktop branch; console exploit code never executed.",
+  "evidence_id": "ev_0fb791611c82f18186b1a49e0c476d21e93b854c387715ff55f3e25dd70c37c7",
+  "browser": "Chromium 156.0.8078.48 headless, provider-owned",
+  "start_url": "https://patnawa.github.io/GoldhenPS4/g2all/",
+  "events_retained": 9, "events_dropped": 0, "page_errors": 0,
+  "dom_sha256": "c59160ca10b1f53d39cd628fe3c3e0bb31d9a9251e0d2c34d8e35e0b791d193a",
+  "accessibility_sha256": "a7fcbd0eb134d21fece5d9cee95db6f9c918caa921de1f4e7b9b7b796f5afc73",
+  "dom_matches_local_capture": true,
+  "byte_comparisons_live_vs_dist": {
+    "g2all/index.html": "match",
+    "g2all/slopkit.manifest": "match",
+    "g2all/slopkit/chain_lapse.js": "match",
+    "g2all/slopkit/core.js": "match"
+  },
+  "limits": "GitHub Pages is static: console diagnostic POSTs to /t return 405 there by design; POST capture (204 + .runtime/console-diag.log) only exists on the local server.py host."
+}
