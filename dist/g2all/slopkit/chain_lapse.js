@@ -36,7 +36,11 @@ const lines = [];
 function hostOk() {
     var m = document.getElementById("msgs");
     if (m) {
-        m.innerHTML = "GoldHEN v2.4b18.12 Loaded ...";
+        // The exploit page must not sit in the foreground at power-off: the
+        // system then kills WebKit mid-shutdown, which is the flashing-white
+        // hang users see on PS4 Pro (GoldHEN issues #187/#175 pattern).
+        m.innerHTML = "GoldHEN v2.4b18.12 Loaded ... "
+            + "Now Close The Browser, Then Use The Console.";
     }
 }
 
@@ -692,7 +696,8 @@ function makeRpc(worker) {
                 mark("ALREADY-ROOT", "getuid=" + uid0 + " setuid(0)=" + su0);
                 var m = document.getElementById("msgs");
                 if (m) {
-                    m.innerHTML = "GoldHEN is Already Loaded ...";
+                    m.innerHTML = "GoldHEN is Already Loaded ... "
+                        + "Now Close The Browser.";
                 }
                 return;
             }
