@@ -5,12 +5,17 @@ import io
 import json
 import socket
 import sys
+import threading
+from datetime import datetime, timezone
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qsl, unquote, urlsplit
 
 ROOT = Path(sys.executable if getattr(sys, 'frozen', False) else __file__).resolve().parent
+
+DIAG_LOCK = threading.Lock()
+DIAG_ROUTES = {'/g2all/t', '/t'}
 
 
 def load_verified_assets(directory, upstream_path, overrides_path):
@@ -56,6 +61,45 @@ class Handler(SimpleHTTPRequestHandler):
         '.bin': 'application/octet-stream',
         '.elf': 'application/octet-stream',
     }
+
+    def do_POST(self):
+        # The console scripts fire-and-forget diagnostic POSTs to /t (and
+        # /g2all/t). Absorb them instead of answering 501 and keep the trace in
+        # .runtime/console-diag.log so an intermittent console failure leaves
+        # evidence instead of an unknown.
+        self.path = self.path.replace('\\', '/')
+        route = urlsplit(self.path).path
+        if route not in DIAG_ROUTES:
+            self.send_error(404)
+            return
+        try:
+            length = int(self.headers.get('Content-Length') or 0)
+        except ValueError:
+            length = 0
+        body = self.rfile.read(min(length, 65536)) if length > 0 else b''
+        tag, detail = '', ''
+        try:
+            fields = dict(parse_qsl(body.decode('utf-8', 'replace'), keep_blank_values=True))
+            tag = fields.get('tag', '')
+            detail = fields.get('detail', '')
+        except Exception:
+            pass
+        try:
+            log_dir = ROOT / '.runtime'
+            log_dir.mkdir(exist_ok=True)
+            stamp = datetime.now(timezone.utc).isoformat(timespec='milliseconds')
+            client = self.client_address[0] if self.client_address else '?'
+            line = (f'{stamp} {client} {route} tag={tag} detail={detail}\n'
+                    if tag or detail else
+                    f'{stamp} {client} {route} raw={body[:512].decode("utf-8", "replace")!r}\n')
+            with DIAG_LOCK:
+                with open(log_dir / 'console-diag.log', 'a', encoding='utf-8') as handle:
+                    handle.write(line)
+        except OSError:
+            pass
+        self.send_response(204)
+        self.send_header('Content-Length', '0')
+        self.end_headers()
 
     def do_GET(self):
         self.path = self.path.replace('\\', '/')

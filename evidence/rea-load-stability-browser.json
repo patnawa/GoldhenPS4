@@ -1,0 +1,21 @@
+{
+  "note": "REA capture of the local host after the load-stability changes: retry hygiene (core.js), unsafe-state relaunch guard (index.html/chain_lapse.js), console diagnostics POST endpoint (server.py). Desktop branch; console exploit code never executed.",
+  "evidence_id": "ev_abec6bff6e26cf846c1e51241e99614e9794b789e9bd113d888a278ef2a22f42",
+  "browser": "Chromium 156.0.8078.48 headless, provider-owned",
+  "start_url": "http://127.0.0.1:8088/g2all/",
+  "events_retained": 9,
+  "events_dropped": 0,
+  "page_errors": 0,
+  "dom_sha256": "c59160ca10b1f53d39cd628fe3c3e0bb31d9a9251e0d2c34d8e35e0b791d193a",
+  "accessibility_sha256": "a7fcbd0eb134d21fece5d9cee95db6f9c918caa921de1f4e7b9b7b796f5afc73",
+  "steps": [
+    {
+      "step_id": "settle",
+      "action": "wait_for_timeout",
+      "duration_ms": 500,
+      "status": "completed",
+      "error": null
+    }
+  ],
+  "completeness": "complete"
+}

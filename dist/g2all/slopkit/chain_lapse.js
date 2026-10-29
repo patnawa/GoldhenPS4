@@ -220,6 +220,8 @@ let kv = null;
 
 let repaired = false, cleanupDone = false;
 
+let heartbeat = 0;
+
 let jailbroken = false, kpatched = false, payloadRunning = false;
 let pipeFdsHeld = null;
 
@@ -1097,7 +1099,7 @@ function makeRpc(worker) {
         let won = false, confirmed = false, twins = null;
         let attemptsUsed = 0, detectorFired = 0;
 
-        let winAt = -1, sprayedAt = -1, heartbeat = 0, setupFail = null;
+        let winAt = -1, sprayedAt = -1, setupFail = null;
 
         let realFrees = 0, benignHits = 0, reclaimFailed = false, misfireCap = false;
 
@@ -1250,6 +1252,13 @@ function makeRpc(worker) {
                             aioIds.addr.add32(WHICH * 4), 1, outs.addr);
                         won = true;
                         committed = true;
+                        // From here the kernel heap owns a doubly-freed chunk.
+                        // Remember that for this browsing session so a reload
+                        // cannot run the chain again on top of it.
+                        try {
+                            sessionStorage.setItem("goldhen-console-dirty",
+                                String(Date.now()));
+                        } catch (eFlag) { }
                     }
                     decided = true;
 
@@ -3636,10 +3645,19 @@ function makeRpc(worker) {
             hostFail();
         } else {
             state("no win in " + attemptsUsed + " attempts", "warn");
+            // Nothing was freed twice, so the console is safe to try again.
+            try { sessionStorage.removeItem("goldhen-console-dirty"); } catch (eFlag) { }
             hostFail();
         }
 
     } catch (e) {
+        // The heartbeat is cleared after a normal race exit; an exception that
+        // escaped the loop would otherwise keep posting XHRs every 250 ms
+        // through teardown and behind the reboot banner.
+        if (heartbeat) {
+            try { clearInterval(heartbeat); } catch (eBeat) { }
+            heartbeat = 0;
+        }
         mark("FAILED", e && e.message ? e.message : String(e));
         try {
             stateEl.textContent = "FAILED -- see log";
@@ -3845,6 +3863,9 @@ function makeRpc(worker) {
         const stillDirty = (rebootRequired || committed || committed2)
             && !(repaired && cleanupDone);
         if (stillDirty) {
+            try {
+                sessionStorage.setItem("goldhen-console-dirty", String(Date.now()));
+            } catch (eFlag) { }
             mark("REBOOT-REQUIRED", (committed2 ? "TWO aliased pairs are live (0x80 rthdr " + "and 0x100 pktopts). " : "") + "do not keep browsing and do not close the "
                 + "browser normally. power the console off and back on.");
             try {
@@ -3855,6 +3876,8 @@ function makeRpc(worker) {
                 hostFail();
             }
         } else if (repaired && cleanupDone) {
+            // Everything doubly-owned was repaired and proven; a relaunch is safe.
+            try { sessionStorage.removeItem("goldhen-console-dirty"); } catch (eFlag) { }
 			if (payloadRunning) {
                 hostOk();
             }

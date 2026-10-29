@@ -7,7 +7,8 @@ const path = require('node:path');
 const html = fs.readFileSync(path.join(__dirname, '../dist/g2all/index.html'), 'utf8');
 const source = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 
-function run({firmware = '9.00', status = 1, appCache = true, ready = false} = {}) {
+function run({firmware = '9.00', status = 1, appCache = true, ready = false,
+              dirtySession = null} = {}) {
   const listeners = {};
   const cacheListeners = {};
   const scripts = [];
@@ -27,6 +28,9 @@ function run({firmware = '9.00', status = 1, appCache = true, ready = false} = {
     (cacheListeners[name] ||= []).push(callback);
   }};
   if (ready) context.msgs = message;
+  if (dirtySession !== null) {
+    context.sessionStorage = {getItem: () => (dirtySession ? '1700000000000' : null)};
+  }
   vm.createContext(context);
   vm.runInContext(source, context, {timeout: 1000});
   return {scripts, redirects, message, context,
@@ -64,6 +68,16 @@ const tests = [
   ['Desktop never loads console code', () => {
     const host = run({firmware: null, appCache: false}); host.ready();
     assert.equal(host.scripts.length, 0); assert.match(host.message.innerHTML, /PS4/);
+  }],
+  ['A session flagged dirty by a committed Lapse run cannot relaunch the chain', () => {
+    const host = run({firmware: '11.50', dirtySession: true}); host.ready();
+    assert.equal(host.scripts.length, 0);
+    assert.match(host.message.innerHTML, /power the ps4 off/i);
+  }],
+  ['A clean session storage still launches the Lapse chain', () => {
+    const host = run({firmware: '11.50', dirtySession: false}); host.ready();
+    assert.equal(host.scripts.length, 1);
+    assert.equal(host.scripts[0].src, 'slopkit/chain_lapse.js');
   }],
   ['Uncached supported console opens the cache installer', () => {
     const host = run({status: 0}); host.ready();

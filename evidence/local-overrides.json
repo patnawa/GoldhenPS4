@@ -1,10 +1,10 @@
 {
-  "revision": "lapse-host-preflight-3",
+  "revision": "lapse-load-stability-4",
   "files": [
     {
       "path": "g2all/index.html",
-      "bytes": 6643,
-      "sha256": "a5e46d1deb5ad15ac304b98de84b3bb7f5a56a1ec7beba3246a0046d04e9c3c6"
+      "bytes": 7086,
+      "sha256": "fda622985094c42126537a4f72f29343a93535ec9f3f370ad4fe38f7f5ea47f1"
     },
     {
       "path": "g2all/505.manifest",
@@ -28,8 +28,8 @@
     },
     {
       "path": "g2all/slopkit.manifest",
-      "bytes": 527,
-      "sha256": "253d00e5066e0276888e4b3c372666d75725f9a18383ce24637798529d68935e"
+      "bytes": 547,
+      "sha256": "645eddf2cbfe34ea7cae739daca7a0467d00974a626b9e911167e970a6f1e759"
     },
     {
       "path": "g2all/cache505.html",
@@ -58,8 +58,13 @@
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
-      "bytes": 210223,
-      "sha256": "36f42eeed6149fc3b0e8ac4a0a8db6a2505cb89fc4f05f89ac61c8466b36bf8b"
+      "bytes": 211473,
+      "sha256": "36e4ac6e20509231238b62b8695738a78a366761fde1a229c5119ce23207c573"
+    },
+    {
+      "path": "g2all/slopkit/core.js",
+      "bytes": 43640,
+      "sha256": "651ec0b937a4afda00832293cd390619f57601851c584cff0ec0226c612cd129"
     }
   ]
 }

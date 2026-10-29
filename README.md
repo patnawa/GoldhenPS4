@@ -12,7 +12,7 @@ Version 1.0.2 packages the current **GoldHEN v2.4b18.12 Host by patnawa** pages,
 
 Download **GoldHEN-Local-Host-Setup-1.0.2-x64.exe** from the [v1.0.2 release](https://github.com/patnawa/GoldhenPS4/releases/tag/v1.0.2) for Windows 10/11 x64. It bundles the runtime, working site, GoldHEN payload, shortcuts and uninstall support. No Python installation is needed on the destination PC. The release also includes a portable ZIP, a static site ZIP, `SHA256SUMS.txt`, and `START-HERE.txt` with transfer and network instructions. Built packages are release attachments and are not stored in Git. The package was tested through installation, all 92 HTTP asset hashes, start/stop, shortcut registration and uninstall in a separate folder with Python excluded from PATH. The original user reported that the PS4 host works; no firmware version was supplied.
 
-A local copy of https://gamerhack.github.io/g2all/ with preventive launcher checks and a verified-file HTTP server. Native payloads, styling and background remain byte-for-byte upstream copies. The launcher, five cache installation pages, five cache manifest revision comments, and the Lapse entry script have local edits, recorded in `evidence/local-overrides.json`. The Lapse changes stop on failed/empty required downloads before console execution and make failure diagnostics visible. The original author credits are preserved.
+A local copy of https://gamerhack.github.io/g2all/ with preventive launcher checks and a verified-file HTTP server. Native payloads, styling and background remain byte-for-byte upstream copies. The launcher, five cache installation pages, five cache manifest revision comments, and the Lapse entry script have local edits, recorded in `evidence/local-overrides.json`. The Lapse changes stop on failed/empty required downloads before console execution, make failure diagnostics visible, release the primitive's grooming memory between retries, refuse to relaunch in a browser session whose last Lapse run left the kernel unsafe (the page asks for a power cycle), and stop the race heartbeat when execution fails. The local server absorbs the console's fire-and-forget diagnostic POSTs into `.runtime/console-diag.log`. The original author credits are preserved.
 
 ## Open and run
 
@@ -36,14 +36,14 @@ Use a network address that the console can reach. If the PC page opens but the P
 ## Files
 
 - `dist/`: the 92 inventoried site files, including twelve documented host edits, plus the GitHub Pages root redirect.
-- `server.py`: standard-library HTTP server with the required JavaScript and AppCache MIME types.
+- `server.py`: standard-library HTTP server with the required JavaScript and AppCache MIME types; console diagnostic POSTs to `/t` or `/g2all/t` are answered 204 and logged to `.runtime/console-diag.log`.
 - `ANALYSIS.md`: behavior, firmware routing, evidence and limitations.
 - `evidence/`: downloaded-file hashes, REA captures, screenshot and HTTP verification result.
 - `.runtime/`: process record and server logs, created on launch.
 
 Run `python tools/verify.py` with the server running to verify every asset's served SHA-256 against the upstream record plus reviewed local overrides, all 99 manifest resource references, MIME types, query strings, redirects and server boundaries. `tools/acquire.py` refuses to overwrite a host with local stability edits; upstream updates must be acquired separately and reviewed.
 
-Run `node tools/test-host.cjs` and `python tools/test-server.py` for the 42 preventive regression checks. The launcher tests intercept script insertion and do not run console exploit code. The server verifies all assets before listening and serves their immutable in-memory snapshot. After intentional site edits, review and update the relevant hash record and restart the server; simply changing a file on disk will not change the running site.
+Run `node tools/test-host.cjs` (38 checks), `node tools/test-lapse-host.cjs` (11 checks) and `python tools/test-server.py` (6 checks) for the preventive regression checks. The launcher tests intercept script insertion and do not run console exploit code. The server verifies all assets before listening and serves their immutable in-memory snapshot. After intentional site edits, review and update the relevant hash record and restart the server; simply changing a file on disk will not change the running site.
 
 Run `node tools/test-lapse-host.cjs` for 11 additional checks of the 11.50 Lapse entry script with inert primitive imports. Failed HTTP requests, network errors and empty required files must stop before the primitive starts. Execution failures retain restart advice and display their actual error plus an on-screen log. These tests do not reproduce the console's intermittent kernel/primitive failure. After the online host updates, allow the PS4 cache update to finish and follow its close-and-reopen instruction. If loading still fails, record the displayed reason and the last diagnostic lines.
 

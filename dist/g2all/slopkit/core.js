@@ -332,11 +332,16 @@ function failed() {
     emit("AUTO-RETRY-AFTER-FAILURE", `attempt=${attemptNumber}`);
     stopped = false;
     retryScheduled = false;
+    // Release this attempt's groom (~100 MB carrier, drains, slabs) the same way
+    // the safe path does, and give the collector the same settle before the next
+    // attempt re-allocates it. Retrying 50 ms later on a memory-capped console
+    // piled uncollected heaps on top of each other and could freeze the browser.
+    releaseAttemptAllocations();
     setTimeout(() => {
         try { history.replaceState(null, ""); } catch { }
         attemptNumber++;
         startAttempt();
-    }, AUTO_RETRY_DELAY_MS);
+    }, Math.max(AUTO_RETRY_DELAY_MS, 750));
 }
 
 function releaseAttemptAllocations() {

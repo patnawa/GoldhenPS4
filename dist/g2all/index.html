@@ -114,6 +114,14 @@ if (!isPS4) {
             document.head.appendChild(script);
         }
         else if (fwNum >= 11.50 && fwNum <= 12.02) {
+            var consoleDirty = null;
+            try { consoleDirty = sessionStorage.getItem("goldhen-console-dirty"); } catch (eStore) { }
+            if (consoleDirty) {
+                msgs.innerHTML = "The last attempt left the console in an unsafe state. "
+                    + "<span style=\"color: red;\">Power the PS4 off, then back on</span>, "
+                    + "and re-open the browser.";
+                return;
+            }
             var script = document.createElement('script');
             script.type = 'module';
             script.src = "slopkit/chain_lapse.js";

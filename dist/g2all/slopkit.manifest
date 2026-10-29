@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# Lapse asset preflight and visible failure diagnostics revision 3 - 2026-10-23
+# Retry memory hygiene, unsafe-state relaunch guard and console diagnostics revision 4 - 2026-10-29
 
 CACHE:
 ../img.jpg
