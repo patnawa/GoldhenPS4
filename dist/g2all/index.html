@@ -136,6 +136,13 @@ if (!isPS4) {
                     + "and re-open the browser.";
                 return;
             }
+            var consoleLoaded = null;
+            try { consoleLoaded = sessionStorage.getItem("goldhen-loaded"); } catch (eStore2) { }
+            if (consoleLoaded) {
+                msgs.innerHTML = "GoldHEN is already loaded. Close the browser and use the console - "
+                    + "power the PS4 off and on to load it again.";
+                return;
+            }
             var script = document.createElement('script');
             script.type = 'module';
             script.src = "slopkit/chain_lapse.js";
@@ -170,7 +177,7 @@ if (document.readyState === "loading") {
 <div class="brand">PlayStation 4 - Local Host</div>
 <h1 class="title">GoldHEN v2.4b18.12</h1>
 <p class="sub">Host by patnawa</p>
-<div class="chip">Host build 1.0.3</div>
+<div class="chip">Host build 1.0.4</div>
 <h1 id="msgs">Loading GoldHEN v2.4b18.12... Please Wait</h1>
 <hr class="rule">
 <p class="credits">Special thanks to <a href="https://twitter.com/_AlAzif">@_AlAzif</a>, ChendoChap, <a href="https://x.com/Kameleonre_">@Kameleonre_</a>, SiSTR0 and Abc.<br>Original host by <a href="https://gamerhack.github.io/g2all/">GamerHack</a> - hosted by patnawa.</p>

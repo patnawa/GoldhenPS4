@@ -10,7 +10,7 @@ from urllib.request import build_opener, ProxyHandler
 import winreg
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '1.0.3'
+VERSION = '1.0.4'
 TARGET = ROOT / f'build/Install Test {VERSION}'
 SETUP = ROOT / f'release/v{VERSION}/GoldHEN-Local-Host-Setup-{VERSION}-x64.exe'
 PORT = 18188

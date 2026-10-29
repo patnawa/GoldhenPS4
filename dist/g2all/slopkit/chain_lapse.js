@@ -77,6 +77,61 @@ async function fetchRequiredAsset(url) {
     }
 }
 
+// Expected exact sizes of the kernel patch blobs and the GoldHEN payload. A
+// truncated download must stop BEFORE any kernel stage, never after.
+const EXPECTED_BLOB_BYTES = {
+    "goldhen_2.4b18.12.bin": 293120,
+    "1150.bin": 632, "1200.bin": 632, "1250.bin": 314,
+    "1300.bin": 314, "1302.bin": 632, "1350.bin": 632, "1352.bin": 632
+};
+function requireBlobSize(name, bytes) {
+    const expected = EXPECTED_BLOB_BYTES[String(name).split("/").pop()];
+    if (expected && bytes.length !== expected) {
+        throw new Error(String(name) + " is " + bytes.length
+            + " bytes, expected " + expected + " -- truncated download");
+    }
+}
+
+// Clean-failure auto-retry: bounded to two automatic reloads, and only for
+// outcomes where nothing was committed to the kernel. A dirty console never
+// reloads (the launcher guard takes over), so this can never loop into an
+// unsafe state.
+const RETRY_LIMIT = 2;
+function retryCount() {
+    try {
+        return parseInt(sessionStorage.getItem("goldhen-retry-count") || "0", 10) || 0;
+    } catch (eStore) { return 0; }
+}
+function clearRetryCounter() {
+    try { sessionStorage.removeItem("goldhen-retry-count"); } catch (eStore) { }
+}
+function markConsoleLoaded() {
+    try {
+        sessionStorage.setItem("goldhen-loaded", String(Date.now()));
+        clearRetryCounter();
+    } catch (eStore) { }
+}
+function scheduleAutoRetry(reason, delayMs) {
+    try {
+        if (typeof setInterval !== "function") return false;
+        if (typeof location !== "object" || typeof location.reload !== "function") return false;
+        if (retryCount() >= RETRY_LIMIT) return false;
+        const attempt = retryCount() + 1;
+        try { sessionStorage.setItem("goldhen-retry-count", String(attempt)); } catch (eStore) { }
+        let left = Math.max(1, Math.round((delayMs || 3000) / 1000));
+        const m = document.getElementById("msgs");
+        const tick = setInterval(function () {
+            if (m) m.innerHTML = "Clean failure (" + reason + ") - the console was not modified. "
+                + "Retrying, attempt " + attempt + " of " + RETRY_LIMIT + ", in " + left + " second(s)...";
+            left = left - 1;
+            if (left < 0) { clearInterval(tick); location.reload(); }
+        }, 1000);
+        if (m) m.innerHTML = "Clean failure (" + reason + ") - the console was not modified. "
+            + "Retrying, attempt " + attempt + " of " + RETRY_LIMIT + ", in " + left + " second(s)...";
+        return true;
+    } catch (eRetry) { return false; }
+}
+
 function post(tag, detail) {
     try {
         const x = new XMLHttpRequest();
@@ -281,6 +336,7 @@ function makeRpc(worker) {
             : fwKey ? "slopkit/patches/" + fwKey.replace(".", "") + ".bin" : null;
         if (!kpatchName) throw new Error("No patch file for this firmware");
         const kpatch = await fetchRequiredAsset(kpatchName);
+        requireBlobSize(kpatchName, kpatch);
 
         const KPATCH_JMP_SITES = [];
         if (kpatch) {
@@ -301,6 +357,7 @@ function makeRpc(worker) {
                           : "no firmware key, so no blob name -- stage 9 will not run"));
 
         const payload = await fetchRequiredAsset("goldhen_2.4b18.12.bin");
+        requireBlobSize("goldhen_2.4b18.12.bin", payload);
         mark("PAYLOAD-BLOB", payload
             ? "bytes=" + payload.length + " head=" + hexBytes(payload.subarray(0, 12))
                 + (payload[0] === 0xe9 ? " entry=e9-jmp-rel32"
@@ -694,6 +751,7 @@ function makeRpc(worker) {
             var su0 = sc(SYS.setuid, 0).i32;
             if (uid0 === 0 || su0 === 0) {
                 mark("ALREADY-ROOT", "getuid=" + uid0 + " setuid(0)=" + su0);
+                markConsoleLoaded();
                 var m = document.getElementById("msgs");
                 if (m) {
                     m.innerHTML = "GoldHEN is Already Loaded ... "
@@ -3677,7 +3735,9 @@ function makeRpc(worker) {
             state("no win in " + attemptsUsed + " attempts", "warn");
             // Nothing was freed twice, so the console is safe to try again.
             try { sessionStorage.removeItem("goldhen-console-dirty"); } catch (eFlag) { }
-            hostFail();
+            if (!scheduleAutoRetry("race missed", 3000)) {
+                hostFail();
+            }
         }
 
     } catch (e) {
@@ -3689,11 +3749,21 @@ function makeRpc(worker) {
             heartbeat = 0;
         }
         mark("FAILED", e && e.message ? e.message : String(e));
-        try {
-            stateEl.textContent = "FAILED -- see log";
-            stateEl.className = "bad";
-        } catch (e2) { }
-        hostFail(e && e.message ? e.message : String(e), !primitiveStarted);
+        const reasonText = e && e.message ? e.message : String(e);
+        if (!primitiveStarted && scheduleAutoRetry("asset check", 3000)) {
+            mark("AUTO-RETRY", reasonText);
+        } else if (primitiveStarted && !committed && !committed2 && !rebootRequired
+                   && scheduleAutoRetry("primitive", 3000)) {
+            // The primitive gave up without freeing anything twice; a reload is
+            // exactly what a manual retry would do, now bounded and automatic.
+            mark("AUTO-RETRY", reasonText);
+        } else {
+            try {
+                stateEl.textContent = "FAILED -- see log";
+                stateEl.className = "bad";
+            } catch (e2) { }
+            hostFail(reasonText, !primitiveStarted);
+        }
     } finally {
 
         const teardown = !committed || repaired;
@@ -3912,6 +3982,7 @@ function makeRpc(worker) {
             // Everything doubly-owned was repaired and proven; a relaunch is safe.
             try { sessionStorage.removeItem("goldhen-console-dirty"); } catch (eFlag) { }
 			if (payloadRunning) {
+                markConsoleLoaded();
                 hostOk();
             }
             mark("SAFE-TO-EXIT", "chunkX=freed-once-by-fd" + pktoptsTwins[0]

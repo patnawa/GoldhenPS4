@@ -8,7 +8,7 @@ const html = fs.readFileSync(path.join(__dirname, '../dist/g2all/index.html'), '
 const source = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 
 function run({firmware = '9.00', status = 1, appCache = true, ready = false,
-              dirtySession = null} = {}) {
+              dirtySession = null, loadedSession = null} = {}) {
   const listeners = {};
   const cacheListeners = {};
   const scripts = [];
@@ -28,8 +28,11 @@ function run({firmware = '9.00', status = 1, appCache = true, ready = false,
     (cacheListeners[name] ||= []).push(callback);
   }};
   if (ready) context.msgs = message;
-  if (dirtySession !== null) {
-    context.sessionStorage = {getItem: () => (dirtySession ? '1700000000000' : null)};
+  if (dirtySession !== null || loadedSession !== null) {
+    context.sessionStorage = {getItem: name => (name === 'goldhen-console-dirty'
+      ? (dirtySession ? '1700000000000' : null)
+      : name === 'goldhen-loaded' ? (loadedSession ? '1700000000000' : null)
+      : null)};
   }
   vm.createContext(context);
   vm.runInContext(source, context, {timeout: 1000});
@@ -78,6 +81,15 @@ const tests = [
     const host = run({firmware: '11.50', dirtySession: false}); host.ready();
     assert.equal(host.scripts.length, 1);
     assert.equal(host.scripts[0].src, 'slopkit/chain_lapse.js');
+  }],
+  ['A session marked loaded does not rerun the chain', () => {
+    const host = run({firmware: '11.50', loadedSession: true}); host.ready();
+    assert.equal(host.scripts.length, 0);
+    assert.match(host.message.innerHTML, /already loaded/i);
+  }],
+  ['No loaded marker still launches the Lapse chain', () => {
+    const host = run({firmware: '11.50', dirtySession: false, loadedSession: false}); host.ready();
+    assert.equal(host.scripts.length, 1);
   }],
   ['Uncached supported console opens the cache installer', () => {
     const host = run({status: 0}); host.ready();

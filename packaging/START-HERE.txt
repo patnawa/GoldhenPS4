@@ -4,13 +4,13 @@ ONLINE WEBSITE
 https://patnawa.github.io/GoldhenPS4/g2all/
 The address is case-sensitive: use GoldhenPS4 exactly as written.
 
-VERSION 1.0.3
-Load-stability hardening for firmware 11.50: retry memory release, relaunch
+VERSION 1.0.4
+Load-stability and performance updates for firmware 11.50: retry memory release, relaunch
 guard after an unsafe run, stage-2 failure telemetry, console diagnostics log,
 and a close-the-browser reminder after a successful load.
 
 RECOMMENDED
-Copy GoldHEN-Local-Host-Setup-1.0.3-x64.exe to the other computer and run it.
+Copy GoldHEN-Local-Host-Setup-1.0.4-x64.exe to the other computer and run it.
 Choose Install, then start GoldHEN Host from the Start menu or desktop.
 Open the PS4 network address printed by the launcher in the console's browser.
 No Python installation or internet download is required.
@@ -23,7 +23,7 @@ That optional helper requests Windows administrator permission and allows only
 this executable/port on Private networks, for devices on the local subnet.
 
 PORTABLE ALTERNATIVE
-Extract GoldHEN-Local-Host-Portable-1.0.3-x64.zip completely into a writable folder.
+Extract GoldHEN-Local-Host-Portable-1.0.4-x64.zip completely into a writable folder.
 Open the extracted GoldHEN Local Host folder and run Start-Host.cmd.
 Keep the entire folder together. Do not run files directly inside the ZIP.
 
@@ -37,11 +37,11 @@ The original user reported PS4 success. Testing on a second physical PC was
 not available. The installer is locally built and is not code-signed.
 
 SHA256SUMS.txt records the transfer checksums. In PowerShell:
-  Get-FileHash .\GoldHEN-Local-Host-Setup-1.0.3-x64.exe -Algorithm SHA256
+  Get-FileHash .\GoldHEN-Local-Host-Setup-1.0.4-x64.exe -Algorithm SHA256
 
 UPGRADING
 Stop the old host and uninstall the previous installed version before installing
-1.0.3. For portable use, extract 1.0.3 into a new folder. After updating, allow
+1.0.4. For portable use, extract 1.0.4 into a new folder. After updating, allow
 the PS4 cache update to finish and close/reopen the browser when instructed.
 
 Full usage, network, uninstall, credits and license notes are bundled.

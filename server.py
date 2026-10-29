@@ -50,6 +50,12 @@ class Server(ThreadingHTTPServer):
 
 
 class Handler(SimpleHTTPRequestHandler):
+    # Keep-alive: the console downloads ~20 cache files per firmware on first
+    # install; HTTP/1.0 opened a fresh TCP connection for every one of them.
+    # Every response we send carries an explicit Content-Length, which is what
+    # HTTP/1.1 keep-alive requires.
+    protocol_version = 'HTTP/1.1'
+
     def __init__(self, *args, assets, **kwargs):
         self.assets = assets
         super().__init__(*args, **kwargs)
@@ -87,6 +93,16 @@ class Handler(SimpleHTTPRequestHandler):
         try:
             log_dir = ROOT / '.runtime'
             log_dir.mkdir(exist_ok=True)
+            log_path = log_dir / 'console-diag.log'
+            # Rotate at 1 MB so months of console sessions cannot fill the disk.
+            try:
+                if log_path.exists() and log_path.stat().st_size > 1024 * 1024:
+                    rotated = log_dir / 'console-diag.log.1'
+                    if rotated.exists():
+                        rotated.unlink()
+                    log_path.rename(rotated)
+            except OSError:
+                pass
             stamp = datetime.now(timezone.utc).isoformat(timespec='milliseconds')
             client = self.client_address[0] if self.client_address else '?'
             line = (f'{stamp} {client} {route} tag={tag} detail={detail}\n'

@@ -32,8 +32,11 @@ async function run({failedAsset, status = 503, empty = false, network = false} =
       requests.push(url);
       if (url === failedAsset && network) throw new Error('fixture: network offline');
       const failed = url === failedAsset;
+      // Realistic sizes: the entry script now rejects truncated blobs before
+      // any console stage, so the fixture must serve full-size bytes.
+      const size = url.includes('goldhen_2.4b18.12.bin') ? 293120 : 632;
       return {ok: !failed || empty, status: failed && !empty ? status : 200,
-        arrayBuffer: async () => new Uint8Array(failed && empty ? [] : [0xe9, 1, 2, 3]).buffer};
+        arrayBuffer: async () => new Uint8Array(failed && empty ? [] : size).buffer};
     },
   };
   context.window = context;
