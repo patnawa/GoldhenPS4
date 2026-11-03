@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# GoldHEN v2.4b18.13 payload - revision 12 - 2026-11-03
+# GoldHEN v2.4b18.13 payload - revision 13 - 2026-11-03
 
 CACHE:
 ../img.jpg
@@ -13,6 +13,7 @@ slopkit\core.js
 slopkit\int64.js
 slopkit\jb.js?v=19
 slopkit\mem.js
+slopkit\ps4_offsets.js?v=2
 slopkit\ps4_offsets.js
 slopkit\rpc_worker.js
 slopkit\patches\1150.bin

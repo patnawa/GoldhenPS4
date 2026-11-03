@@ -558,6 +558,21 @@ PS4["13.52"] = Object.assign({}, PS4["13.50"], {
     "bug=663",
 });
 
+// GoldHEN 2.4b18.13 adds 14.00 kernel patches (official CHANGELOG in the
+// release archive). The WebKit/libkernel/kernel alias below assumes 14.00
+// reuses the 13.50/13.52 modules exactly as 13.52 reuses 13.50; no 14.00
+// kernel dump has been measured here, so the entry stays PENDING-HW-TEST.
+PS4["14.00"] = Object.assign({}, PS4["13.52"], {
+  alias_of: "13.52",
+
+  kpatch: "1352.bin",
+
+  fw_status:
+    "state=PENDING-HW-TEST shares=13.52 (webkit+libkernel+kernel aliased, " +
+    "not yet measured from a 14.00 dump) kpatch=1352.bin-reused-unverified " +
+    "payload=GoldHEN-2.4b18.13-supports-14.00 bug=663",
+});
+
 PS4["13.02"] = Object.assign({}, PS4["13.00"], {
   alias_of: "13.00",
 

@@ -35,12 +35,12 @@ var cacheWaiting = false;
 function startHost() {
 if (hostStarted) return;
 if (!isPS4) {
-    msgs.innerHTML = "Open this host in the PS4 browser.<br>Supported firmware: 5.05, 5.07, 7.00-8.52, 9.00-9.60, 10.00-11.02, 11.50-12.02, 12.50-13.00, and 13.02-13.52";
+    msgs.innerHTML = "Open this host in the PS4 browser.<br>Supported firmware: 5.05, 5.07, 7.00-8.52, 9.00-9.60, 10.00-11.02, 11.50-12.02, 12.50-13.00, 13.02-13.52, and 14.00";
 } else {
     var supported = fwNum == 5.05 || fwNum == 5.07 ||
         (fwNum >= 7.00 && fwNum <= 8.52) || (fwNum >= 9.00 && fwNum <= 9.60) ||
         (fwNum >= 10.00 && fwNum <= 11.02) || (fwNum >= 11.50 && fwNum <= 12.02) ||
-        (fwNum >= 12.50 && fwNum <= 13.00) || (fwNum >= 13.02 && fwNum <= 13.52);
+        (fwNum >= 12.50 && fwNum <= 13.00) || (fwNum >= 13.02 && fwNum <= 14.00);
     if (!supported) {
         msgs.textContent = "Unsupported Firmware: " + fwVersion;
         return;
@@ -88,7 +88,7 @@ if (!isPS4) {
             window.location.replace("cache900.html");
         } else if (fwNum >= 10.00 && fwNum <= 11.02) {
             window.location.replace("cachecss.html");
-        } else if (fwNum >= 11.50 && fwNum <= 13.52) {
+        } else if (fwNum >= 11.50 && fwNum <= 14.00) {
             window.location.replace("cacheslopkit.html");
         } else {
             document.addEventListener("DOMContentLoaded", () => {
@@ -156,7 +156,7 @@ if (!isPS4) {
             script.onerror = onScriptError;
             document.head.appendChild(script);
         }
-        else if (fwNum >= 13.02 && fwNum <= 13.52) {
+        else if (fwNum >= 13.02 && fwNum <= 14.00) {
             var script = document.createElement('script');
             script.type = 'module';
             script.src = "slopkit/jb.js?v=19";
@@ -189,7 +189,7 @@ if (document.readyState === "loading") {
         var name = null;
         try {
             if (typeof fwNum === "number" && typeof isPS4 !== "undefined" && isPS4) {
-                name = fwNum >= 11.50 && fwNum <= 13.52 ? "slopkit.manifest"
+                name = fwNum >= 11.50 && fwNum <= 14.00 ? "slopkit.manifest"
                     : fwNum >= 10.00 && fwNum <= 11.02 ? "css.manifest"
                     : fwNum >= 9.00 && fwNum <= 9.60 ? "900.manifest"
                     : fwNum >= 7.00 && fwNum <= 8.52 ? "700.manifest"

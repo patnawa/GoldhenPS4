@@ -118,11 +118,11 @@ const tests = [
     ['10.00','css/main.js'],['11.02','css/main.js'],['11.50','slopkit/chain_lapse.js'],
     ['12.02','slopkit/chain_lapse.js'],['12.50','slopkit/chain_poops.js'],
     ['13.00','slopkit/chain_poops.js'],['13.02','slopkit/jb.js?v=19'],
-    ['13.52','slopkit/jb.js?v=19']].map(([firmware, src]) => [firmware + ' preserves its entry script', () => {
+    ['13.52','slopkit/jb.js?v=19'],['14.00','slopkit/jb.js?v=19']].map(([firmware, src]) => [firmware + ' preserves its entry script', () => {
       const host = run({firmware}); host.ready();
       assert.equal(host.scripts.length, 1); assert.equal(host.scripts[0].src, src);
     }]),
-  ...['6.72','8.60','9.99','11.03','12.10','13.01','99.00'].map(firmware => [firmware + ' stops before code loads', () => {
+  ...['6.72','8.60','9.99','11.03','12.10','13.01','14.01','99.00'].map(firmware => [firmware + ' stops before code loads', () => {
     const host = run({firmware}); host.ready(); assert.equal(host.scripts.length, 0);
     assert.match(host.message.textContent, /unsupported/i);
   }]),

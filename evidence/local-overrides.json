@@ -1,5 +1,5 @@
 {
-  "revision": "goldhen-2.4b18.13-payload",
+  "revision": "goldhen-2.4b18.13-payload-fw14-support",
   "files": [
     {
       "path": "g2all/505.manifest",
@@ -68,13 +68,13 @@
     },
     {
       "path": "g2all/index.html",
-      "bytes": 10190,
-      "sha256": "59072b807ac6529f389e9453f718fd92753936fbc7b5ddec3b9b9246ccd9ccd0"
+      "bytes": 10197,
+      "sha256": "fb23ae18baa76f1877d50960f383a5ad7b6fedc00cb52d20a0d6ac347416d9d2"
     },
     {
       "path": "g2all/slopkit.manifest",
-      "bytes": 503,
-      "sha256": "928cf754391f3f92e4b9acae6f307ef2093fb0469df95413c637fc738630aa4e"
+      "bytes": 530,
+      "sha256": "8ab4ef4daf631ae02fe761c4f6d5295a09091e2f4349a5de8385d994b7049212"
     },
     {
       "path": "g2all/goldhen_2.4b18.13.bin",
@@ -84,13 +84,13 @@
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
-      "bytes": 218149,
-      "sha256": "68a04508c5698b8cc7bbf4e960d4062891a045dd1c5f578f486f479386e0427f"
+      "bytes": 218153,
+      "sha256": "8e7c2d45b2b90489504bd09ae195caf5fa47fa9bf09402cf9d642afd4446686f"
     },
     {
       "path": "g2all/slopkit/chain_poops.js",
-      "bytes": 135998,
-      "sha256": "b1b71ca64f157732d138a53f447d7ea949214ddfbe64e0c5ebdaff5bb87b8b28"
+      "bytes": 136002,
+      "sha256": "bde10e9696088479471dee41c70a8343af098ad56ce90b31a180f69396b4a1a3"
     },
     {
       "path": "g2all/slopkit/core.js",
@@ -99,8 +99,14 @@
     },
     {
       "path": "g2all/slopkit/jb.js",
-      "bytes": 115292,
-      "sha256": "b177810764810ddf7fa1e92ee9496b749298e95ccf6bac2311a329ede6017677"
+      "bytes": 115296,
+      "sha256": "86f61091e65b5865e4e2b6fa8c12b0dd866a6e4ecf9ce7ee01f4004ff703054b"
+    },
+    {
+      "path": "g2all/slopkit/ps4_offsets.js",
+      "bytes": 16727,
+      "sha256": "de25d7373f43abcea92ef0bc4fda128d82469bbcf913903569031a149a60c34a",
+      "note": "adds 14.00 alias to the PS4 offsets table (webkit+libkernel+kernel shared with 13.52, kpatch 1352.bin reused, PENDING-HW-TEST; GoldHEN 2.4b18.13 payload supports 14.00)"
     }
   ]
 }
