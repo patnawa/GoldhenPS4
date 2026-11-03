@@ -34,7 +34,7 @@ async function run({failedAsset, status = 503, empty = false, network = false} =
       const failed = url === failedAsset;
       // Realistic sizes: the entry script now rejects truncated blobs before
       // any console stage, so the fixture must serve full-size bytes.
-      const size = url.includes('goldhen_2.4b18.12.bin') ? 293120 : 632;
+      const size = url.includes('goldhen_2.4b18.13.bin') ? 297496 : 632;
       return {ok: !failed || empty, status: failed && !empty ? status : 200,
         arrayBuffer: async () => new Uint8Array(failed && empty ? [] : size).buffer};
     },
@@ -47,7 +47,7 @@ async function run({failedAsset, status = 503, empty = false, network = false} =
 }
 
 const tests = [
-  ...['slopkit/patches/1150.bin', 'goldhen_2.4b18.12.bin'].flatMap(asset =>
+  ...['slopkit/patches/1150.bin', 'goldhen_2.4b18.13.bin'].flatMap(asset =>
     [{status: 404}, {status: 503}, {empty: true}, {network: true}].map(failure => [
       `Unavailable ${asset} ${JSON.stringify(failure)} stops before primitive`, async () => {
         const r = await run({failedAsset: asset, ...failure});

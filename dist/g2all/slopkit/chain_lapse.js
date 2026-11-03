@@ -39,7 +39,7 @@ function hostOk() {
         // The exploit page must not sit in the foreground at power-off: the
         // system then kills WebKit mid-shutdown, which is the flashing-white
         // hang users see on PS4 Pro (GoldHEN issues #187/#175 pattern).
-        m.innerHTML = "GoldHEN v2.4b18.12 Loaded ... "
+        m.innerHTML = "GoldHEN v2.4b18.13 Loaded ... "
             + "Now Close The Browser, Then Use The Console.";
     }
 }
@@ -80,7 +80,7 @@ async function fetchRequiredAsset(url) {
 // Expected exact sizes of the kernel patch blobs and the GoldHEN payload. A
 // truncated download must stop BEFORE any kernel stage, never after.
 const EXPECTED_BLOB_BYTES = {
-    "goldhen_2.4b18.12.bin": 293120,
+    "goldhen_2.4b18.13.bin": 297496,
     "1150.bin": 632, "1200.bin": 632, "1250.bin": 314,
     "1300.bin": 314, "1302.bin": 632, "1350.bin": 632, "1352.bin": 632
 };
@@ -356,8 +356,8 @@ function makeRpc(worker) {
             : (kpatchName ? "NOT LOADED (" + kpatchName + ") -- stage 9 will not run"
                           : "no firmware key, so no blob name -- stage 9 will not run"));
 
-        const payload = await fetchRequiredAsset("goldhen_2.4b18.12.bin");
-        requireBlobSize("goldhen_2.4b18.12.bin", payload);
+        const payload = await fetchRequiredAsset("goldhen_2.4b18.13.bin");
+        requireBlobSize("goldhen_2.4b18.13.bin", payload);
         mark("PAYLOAD-BLOB", payload
             ? "bytes=" + payload.length + " head=" + hexBytes(payload.subarray(0, 12))
                 + (payload[0] === 0xe9 ? " entry=e9-jmp-rel32"

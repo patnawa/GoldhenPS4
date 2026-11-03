@@ -1,10 +1,10 @@
 CACHE MANIFEST 
-# Live site revision chip revision 11 - 2026-10-29
+# GoldHEN v2.4b18.13 payload - revision 12 - 2026-11-03
 
 CACHE:
 ../img.jpg
 ../style.css
-goldhen_2.4b18.12.bin
+goldhen_2.4b18.13.bin
 index.html
 slopkit\chain_lapse.js
 slopkit\chain_poops.js

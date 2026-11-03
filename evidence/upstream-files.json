@@ -508,11 +508,12 @@
       "source_url": "https://gamerhack.github.io/g2all/css/workers.js"
     },
     {
-      "path": "g2all/goldhen_2.4b18.12.bin",
-      "bytes": 293120,
-      "sha256": "df3f27c1b35bc7c40e3a08caab948930914dc7d0301a73b68945cf6ffe40ea12",
-      "git_blob_sha": "b9c254cb5171f82d8824794c184b968e5c604b24",
-      "source_url": "https://gamerhack.github.io/g2all/goldhen_2.4b18.12.bin"
+      "path": "g2all/goldhen_2.4b18.13.bin",
+      "bytes": 297496,
+      "sha256": "39452f5e1c305ac9efcb4745eef7958b4db8c6d85299529f08700970b009ea4d",
+      "git_blob_sha": null,
+      "source_url": "GoldHEN v2.4b18.13 beta, local archive GoldHEN_v2.4b18.13.7z (sha256 ec43e176f4919d5bc262579dbe9a17b4de0dbd9692a8ad0efb71b04aaf31fe73)",
+      "replaces": "g2all/goldhen_2.4b18.12.bin (293120 bytes, sha256 df3f27c1b35bc7c40e3a08caab948930914dc7d0301a73b68945cf6ffe40ea12, gamerhack.github.io/g2all)"
     },
     {
       "path": "g2all/index.html",

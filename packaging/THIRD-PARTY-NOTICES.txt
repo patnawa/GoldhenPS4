@@ -1,4 +1,4 @@
-GoldHEN Local Host 1.0.4
+GoldHEN Local Host 1.0.5
 
 This package preserves the authorship notices in the downloaded site files.
 The local host wrapper and installer do not claim authorship of GoldHEN, PSFree,
@@ -8,7 +8,8 @@ Site: https://gamerhack.github.io/g2all/
 Repository: https://github.com/GamerHack/GamerHack.github.io
 Snapshot: 23c946a7f85f1338ea2b78163e72e0ce9bc82b68
 GoldHEN: https://github.com/GoldHEN/GoldHEN
-GoldHEN payload included: goldhen_2.4b18.12.bin (293120 bytes)
+GoldHEN payload included: goldhen_2.4b18.13.bin (297496 bytes, official v2.4b18.13 beta;
+replaces the original site copy goldhen_2.4b18.12.bin, still available upstream)
 
 Source and notices remain in dist/ and source/. The original upstream hash
 inventory and six local launcher/manifest changes are recorded in evidence/.

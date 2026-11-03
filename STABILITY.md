@@ -1,5 +1,13 @@
 # Preventive stability review
 
+## GoldHEN v2.4b18.13 payload replacement (2026-11-03, release 1.0.5)
+
+The bundled payload was replaced with the newer official GoldHEN beta **v2.4b18.13** (changelog: 14.00 support, FTP SIZE fix; the line: 2.4b18.11 = 13.52, 2.4b18.12 = 13.02/13.04/13.50, 2.4b18.13 = 14.00). Source: `GoldHEN_v2.4b18.13.7z` kept at the repository root (7z sha256 `ec43e176f4919d5bc262579dbe9a17b4de0dbd9692a8ad0efb71b04aaf31fe73`); payload `goldhen_2.4b18.13.bin` 297,496 bytes, sha256 `39452f5e1c305ac9efcb4745eef7958b4db8c6d85299529f08700970b009ea4d`, extracted unchanged from the archive. This is deliberately **not** the October 2024 GitHub `2.4b18` release binary (260,160 bytes): that predates firmware 11.50 and cannot carry the 11.50–13.52 targets this host serves. The GitHub latest *stable* remains 2.3.
+
+Renaming the file forced edits at every fetch site, all recorded as local overrides: the five cache manifests (payload name + revision comments bumped to 7/7/7/7/12 so PS4 AppCache refreshes), `index.html` + five cache pages (title/heading/version + Host build 1.0.5), root `dist/index.html`, `slopkit/chain_lapse.js` (`EXPECTED_BLOB_BYTES` 297,496, `fetchRequiredAsset`/`requireBlobSize` names, success banner), `slopkit/chain_poops.js`, `slopkit/jb.js`, `css/main.js`, `505/exploit.js`, `700/lapse.js`, `900/lapse.js`, and the Lapse harness fixture. `evidence/upstream-files.json` retargets the payload item with a `replaces` note; the original upstream bytes remain recoverable from `https://gamerhack.github.io/g2all/goldhen_2.4b18.12.bin`.
+
+Nothing else native moved: offsets, race parameters, stage-2 logic and the firmware patch blobs are byte-identical to the previous release. Validation: launcher harness 40/40, Lapse harness 11/11 (new name + 297,496 fixture), server integrity tests 6/6, verify 92/92 served hashes and 99/99 manifest resources plus boundaries over HTTP/1.1, isolated 1.0.5 installer test passed end to end with Python off PATH (`release/v1.0.5/package-test.json`). Console-side behaviour on the new payload is **unproven**; the first run on 11.50 should watch for the normal `GoldHEN v2.4b18.13 Loaded ...` banner and report any stage change through `.runtime/console-diag.log`.
+
 ## Load performance and robustness batch (2026-10-29, release 1.0.4)
 
 Shipped after the freeze investigation above, under one design rule: **nothing retries or reloads after the kernel has been committed to.** Each function and its safety argument:

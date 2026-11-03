@@ -1,70 +1,106 @@
 {
-  "revision": "load-performance-robustness",
+  "revision": "goldhen-2.4b18.13-payload",
   "files": [
     {
-      "path": "g2all/index.html",
-      "bytes": 10409,
-      "sha256": "0449add206a11b912a7dfcabb7674f0c977d66c3d3e47befdee7c66cf41e9ece"
+      "path": "g2all/505.manifest",
+      "bytes": 166,
+      "sha256": "5e15c8eabeab1b4db41fd30aa185c65bf13513cec6cfa3ae8fe5bc6b97df1881"
     },
     {
-      "path": "g2all/505.manifest",
-      "bytes": 161,
-      "sha256": "fb1bd1a3c9f6b2db0febea8eddb2eeb0501d838af25d3e09e4b4203e711449f5"
+      "path": "g2all/505/exploit.js",
+      "bytes": 886393,
+      "sha256": "f73dffa252822a9e8726546892b58bdab887b76f94421b3293551b97ffdea0a3"
     },
     {
       "path": "g2all/700.manifest",
-      "bytes": 608,
-      "sha256": "b37d663f5e8f57350cc77e1b218b7795e2cd8711072a4365f947c5c91dbb8e15"
+      "bytes": 613,
+      "sha256": "f46a815bb3cf8ca785b165ff2f4b2234f96b30f7c195f24e3ae68f96dc67a2a8"
+    },
+    {
+      "path": "g2all/700/lapse.js",
+      "bytes": 56892,
+      "sha256": "dfdbe59a58be4ade840b6425f424fed8c1c05b81dd3db456c0aba8e5752b3708"
     },
     {
       "path": "g2all/900.manifest",
-      "bytes": 532,
-      "sha256": "f9014596ae5d9e4d06f73db3e020f3b2876fa1476f85dd33b631be33a9bc07b0"
+      "bytes": 537,
+      "sha256": "7e1700045b8f98b5146fab99e857ac0d454be965031474802e4758c926883935"
     },
     {
-      "path": "g2all/css.manifest",
-      "bytes": 380,
-      "sha256": "ed49dc6cd78bdef0e41f9456021f2a2eabb126a4509bb9a3aa050d3d64cae8a4"
-    },
-    {
-      "path": "g2all/slopkit.manifest",
-      "bytes": 498,
-      "sha256": "401b70976f7251e1ea6e395bf3eceb28b6e4705ac8e7aaaf4dd2337904887d0f"
+      "path": "g2all/900/lapse.js",
+      "bytes": 58113,
+      "sha256": "14ba1621ef9a89b6d81544bc13f218db5d42c012d5572d0c7ec1c0b72e1aea4d"
     },
     {
       "path": "g2all/cache505.html",
-      "bytes": 3781,
-      "sha256": "8f9a89e49ad20dbb9b6dac1994395d3a3c07f01f706af26e17e57f34cc0bf981"
+      "bytes": 3719,
+      "sha256": "15f57e2390eca3bedb4b2e48e584d1e3473ef8f1a0690f2e1795c684f614fb8e"
     },
     {
       "path": "g2all/cache700.html",
-      "bytes": 3781,
-      "sha256": "319fa95f9639d37ca8a7d341eede30efc0ddd775858f1cd334289606c879557b"
+      "bytes": 3719,
+      "sha256": "05bc58a13756ad41038f2c0593fcb1273478917149b0763bdbb9cde321c4b7e5"
     },
     {
       "path": "g2all/cache900.html",
-      "bytes": 3781,
-      "sha256": "df5ad821ec1f0f0d49ea8a23e083a557c559cf6406c133a3e30677388a5bbf91"
+      "bytes": 3719,
+      "sha256": "6439cb6967e994a019bbe22dbd541c0c0b5ee0396458a8f5c001e6504e253b31"
     },
     {
       "path": "g2all/cachecss.html",
-      "bytes": 3781,
-      "sha256": "28c546dbfdd60422d24bf6113560ed87348efc6cc0cd657a11d02d96fb44a56e"
+      "bytes": 3719,
+      "sha256": "8c36b9a1091fc4ebb62f16c8024038e215e127d9fff5a02ea48eabc585ee5d8d"
     },
     {
       "path": "g2all/cacheslopkit.html",
-      "bytes": 3789,
-      "sha256": "128edde44ffd964dca620936ddd5e90549101ec127901e0c07d0f9f52389d88f"
+      "bytes": 3727,
+      "sha256": "24b14803c9629c6d7dc8fcc932fe47a6d284305c262e84e904f5c0878c4b66a6"
+    },
+    {
+      "path": "g2all/css.manifest",
+      "bytes": 385,
+      "sha256": "0e709ad4beac455dc66795e27d5e231a8b7de925670a5f6b226f1be0c4f7a3ed"
+    },
+    {
+      "path": "g2all/css/main.js",
+      "bytes": 3178,
+      "sha256": "61d863fdd0e38f9e7742279090f9dc4c83955aa6d43a6b29614a60c61316bc7e"
+    },
+    {
+      "path": "g2all/index.html",
+      "bytes": 10190,
+      "sha256": "59072b807ac6529f389e9453f718fd92753936fbc7b5ddec3b9b9246ccd9ccd0"
+    },
+    {
+      "path": "g2all/slopkit.manifest",
+      "bytes": 503,
+      "sha256": "928cf754391f3f92e4b9acae6f307ef2093fb0469df95413c637fc738630aa4e"
+    },
+    {
+      "path": "g2all/goldhen_2.4b18.13.bin",
+      "bytes": 297496,
+      "sha256": "39452f5e1c305ac9efcb4745eef7958b4db8c6d85299529f08700970b009ea4d",
+      "note": "replaces upstream g2all/goldhen_2.4b18.12.bin; source GoldHEN v2.4b18.13 beta (GoldHEN_v2.4b18.13.7z)"
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
       "bytes": 218149,
-      "sha256": "ed7b6705971ae5f9f3ef309ac8fa5e1361ea0fca87b275ff7ca3f122a69af0ee"
+      "sha256": "68a04508c5698b8cc7bbf4e960d4062891a045dd1c5f578f486f479386e0427f"
+    },
+    {
+      "path": "g2all/slopkit/chain_poops.js",
+      "bytes": 135998,
+      "sha256": "b1b71ca64f157732d138a53f447d7ea949214ddfbe64e0c5ebdaff5bb87b8b28"
     },
     {
       "path": "g2all/slopkit/core.js",
       "bytes": 43640,
       "sha256": "651ec0b937a4afda00832293cd390619f57601851c584cff0ec0226c612cd129"
+    },
+    {
+      "path": "g2all/slopkit/jb.js",
+      "bytes": 115292,
+      "sha256": "b177810764810ddf7fa1e92ee9496b749298e95ccf6bac2311a329ede6017677"
     }
   ]
 }

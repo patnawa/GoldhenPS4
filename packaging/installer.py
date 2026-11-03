@@ -13,7 +13,7 @@ import winreg
 import zipfile
 
 APP = 'GoldHENLocalHost'
-VERSION = '1.0.4'
+VERSION = '1.0.5'
 REGISTRY = r'Software\Microsoft\Windows\CurrentVersion\Uninstall\GoldHENLocalHost'
 RESOURCE = Path(__file__).resolve().parent
 
