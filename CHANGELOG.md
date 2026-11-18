@@ -4,6 +4,16 @@ Local host builds. The bundled GoldHEN payload version is listed per build; the
 site is a mirror of GamerHack's g2all loader with the local hardening on top.
 Detailed safety reasoning for each change lives in `STABILITY.md`.
 
+## 1.0.7 (2026-11-18)
+
+- Web loader synced with upstream GamerHack's current build: `jb.js` hands the kernel stage to the new `afterglow.js` (APM use-after-free, one stage per firmware), and `ps4_offsets.js` carries upstream's own tables.
+- Real per-firmware patch blobs shipped: `1400.bin`, `1402.bin`, `1304.bin`, `1252.bin`, `1202.bin`. The 1.0.6 habit of feeding `1352.bin` to a 14.x kernel is gone.
+- FW 14.00/14.02 now run upstream's measured kernel data instead of local aliases. 14.01 has no afterglow stage and refuses cleanly before any kernel write (`jb.js` `SUPPORTED` list is upstream's — don't extend it locally).
+- Cache revisions: slopkit manifest 15, `jb.js?v=21`, `ps4_offsets.js?v=4`; `EXPECTED_BLOB_BYTES` extended to the five new 641-byte blobs.
+- Local hardening on the 11.50–13.00 chains, `core.js`, `mem.js` and every race parameter is untouched — upstream's `core.js` is behind ours.
+- Validation: launcher 45/45 (incl. manifest coverage check), Lapse 11/11, server integrity 6/6, served hashes 98/98, manifest resources 106/106.
+- Unproven on hardware: 14.x behaviour under afterglow.
+
 ## 1.0.6 (2026-11-18)
 
 - Bundled GoldHEN payload upgraded to official beta **v2.4b18.14** (`goldhen_2.4b18.14.bin`, 298,776 bytes, sha256 `c5480587…7d57e9ba8b`); the whole upstream changelog is "added support for 14.02".

@@ -1,7 +1,7 @@
 import { establishPrimitive } from "./core.js";
 import { installWindowP } from "./mem.js";
 import { int64 } from "./int64.js";
-import { offsetsFor } from "./ps4_offsets.js?v=3";
+import { offsetsFor } from "./ps4_offsets.js?v=4";
 
 function ensureHostConsole() {
     var out = document.getElementById("out");
@@ -82,7 +82,8 @@ async function fetchRequiredAsset(url) {
 const EXPECTED_BLOB_BYTES = {
     "goldhen_2.4b18.14.bin": 298776,
     "1150.bin": 632, "1200.bin": 632, "1250.bin": 314,
-    "1300.bin": 314, "1302.bin": 632, "1350.bin": 632, "1352.bin": 632
+    "1300.bin": 314, "1302.bin": 632, "1350.bin": 632, "1352.bin": 632,
+    "1202.bin": 641, "1252.bin": 641, "1304.bin": 641, "1400.bin": 641, "1402.bin": 641
 };
 function requireBlobSize(name, bytes) {
     const expected = EXPECTED_BLOB_BYTES[String(name).split("/").pop()];

@@ -558,43 +558,6 @@ PS4["13.52"] = Object.assign({}, PS4["13.50"], {
     "bug=663",
 });
 
-// GoldHEN 2.4b18.13 added 14.00 and 2.4b18.14 adds 14.02 kernel patches
-// (official CHANGELOG in each release archive). The WebKit/libkernel/kernel
-// aliases below assume 14.00 reuses the 13.50/13.52 modules exactly as 13.52
-// reuses 13.50, and that 14.02 reuses 14.00; no 14.00/14.02 kernel dump has
-// been measured here, so both entries stay PENDING-HW-TEST.
-PS4["14.00"] = Object.assign({}, PS4["13.52"], {
-  alias_of: "13.52",
-
-  kpatch: "1352.bin",
-
-  fw_status:
-    "state=PENDING-HW-TEST shares=13.52 (webkit+libkernel+kernel aliased, " +
-    "not yet measured from a 14.00 dump) kpatch=1352.bin-reused-unverified " +
-    "payload=GoldHEN-2.4b18.14-supports-14.00 bug=663",
-});
-
-PS4["14.01"] = Object.assign({}, PS4["14.00"], {
-  alias_of: "14.00",
-
-  kpatch: "1352.bin",
-
-  fw_status:
-    "state=PENDING-HW-TEST shares=14.00->13.52 (not measured; payload only " +
-    "lists 14.02) kpatch=1352.bin-reused-unverified bug=663",
-});
-
-PS4["14.02"] = Object.assign({}, PS4["14.00"], {
-  alias_of: "14.00",
-
-  kpatch: "1352.bin",
-
-  fw_status:
-    "state=PENDING-HW-TEST shares=14.00->13.52 (webkit+libkernel+kernel " +
-    "aliased, not yet measured from a 14.02 dump) kpatch=1352.bin-reused-unverified " +
-    "payload=GoldHEN-2.4b18.14-supports-14.02 bug=663",
-});
-
 PS4["13.02"] = Object.assign({}, PS4["13.00"], {
   alias_of: "13.00",
 
@@ -674,6 +637,48 @@ PS4["11.52"] = Object.assign({}, PS4["11.50"], {
     "kernel_rvas=untested-vs-dump " +
     "kpatch=1150.bin",
   kpatch: "1150.bin",
+});
+
+PS4["14.00"] = Object.assign({}, PS4["13.52"], {
+  alias_of: "13.52-webkit",
+
+  // Reported on screen on every run, so it names what actually runs: the
+  // kernel stage comes from afterglow, and the payload is picked by ?mode.
+  fw_status:
+    "state=14.00 " +
+    "webkit=13.52-identical " +
+    "kernel=afterglow (apm-UAF, own kernel stage) " +
+    "payload=hen.bin|goldhen.bin",
+
+  k_stubs: undefined,
+  wk___imp_pthread_create: undefined,
+  k_pthread_create: undefined,
+
+  k_idt_rsvd: undefined,
+  k_sysctl_handle_int: undefined,
+  k_jmp_rsi: undefined,
+  k_kl_lock: undefined,
+  k_evf_cv: undefined,
+  k_sysent: undefined,
+  k_sysent_661: undefined,
+
+  k_oid_kern_file: undefined,
+  k_oid_maxfilesperproc: undefined,
+  k_oid_maxprocperuid: undefined,
+  k_oid_maxfiles: undefined,
+
+  k_arg1_maxfilesperproc: undefined,
+  k_arg1_maxprocperuid: undefined,
+  k_arg1_maxfiles: undefined,
+
+  k_prison0: undefined,
+  k_rootvnode: undefined,
+});
+
+PS4["14.02"] = Object.assign({}, PS4["14.00"], {
+  fw_status:
+    "state=14.02 webkit=inherited-from-14.00 (unmeasured, checked at runtime) " +
+    "kernel=afterglow (apm-UAF, own kernel stage) payload=hen.bin|goldhen.bin",
 });
 
 export function offsetsFor(uaString) {

@@ -4,7 +4,7 @@
 import { establishPrimitive } from "./core.js?v=10";
 import { installWindowP, pairStatus } from "./mem.js";
 import { int64 } from "./int64.js";
-import { offsetsFor } from "./ps4_offsets.js?v=3";
+import { offsetsFor } from "./ps4_offsets.js?v=4";
 
 function ensureHostConsole() {
     var out = document.getElementById("out");

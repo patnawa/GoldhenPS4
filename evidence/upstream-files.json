@@ -530,6 +530,13 @@
       "source_url": "https://gamerhack.github.io/g2all/slopkit.manifest"
     },
     {
+      "path": "g2all/slopkit/afterglow.js",
+      "bytes": 100545,
+      "sha256": "d366e69ece700ed5a72a5bcae7f21a9904100ec8aab8227009c8eb4a0b2bb283",
+      "git_blob_sha": null,
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/afterglow.js"
+    },
+    {
       "path": "g2all/slopkit/chain_lapse.js",
       "bytes": 209270,
       "sha256": "96f376429f5214bc97b53f42a3b1c500ef3d5b193e99644e5e10765e533adbd1",
@@ -586,11 +593,25 @@
       "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1200.bin"
     },
     {
+      "path": "g2all/slopkit/patches/1202.bin",
+      "bytes": 641,
+      "sha256": "06f287712759bfb24f44ba54a0b13326bfd02e69f90f3d45f8d57c6e897e46cd",
+      "git_blob_sha": null,
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1202.bin"
+    },
+    {
       "path": "g2all/slopkit/patches/1250.bin",
       "bytes": 314,
       "sha256": "5baaf0bb2663064db1eb1bfd976bc3aa5087ab7f0963648cb6fcb216adce714d",
       "git_blob_sha": "d8102ca1d836699ae3f940c8188fe9fb1aa4e60a",
       "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1250.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1252.bin",
+      "bytes": 641,
+      "sha256": "2807a61641eec265e74a50ca053f35a128704c2195850c53b549b3057348c125",
+      "git_blob_sha": null,
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1252.bin"
     },
     {
       "path": "g2all/slopkit/patches/1300.bin",
@@ -607,6 +628,13 @@
       "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1302.bin"
     },
     {
+      "path": "g2all/slopkit/patches/1304.bin",
+      "bytes": 641,
+      "sha256": "a92beb75ad78986b39cc27e53d6d69a60b2a09f13c16937d292f314644052cf9",
+      "git_blob_sha": null,
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1304.bin"
+    },
+    {
       "path": "g2all/slopkit/patches/1350.bin",
       "bytes": 632,
       "sha256": "f771c196d012496c01f575674e95a74d7b00b7c1bc22325c7321f3ab6eb77b56",
@@ -619,6 +647,20 @@
       "sha256": "adfb9771904f71cd1f5a82cbded8ac46c7ffeb3df974579535cf711904ac347e",
       "git_blob_sha": "cb07a2b2340e054f1b823245ccf74cfe47d36839",
       "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1352.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1400.bin",
+      "bytes": 641,
+      "sha256": "615f275b96831cc04173757db39e93f0d27b52888976af2a6444604aa8ac5dbf",
+      "git_blob_sha": null,
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1400.bin"
+    },
+    {
+      "path": "g2all/slopkit/patches/1402.bin",
+      "bytes": 641,
+      "sha256": "df2145f21ecb8322fd2b062f7f0b8cacca75c96205bc34d96f2d7198bfce9cd3",
+      "git_blob_sha": null,
+      "source_url": "https://gamerhack.github.io/g2all/slopkit/patches/1402.bin"
     },
     {
       "path": "g2all/slopkit/ps4_offsets.js",

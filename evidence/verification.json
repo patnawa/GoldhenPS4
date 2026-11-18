@@ -1,13 +1,13 @@
 {
-  "verified_utc": "2026-11-18T11:27:42.636102+00:00",
-  "base_url": "http://127.0.0.1:8099/",
-  "assets_verified": 92,
+  "verified_utc": "2026-11-18T11:40:19.614465+00:00",
+  "base_url": "http://127.0.0.1:8091/",
+  "assets_verified": 98,
   "manifest_resources": {
     "505.manifest": 5,
     "700.manifest": 31,
     "900.manifest": 26,
     "css.manifest": 17,
-    "slopkit.manifest": 21
+    "slopkit.manifest": 27
   },
   "root_redirect": "passed",
   "mime_types": "passed",

@@ -1,5 +1,5 @@
 {
-  "revision": "goldhen-2.4b18.14-payload-fw1402-support",
+  "revision": "goldhen-2.4b18.14-afterglow-1402-loader",
   "files": [
     {
       "path": "g2all/505.manifest",
@@ -34,27 +34,27 @@
     {
       "path": "g2all/cache505.html",
       "bytes": 3719,
-      "sha256": "a368f5f2f6cf67ab44843df88a886acdf72b8bfdeffc3dd8a87529e414a01110"
+      "sha256": "6a13e82d7d6ddebb727f38126a509d1535be7749a685794cc4833c7cd2654972"
     },
     {
       "path": "g2all/cache700.html",
       "bytes": 3719,
-      "sha256": "916c718df86d2ffa3db4b522a5d5cf2ed3e214e8d76674df3c81515bb369a0d5"
+      "sha256": "56dcb455ed618ac9f07bdd8df8712aba4263c2badc285af652203ea84c229973"
     },
     {
       "path": "g2all/cache900.html",
       "bytes": 3719,
-      "sha256": "b3f64639c940cb7d12b60116dcee25e850b8b6eb2f8abd2f9a4c83fe65eb6abc"
+      "sha256": "dc477cf612e9eed7298f8bc0f124b59dd35d18aabe19338a2d29617be4b74010"
     },
     {
       "path": "g2all/cachecss.html",
       "bytes": 3719,
-      "sha256": "f1cd0cf0cd7ca6866e0fa561db4a988c4e7bf20b3b29e206df5be7228b50cdf1"
+      "sha256": "3ac991a7cf01212ada8d9c6b7196795125284c5185313814f1feafa3057ac309"
     },
     {
       "path": "g2all/cacheslopkit.html",
       "bytes": 3727,
-      "sha256": "d6d56292257f2d4c99cbd65642c9fc4aa8aaf8385877991d5326e66892dea3be"
+      "sha256": "99f8e32007fb98b2a9eb2029894ef02574c8c0088a1f6118a3679fccb159d6ac"
     },
     {
       "path": "g2all/css.manifest",
@@ -67,29 +67,29 @@
       "sha256": "5f447e651f5ce8f20ecb0dbd2d5917da9f45818d09f8b5dc78366275b3e0370d"
     },
     {
-      "path": "g2all/index.html",
-      "bytes": 10203,
-      "sha256": "96339abb9e874fc43d08bfad60f4843fa18333bc105340eff1f039dbe343e15d"
-    },
-    {
-      "path": "g2all/slopkit.manifest",
-      "bytes": 530,
-      "sha256": "6937f75f94c768b61c782b1a70d76ac9edaef5b538ae2938391595062740cb7f"
-    },
-    {
       "path": "g2all/goldhen_2.4b18.14.bin",
       "bytes": 298776,
       "sha256": "c5480587d99efc2e3cc132352d9b7cf052dd3068280f1686e7fbb37d57e9ba8b"
     },
     {
+      "path": "g2all/index.html",
+      "bytes": 10203,
+      "sha256": "b1d06f265dac711d47d0b171df83d65256ffeb4545ae358bfa24e6b1b9b8da39"
+    },
+    {
+      "path": "g2all/slopkit.manifest",
+      "bytes": 676,
+      "sha256": "ca06ed23b34ad77272a86c5a248364a81d366664fb592abb4d46ad2ae0267944"
+    },
+    {
       "path": "g2all/slopkit/chain_lapse.js",
-      "bytes": 218153,
-      "sha256": "794c2b9ffb5e81e19be0774ec738b81f5d7ff617011b76b0ad6bb31ba90818a0"
+      "bytes": 218242,
+      "sha256": "b41e3776f4b607315fdcf03e113896361e20cba3b922aec2eba5b3a3f1394c12"
     },
     {
       "path": "g2all/slopkit/chain_poops.js",
       "bytes": 136002,
-      "sha256": "91edde337f8c620c3be985d07b5025225ad18aaa5aeac3c99f93c2fc5675b51e"
+      "sha256": "11bfbc34029f553ffc0aa3cba7d81d2e21978cce12b454363a7f82013a8912c8"
     },
     {
       "path": "g2all/slopkit/core.js",
@@ -98,13 +98,13 @@
     },
     {
       "path": "g2all/slopkit/jb.js",
-      "bytes": 115296,
-      "sha256": "105e035277b91455fc610527b1d4790387ec6987546e91a557d5597d293cf4b6"
+      "bytes": 31566,
+      "sha256": "08cab4eeba31eabce4f86eac11abd71778639fee3940b55f1d875982f3841aa6"
     },
     {
       "path": "g2all/slopkit/ps4_offsets.js",
-      "bytes": 17380,
-      "sha256": "4878664cead612292755276cb3240d97f2c1811c67770402f59c47abe662dc26"
+      "bytes": 17278,
+      "sha256": "c8777be0a148d414e0f16224c2de4e6f3ad33db8dbc6fbcdab2dc701654b31bf"
     }
   ]
 }

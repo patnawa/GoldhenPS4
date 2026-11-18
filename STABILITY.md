@@ -1,5 +1,17 @@
 # Preventive stability review
 
+## Loader sync to upstream afterglow build (2026-11-18, release 1.0.7)
+
+Upstream GamerHack moved the whole 12.00–14.02 load path to a new kernel stage: `slopkit/jb.js` now dynamically imports `slopkit/afterglow.js` (APM use-after-free, one stage per firmware) and derives the patch blob from the detected firmware, `slopkit/patches/<fw>.bin`. The public tree also ships real per-firmware blobs (`1202`, `1252`, `1304`, `1400`, `1402`) and marks the 14.00/14.02 kernel RVAs as undefined because afterglow brings its own. The 1.0.6 aliases (`PS4["14.02"]`/`PS4["14.01"]` chained onto 1352.bin) were only ever structural guesses; this release replaces them with upstream's own tables.
+
+Synced byte-for-byte from `https://gamerhack.github.io/g2all/`: `slopkit/jb.js` (31,551 bytes), `slopkit/afterglow.js` (100,545), `slopkit/ps4_offsets.js` (17,278), and the five new patch blobs. Local edits on `jb.js`/`ps4_offsets.js` are limited to the cache-buster import specifiers (`core.js?v=10`, `ps4_offsets.js?v=4`); `afterglow.js` imports only `int64.js` and carries no local change. Local `core.js`/`mem.js`/`chain_lapse.js`/`chain_poops.js` hardening stays as-is — upstream's `core.js` is actually behind it (it lacks the retry groom release and the 750 ms settle), and the 11.50–13.00 paths still use the local chains.
+
+Firmware coverage after the sync: `jb.js` refuses to run at all on a firmware it has no afterglow stage for, which is exactly 14.01. The launcher still routes 13.02–14.02 to `jb.js`, so a 14.01 console now reaches it and gets a clean "no kernel stage for 14.01, nothing was run" instead of a wrong-address write. 14.00 and 14.02 run afterglow normally. `SUPPORTED` in `jb.js` is upstream's list (14.02, 14.00, 13.52, 13.50, 13.04, 13.02, 13.00, 12.52, 12.50, 12.02, 12.00) — do not extend it locally without an upstream stage to back it.
+
+Crash-surface notes: the new path writes kernel memory from afterglow's measured tables, so the 1.0.6 risk (1352.bin into a 14.02 kernel) is gone, but 14.x kernel data is still unverified on this host's hardware. `EXPECTED_BLOB_BYTES` gained the five new 641-byte blobs so a truncated download still stops before any kernel stage; the payload size check is unchanged at 298,776. Cache revisions were bumped again (slopkit 15, `jb.js?v=21`, `ps4_offsets.js?v=4`) because consoles that already pulled 1.0.6 would otherwise keep the old chain.
+
+Validation: launcher harness 45/45 (adds a manifest check that afterglow.js, both 14.x blobs, `?v=4` offsets and `?v=21` jb are cached; 14.01/14.02 still route, 14.03 still rejects), Lapse harness 11/11, server integrity 6/6, `server.py --check` 98/98, verify 98/98 served hashes and 106/106 manifest resources (slopkit 27) over HTTP/1.1, `node --check` on the three synced JS files. Console behaviour on 14.x with afterglow is unproven on hardware.
+
 ## GoldHEN v2.4b18.14 payload replacement + FW 14.02 routing (2026-11-18, release 1.0.6)
 
 The bundled payload moved to the next official GoldHEN beta, **v2.4b18.14**, whose entire changelog is "Added support for 14.02". Source: `GoldHEN_v2.4b18.14.7z` kept at the repository root (7z sha256 `fe67d34f2a67b1f4f018629b51318bab40ba7ad13f2293ae802e6cb57ea202cf`); payload `goldhen_2.4b18.14.bin`, 298,776 bytes, sha256 `c5480587d99efc2e3cc132352d9b7cf052dd3068280f1686e7fbb37d57e9ba8b`, extracted unchanged from the archive. The previous `goldhen_2.4b18.13.bin` (297,496 bytes) was removed so exactly one payload is published.

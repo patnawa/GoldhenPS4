@@ -1,15 +1,19 @@
-GoldHEN Local Host 1.0.6 - Windows 10/11 x64
+GoldHEN Local Host 1.0.7 - Windows 10/11 x64
 
 ONLINE WEBSITE
 https://patnawa.github.io/GoldhenPS4/g2all/
 The path is case-sensitive: use GoldhenPS4 exactly as shown.
 
-Version 1.0.6 replaces the bundled GoldHEN payload with the v2.4b18.14 beta
-(298,776 bytes). The official changelog lists one item: firmware 14.02 support;
-14.00 and 14.01 are routed through the same gated path. All fetch points and
-size checks moved to the new file; offsets (14.02 aliased from the 13.52 set,
-pending hardware confirmation) and race parameters are otherwise unchanged.
-On-console success rates for the new payload are not yet proven.
+Version 1.0.7 syncs the bundled web loader with upstream GamerHack's current
+build: jb.js hands the kernel stage to afterglow.js (APM use-after-free, its
+own stage per firmware) and the site ships the real per-firmware patch blobs
+1400.bin/1402.bin instead of reusing 1352.bin. Firmware 14.02 and 14.00 are now
+served by measured upstream offsets rather than local aliases. 14.01 has no
+afterglow stage yet and stops cleanly before touching the kernel. Offsets for
+14.x come from upstream and are still unproven on this host's hardware.
+
+Version 1.0.6 replaced the bundled GoldHEN payload with the v2.4b18.14 beta
+and routed firmware 14.02.
 
 Version 1.0.4 adds the 11.50 load path: the primitive releases its grooming
 memory between retries instead of stacking ~130 MB heaps (the intermittent
@@ -22,7 +26,7 @@ shutdown hang reported on PS4 Pro). The host also records the console's own
 diagnostic posts in .runtime\console-diag.log.
 
 INSTALL
-Run GoldHEN-Local-Host-Setup-1.0.6-x64.exe. Choose a writable installation folder
+Run GoldHEN-Local-Host-Setup-1.0.7-x64.exe. Choose a writable installation folder
 and click Install. Everything is bundled: no Python installation, internet
 download, or development tools are needed. It installs for your Windows user
 with Start menu shortcuts and an optional desktop shortcut.

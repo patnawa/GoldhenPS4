@@ -117,12 +117,19 @@ const tests = [
     ['8.52','700/alert.js'],['9.00','900/alert.js'],['9.60','900/alert.js'],
     ['10.00','css/main.js'],['11.02','css/main.js'],['11.50','slopkit/chain_lapse.js'],
     ['12.02','slopkit/chain_lapse.js'],['12.50','slopkit/chain_poops.js'],
-    ['13.00','slopkit/chain_poops.js'],['13.02','slopkit/jb.js?v=20'],
-    ['13.52','slopkit/jb.js?v=20'],['14.00','slopkit/jb.js?v=20'],
-    ['14.01','slopkit/jb.js?v=20'],['14.02','slopkit/jb.js?v=20']].map(([firmware, src]) => [firmware + ' preserves its entry script', () => {
+    ['13.00','slopkit/chain_poops.js'],['13.02','slopkit/jb.js?v=21'],
+    ['13.52','slopkit/jb.js?v=21'],['14.00','slopkit/jb.js?v=21'],
+    ['14.01','slopkit/jb.js?v=21'],['14.02','slopkit/jb.js?v=21']].map(([firmware, src]) => [firmware + ' preserves its entry script', () => {
       const host = run({firmware}); host.ready();
       assert.equal(host.scripts.length, 1); assert.equal(host.scripts[0].src, src);
     }]),
+  ['SlopKit manifest caches the afterglow kernel stage and every FW 14 patch blob', () => {
+    const m = fs.readFileSync(path.join(__dirname, '../dist/g2all/slopkit.manifest'), 'utf8');
+    for (const need of ['slopkit\\afterglow.js', 'slopkit\\patches\\1400.bin',
+      'slopkit\\patches\\1402.bin', 'slopkit\\ps4_offsets.js?v=4', 'slopkit\\jb.js?v=21']) {
+      assert.ok(m.includes(need), need + ' missing from slopkit.manifest');
+    }
+  }],
   ...['6.72','8.60','9.99','11.03','12.10','13.01','14.03','99.00'].map(firmware => [firmware + ' stops before code loads', () => {
     const host = run({firmware}); host.ready(); assert.equal(host.scripts.length, 0);
     assert.match(host.message.textContent, /unsupported/i);
