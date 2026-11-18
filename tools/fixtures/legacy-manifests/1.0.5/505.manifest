@@ -1,0 +1,12 @@
+CACHE MANIFEST 
+# GoldHEN v2.4b18.13 payload - revision 7 - 2026-11-03
+
+CACHE: 
+../img.jpg
+../style.css
+goldhen_2.4b18.13.bin
+index.html
+505\exploit.js
+
+NETWORK: 
+* 

@@ -16,6 +16,12 @@ Route smoke on both ends, headless Chromium with spoofed PS4 UAs (AppCache stubb
 
 One more fix found by the audit: upstream has no `PS4["14.01"]` entry, so `offsetsFor()` returned null for 14.01 and jb.js bailed at "not a PS4 browser - debug mode" *before* its `SUPPORTED` gate, which is the wrong message for a real console. A local 14.01 alias of 14.00 now exists (marked `state=14.01-refused`) purely so the gate fires and reports "no kernel stage for 14.01, nothing was run". The `SUPPORTED` list itself stays upstream's.
 
+### AppCache refresh continuity
+
+AppCache fetches every entry of a manifest during an update and aborts the whole update if one of them 404s; the console then keeps serving its old cache and, in practice, stays on the old build until the user clears browser data. 1.0.6 deleted `goldhen_2.4b18.13.bin`, but every 1.0.5 manifest still names it — so a console that last opened the site on 1.0.5 could not complete an update to 1.0.7 at all. The legacy payload (297,496 bytes, sha256 `39452f5e…`) is served again, outside every current manifest (current clients never request it), which restores the 1.0.5 → 1.0.7 hop. `tools/test-cache-continuity.cjs` replays the shipped 1.0.5 and 1.0.6 manifests from `tools/fixtures/legacy-manifests/` and fails if any listed file is gone; it is wired into the Pages workflow and proven red-capable (moving the legacy bin away fails 6 checks). Rollback for a stuck console is unchanged: clear browser data and re-install the cache. Manifest totals are 0.5–1.2 MB per manifest, well inside what the console stores.
+
+Two rules for future releases: never delete or rename a payload/blob that a released manifest lists (keep the old file until that release's caches are considered dead), and always bump every manifest revision so the console re-reads them.
+
 ## GoldHEN v2.4b18.14 payload replacement + FW 14.02 routing (2026-11-18, release 1.0.6)
 
 The bundled payload moved to the next official GoldHEN beta, **v2.4b18.14**, whose entire changelog is "Added support for 14.02". Source: `GoldHEN_v2.4b18.14.7z` kept at the repository root (7z sha256 `fe67d34f2a67b1f4f018629b51318bab40ba7ad13f2293ae802e6cb57ea202cf`); payload `goldhen_2.4b18.14.bin`, 298,776 bytes, sha256 `c5480587d99efc2e3cc132352d9b7cf052dd3068280f1686e7fbb37d57e9ba8b`, extracted unchanged from the archive. The previous `goldhen_2.4b18.13.bin` (297,496 bytes) was removed so exactly one payload is published.

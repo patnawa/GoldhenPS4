@@ -1,7 +1,7 @@
 {
-  "verified_utc": "2026-11-18T11:46:19.932955+00:00",
-  "base_url": "http://127.0.0.1:8093/",
-  "assets_verified": 98,
+  "verified_utc": "2026-11-18T11:51:23.322877+00:00",
+  "base_url": "http://127.0.0.1:8094/",
+  "assets_verified": 99,
   "manifest_resources": {
     "505.manifest": 5,
     "700.manifest": 31,

@@ -11,6 +11,7 @@ on:
       - 'tools/test-host.cjs'
       - 'tools/test-lapse-host.cjs'
       - 'tools/test-offsets.cjs'
+      - 'tools/test-cache-continuity.cjs'
       - 'tools/test-launchers.py'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
@@ -43,6 +44,8 @@ jobs:
         run: node tools/test-lapse-host.cjs
       - name: Check offsets coverage per routed firmware
         run: node tools/test-offsets.cjs
+      - name: Check AppCache continuity for older releases
+        run: node tools/test-cache-continuity.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site

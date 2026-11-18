@@ -14,6 +14,8 @@ Detailed safety reasoning for each change lives in `STABILITY.md`.
 - Validation: launcher 45/45 (incl. manifest coverage check), Lapse 11/11, server integrity 6/6, served hashes 98/98, manifest resources 106/106.
 - Bug hunt after the sync: new `tools/test-offsets.cjs` (52 checks, wired into Pages CI) proves every unguarded offset key resolves for every routed firmware and that every routed firmware has its blob; it caught the 11.50 table surviving only because the keys are read guarded. Fixed a wrong-message path: 14.01 had no offsets entry at all, so jb.js bailed as "not a PS4 browser" before its `SUPPORTED` gate — a local 14.01 alias now lets the gate refuse it explicitly.
 - Route smoke without a console (`evidence/route-smoke-1.0.7.json`): 11.50 reaches the attempt stage with the right blob and payload size and zero page errors; 14.02 passes every table check and resolves 1402.bin, then stops at the WebKit primitive (desktop Chrome).
+- **Cache-refresh fix:** a console still on a 1.0.5 AppCache had its whole update aborted by one 404 — `goldhen_2.4b18.13.bin`, whose name its manifests list, had been deleted in 1.0.6. The legacy payload is served again and the current manifest revisions all change, so an update from any 1.0.5/1.0.6 cache completes instead of stalling.
+- New `tools/test-cache-continuity.cjs` (12 checks, CI gate) replays the 1.0.5 and 1.0.6 manifests from fixtures and fails if a listed file no longer exists; proven red-capable by moving the legacy bin away.
 - Unproven on hardware: 14.x behaviour under afterglow.
 
 ## 1.0.6 (2026-11-18)
