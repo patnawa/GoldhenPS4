@@ -1,96 +1,95 @@
 {
-  "revision": "goldhen-2.4b18.13-payload-fw14-support",
+  "revision": "goldhen-2.4b18.14-payload-fw1402-support",
   "files": [
     {
       "path": "g2all/505.manifest",
       "bytes": 166,
-      "sha256": "5e15c8eabeab1b4db41fd30aa185c65bf13513cec6cfa3ae8fe5bc6b97df1881"
+      "sha256": "8957ebda54c8af3ec0da1cddf842a2fe3a9a329167bb6bea86f813d635c46336"
     },
     {
       "path": "g2all/505/exploit.js",
       "bytes": 886393,
-      "sha256": "f73dffa252822a9e8726546892b58bdab887b76f94421b3293551b97ffdea0a3"
+      "sha256": "edd843f793df71bdecb28a1db1714e5eadf0a681a5f56f6ad798988ad32842a3"
     },
     {
       "path": "g2all/700.manifest",
       "bytes": 613,
-      "sha256": "f46a815bb3cf8ca785b165ff2f4b2234f96b30f7c195f24e3ae68f96dc67a2a8"
+      "sha256": "915379877224e2c37921ad4b8bb9a25133a26e4ef791a4a09adca950bacc575c"
     },
     {
       "path": "g2all/700/lapse.js",
       "bytes": 56892,
-      "sha256": "dfdbe59a58be4ade840b6425f424fed8c1c05b81dd3db456c0aba8e5752b3708"
+      "sha256": "7669d04bce7cfbe6ff7170621fe21b24954647d027f82e345f3e6b14c2f641a5"
     },
     {
       "path": "g2all/900.manifest",
       "bytes": 537,
-      "sha256": "7e1700045b8f98b5146fab99e857ac0d454be965031474802e4758c926883935"
+      "sha256": "c1f5255a8661688bd16824d9fcb12ffe71caa3133556806a6a6a22d9b34b1b73"
     },
     {
       "path": "g2all/900/lapse.js",
       "bytes": 58113,
-      "sha256": "14ba1621ef9a89b6d81544bc13f218db5d42c012d5572d0c7ec1c0b72e1aea4d"
+      "sha256": "af006cfd51b8f99aa1bab9feda33e9db64e9d63ade118cb680b65c9f36ceda8f"
     },
     {
       "path": "g2all/cache505.html",
       "bytes": 3719,
-      "sha256": "15f57e2390eca3bedb4b2e48e584d1e3473ef8f1a0690f2e1795c684f614fb8e"
+      "sha256": "a368f5f2f6cf67ab44843df88a886acdf72b8bfdeffc3dd8a87529e414a01110"
     },
     {
       "path": "g2all/cache700.html",
       "bytes": 3719,
-      "sha256": "05bc58a13756ad41038f2c0593fcb1273478917149b0763bdbb9cde321c4b7e5"
+      "sha256": "916c718df86d2ffa3db4b522a5d5cf2ed3e214e8d76674df3c81515bb369a0d5"
     },
     {
       "path": "g2all/cache900.html",
       "bytes": 3719,
-      "sha256": "6439cb6967e994a019bbe22dbd541c0c0b5ee0396458a8f5c001e6504e253b31"
+      "sha256": "b3f64639c940cb7d12b60116dcee25e850b8b6eb2f8abd2f9a4c83fe65eb6abc"
     },
     {
       "path": "g2all/cachecss.html",
       "bytes": 3719,
-      "sha256": "8c36b9a1091fc4ebb62f16c8024038e215e127d9fff5a02ea48eabc585ee5d8d"
+      "sha256": "f1cd0cf0cd7ca6866e0fa561db4a988c4e7bf20b3b29e206df5be7228b50cdf1"
     },
     {
       "path": "g2all/cacheslopkit.html",
       "bytes": 3727,
-      "sha256": "24b14803c9629c6d7dc8fcc932fe47a6d284305c262e84e904f5c0878c4b66a6"
+      "sha256": "d6d56292257f2d4c99cbd65642c9fc4aa8aaf8385877991d5326e66892dea3be"
     },
     {
       "path": "g2all/css.manifest",
       "bytes": 385,
-      "sha256": "0e709ad4beac455dc66795e27d5e231a8b7de925670a5f6b226f1be0c4f7a3ed"
+      "sha256": "08120dce37d6b8d4643c63dea70671e60d192f920727b880787cd0d5b8f77358"
     },
     {
       "path": "g2all/css/main.js",
       "bytes": 3178,
-      "sha256": "61d863fdd0e38f9e7742279090f9dc4c83955aa6d43a6b29614a60c61316bc7e"
+      "sha256": "5f447e651f5ce8f20ecb0dbd2d5917da9f45818d09f8b5dc78366275b3e0370d"
     },
     {
       "path": "g2all/index.html",
-      "bytes": 10197,
-      "sha256": "fb23ae18baa76f1877d50960f383a5ad7b6fedc00cb52d20a0d6ac347416d9d2"
+      "bytes": 10203,
+      "sha256": "96339abb9e874fc43d08bfad60f4843fa18333bc105340eff1f039dbe343e15d"
     },
     {
       "path": "g2all/slopkit.manifest",
       "bytes": 530,
-      "sha256": "8ab4ef4daf631ae02fe761c4f6d5295a09091e2f4349a5de8385d994b7049212"
+      "sha256": "6937f75f94c768b61c782b1a70d76ac9edaef5b538ae2938391595062740cb7f"
     },
     {
-      "path": "g2all/goldhen_2.4b18.13.bin",
-      "bytes": 297496,
-      "sha256": "39452f5e1c305ac9efcb4745eef7958b4db8c6d85299529f08700970b009ea4d",
-      "note": "replaces upstream g2all/goldhen_2.4b18.12.bin; source GoldHEN v2.4b18.13 beta (GoldHEN_v2.4b18.13.7z)"
+      "path": "g2all/goldhen_2.4b18.14.bin",
+      "bytes": 298776,
+      "sha256": "c5480587d99efc2e3cc132352d9b7cf052dd3068280f1686e7fbb37d57e9ba8b"
     },
     {
       "path": "g2all/slopkit/chain_lapse.js",
       "bytes": 218153,
-      "sha256": "8e7c2d45b2b90489504bd09ae195caf5fa47fa9bf09402cf9d642afd4446686f"
+      "sha256": "794c2b9ffb5e81e19be0774ec738b81f5d7ff617011b76b0ad6bb31ba90818a0"
     },
     {
       "path": "g2all/slopkit/chain_poops.js",
       "bytes": 136002,
-      "sha256": "bde10e9696088479471dee41c70a8343af098ad56ce90b31a180f69396b4a1a3"
+      "sha256": "91edde337f8c620c3be985d07b5025225ad18aaa5aeac3c99f93c2fc5675b51e"
     },
     {
       "path": "g2all/slopkit/core.js",
@@ -100,13 +99,12 @@
     {
       "path": "g2all/slopkit/jb.js",
       "bytes": 115296,
-      "sha256": "86f61091e65b5865e4e2b6fa8c12b0dd866a6e4ecf9ce7ee01f4004ff703054b"
+      "sha256": "105e035277b91455fc610527b1d4790387ec6987546e91a557d5597d293cf4b6"
     },
     {
       "path": "g2all/slopkit/ps4_offsets.js",
-      "bytes": 16727,
-      "sha256": "de25d7373f43abcea92ef0bc4fda128d82469bbcf913903569031a149a60c34a",
-      "note": "adds 14.00 alias to the PS4 offsets table (webkit+libkernel+kernel shared with 13.52, kpatch 1352.bin reused, PENDING-HW-TEST; GoldHEN 2.4b18.13 payload supports 14.00)"
+      "bytes": 17380,
+      "sha256": "4878664cead612292755276cb3240d97f2c1811c67770402f59c47abe662dc26"
     }
   ]
 }

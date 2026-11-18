@@ -1,14 +1,15 @@
-GoldHEN Local Host 1.0.5 - Windows 10/11 x64
+GoldHEN Local Host 1.0.6 - Windows 10/11 x64
 
 ONLINE WEBSITE
 https://patnawa.github.io/GoldhenPS4/g2all/
 The path is case-sensitive: use GoldhenPS4 exactly as shown.
 
-Version 1.0.5 replaces the bundled GoldHEN payload with the v2.4b18.13 beta
-(297496 bytes): adds firmware 14.00 support and fixes the FTP SIZE issue.
-All fetch points and size checks moved to the new file; offsets and race
-parameters are unchanged. On-console success rates for the new payload are
-not yet proven.
+Version 1.0.6 replaces the bundled GoldHEN payload with the v2.4b18.14 beta
+(298,776 bytes). The official changelog lists one item: firmware 14.02 support;
+14.00 and 14.01 are routed through the same gated path. All fetch points and
+size checks moved to the new file; offsets (14.02 aliased from the 13.52 set,
+pending hardware confirmation) and race parameters are otherwise unchanged.
+On-console success rates for the new payload are not yet proven.
 
 Version 1.0.4 adds the 11.50 load path: the primitive releases its grooming
 memory between retries instead of stacking ~130 MB heaps (the intermittent
@@ -21,7 +22,7 @@ shutdown hang reported on PS4 Pro). The host also records the console's own
 diagnostic posts in .runtime\console-diag.log.
 
 INSTALL
-Run GoldHEN-Local-Host-Setup-1.0.5-x64.exe. Choose a writable installation folder
+Run GoldHEN-Local-Host-Setup-1.0.6-x64.exe. Choose a writable installation folder
 and click Install. Everything is bundled: no Python installation, internet
 download, or development tools are needed. It installs for your Windows user
 with Start menu shortcuts and an optional desktop shortcut.
@@ -70,8 +71,8 @@ edition can be removed by stopping it and deleting its extracted folder after
 removing its firewall rule.
 
 CONTENTS / PROVENANCE
-GoldHEN v2.4b18.13 payload (official beta line, replacing the original site
-copy v2.4b18.12; source archive GoldHEN_v2.4b18.13.7z) and the same console
+GoldHEN v2.4b18.14 payload (official beta line, replacing the original site
+copy v2.4b18.12; source archive GoldHEN_v2.4b18.14.7z) and the same console
 scripts as the working host.
 Preventive cache/launcher checks, startup integrity verification, Python runtime,
 source, source notices and original author credits are included. Third-party

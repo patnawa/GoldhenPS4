@@ -1,19 +1,19 @@
 CACHE MANIFEST 
-# GoldHEN v2.4b18.13 payload - revision 13 - 2026-11-03
+# GoldHEN v2.4b18.14 payload - revision 14 - 2026-11-18
 
 CACHE:
 ../img.jpg
 ../style.css
-goldhen_2.4b18.13.bin
+goldhen_2.4b18.14.bin
 index.html
 slopkit\chain_lapse.js
 slopkit\chain_poops.js
 slopkit\core.js?v=10
 slopkit\core.js
 slopkit\int64.js
-slopkit\jb.js?v=19
+slopkit\jb.js?v=20
 slopkit\mem.js
-slopkit\ps4_offsets.js?v=2
+slopkit\ps4_offsets.js?v=3
 slopkit\ps4_offsets.js
 slopkit\rpc_worker.js
 slopkit\patches\1150.bin

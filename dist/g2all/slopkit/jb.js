@@ -1,7 +1,7 @@
 import { establishPrimitive } from "./core.js?v=10";
 import { installWindowP, pairStatus } from "./mem.js";
 import { int64 } from "./int64.js";
-import { offsetsFor } from "./ps4_offsets.js?v=2";
+import { offsetsFor } from "./ps4_offsets.js?v=3";
 
 function ensureHostConsole() {
   var out = document.getElementById("out");
@@ -32,7 +32,7 @@ const STOP_BEFORE_DOUBLE = params.get("stop") === "beforedouble";
 function hostOk() {
   var m = document.getElementById("msgs");
   if (m) {
-    m.innerHTML = "GoldHEN v2.4b18.13 Loaded ...";
+    m.innerHTML = "GoldHEN v2.4b18.14 Loaded ...";
   }
 }
 
@@ -237,7 +237,7 @@ let allDone = false,
 
     const KPATCH_FILE =
       "slopkit/patches/" + (off.kpatch || fwKey.replace(".", "") + ".bin");
-    const PAYLOAD_FILE = "goldhen_2.4b18.13.bin";
+    const PAYLOAD_FILE = "goldhen_2.4b18.14.bin";
     const needPatch = ["k_sysent_661", "k_jmp_rsi"].filter(
       (k) => off[k] === undefined,
     );

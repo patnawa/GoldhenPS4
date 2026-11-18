@@ -1,10 +1,10 @@
 CACHE MANIFEST 
-# GoldHEN v2.4b18.13 payload - revision 7 - 2026-11-03
+# GoldHEN v2.4b18.14 payload - revision 8 - 2026-11-18
 
 CACHE: 
 ../img.jpg
 ../style.css
-goldhen_2.4b18.13.bin
+goldhen_2.4b18.14.bin
 index.html
 900\alert.js
 900\config.js
