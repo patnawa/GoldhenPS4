@@ -12,6 +12,8 @@ Detailed safety reasoning for each change lives in `STABILITY.md`.
 - Cache revisions: slopkit manifest 15, `jb.js?v=21`, `ps4_offsets.js?v=4`; `EXPECTED_BLOB_BYTES` extended to the five new 641-byte blobs.
 - Local hardening on the 11.50–13.00 chains, `core.js`, `mem.js` and every race parameter is untouched — upstream's `core.js` is behind ours.
 - Validation: launcher 45/45 (incl. manifest coverage check), Lapse 11/11, server integrity 6/6, served hashes 98/98, manifest resources 106/106.
+- Bug hunt after the sync: new `tools/test-offsets.cjs` (52 checks, wired into Pages CI) proves every unguarded offset key resolves for every routed firmware and that every routed firmware has its blob; it caught the 11.50 table surviving only because the keys are read guarded. Fixed a wrong-message path: 14.01 had no offsets entry at all, so jb.js bailed as "not a PS4 browser" before its `SUPPORTED` gate — a local 14.01 alias now lets the gate refuse it explicitly.
+- Route smoke without a console (`evidence/route-smoke-1.0.7.json`): 11.50 reaches the attempt stage with the right blob and payload size and zero page errors; 14.02 passes every table check and resolves 1402.bin, then stops at the WebKit primitive (desktop Chrome).
 - Unproven on hardware: 14.x behaviour under afterglow.
 
 ## 1.0.6 (2026-11-18)

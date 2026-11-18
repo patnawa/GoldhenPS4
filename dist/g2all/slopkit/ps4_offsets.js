@@ -681,6 +681,18 @@ PS4["14.02"] = Object.assign({}, PS4["14.00"], {
     "kernel=afterglow (apm-UAF, own kernel stage) payload=hen.bin|goldhen.bin",
 });
 
+// Local addition: upstream has no 14.01 entry, so offsetsFor() would return
+// null and jb.js would bail with "not a PS4 browser - debug mode" before its
+// SUPPORTED gate could print the real reason. This alias keeps the firmware
+// reachable so the gate refuses it explicitly; there is no afterglow stage.
+PS4["14.01"] = Object.assign({}, PS4["14.00"], {
+  alias_of: "14.00",
+
+  fw_status:
+    "state=14.01-refused (no afterglow stage upstream) " +
+    "webkit=inherited-from-14.00 kernel=none payload=n/a",
+});
+
 export function offsetsFor(uaString) {
   const m = (uaString || "").match(/PlayStation\s+4[\/ ](\d+)\.(\d+)/);
   if (!m) return { key: null, off: null };

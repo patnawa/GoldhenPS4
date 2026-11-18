@@ -1,0 +1,59 @@
+{
+  "what": "Headless Chromium route smoke for 1.0.7, PS4 user agents spoofed, desktop Chrome crawls the chain until the WebKit-only primitive fails. AppCache was stubbed (Chrome removed applicationCache).",
+  "server": "http://127.0.0.1:8092/ (python server.py, identical bytes to the deployed site)",
+  "captured_auth": "n/a",
+  "firmware_11_50": {
+    "ua": "Mozilla/5.0 (PlayStation 4 11.50) AppleWebKit/601.2 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/601.2",
+    "entry_script": "g2all/slopkit/chain_lapse.js",
+    "requests": [
+      "g2all/slopkit.manifest",
+      "g2all/slopkit/chain_lapse.js",
+      "g2all/slopkit/int64.js",
+      "g2all/slopkit/mem.js",
+      "g2all/slopkit/core.js",
+      "g2all/slopkit/ps4_offsets.js?v=4",
+      "g2all/slopkit/core.js?v=10",
+      "g2all/slopkit/patches/1150.bin",
+      "g2all/goldhen_2.4b18.14.bin",
+      "g2all/t (x56 diagnostics)"
+    ],
+    "marks": [
+      "KPATCH-BLOB 632 bytes of slopkit/patches/1150.bin in hand, head b9 82 00 00 c0 0f 32 48 c1 e2 20 89 10 gateable jump site(s)",
+      "PAYLOAD-BLOB bytes=298776 head=e9 a6 16 00 00 48 01 fe 48 39 f7 74 entry=e9-jmp-rel32",
+      "FW 11.50 / FW-STATUS 11.50",
+      "DRY-RUN-PLAN budget=400 spray=512",
+      "ATTEMPT-START [1] attempt-persisted=true-capture-ms=50-compose-ms=100",
+      "SSV-BUILD [1] k=2-n=512 / SSV-BUILT [1] duplicate-index=2 / SSV-STORE-ENTER [1] writer-ref=0xfff"
+    ],
+    "banner": "Clean failure (primitive) - the console was not modified. Retrying, attempt 1 of 2, in 1 second(s)...",
+    "page_errors": [],
+    "verdict": "PASS - the 11.50 chain survives the 1.0.7 offsets sync: right entry, right 632-byte blob for 11.50, payload size check at 298776, offsets resolve, bounded retry banner shown."
+  },
+  "firmware_14_02": {
+    "ua": "Mozilla/5.0 (PlayStation 4 14.02) AppleWebKit/601.2 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/601.2",
+    "entry_script": "g2all/slopkit/jb.js?v=21",
+    "requests": [
+      "g2all/slopkit.manifest",
+      "g2all/slopkit/jb.js?v=21",
+      "g2all/slopkit/int64.js",
+      "g2all/slopkit/mem.js",
+      "g2all/slopkit/core.js?v=10",
+      "g2all/slopkit/ps4_offsets.js?v=4"
+    ],
+    "marks": [
+      "FW 14.02",
+      "PROOF-OK kernel-table-present fw=14.02 missing=[]",
+      "PROOF-OK kpatch-table-present missing=[] blob=slopkit/patches/1402.bin",
+      "PROOF-OK payload-table-present missing=[] payload=goldhen_2.4b18.14.bin",
+      "FW-STATUS state=14.02 webkit=inherited-from-14.00 (unmeasured, checked at runtime) kernel=afterglow (apm-UAF, own kernel stage)"
+    ],
+    "banner": "Failed to Load! Reopen the Browser ...",
+    "page_errors": [],
+    "verdict": "PASS on wiring - 14.02 routes to jb.js?v=21, every table check passes, the blob resolves to 1402.bin and the payload name is correct. afterglow.js itself only imports after the WebKit primitive, which desktop Chrome cannot provide, so the kernel stage is still unproven here."
+  },
+  "not_proven": [
+    "Kernel stage of afterglow on real 14.00/14.02 hardware.",
+    "Whether 14.02 kernel addresses in upstream's table match this console's dump (none measured here).",
+    "14.01 refusal path end to end (static SUPPORTED gate covers it; the launcher routes it so the gate is reachable)."
+  ]
+}

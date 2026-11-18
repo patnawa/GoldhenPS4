@@ -10,6 +10,8 @@ on:
       - 'server.py'
       - 'tools/test-host.cjs'
       - 'tools/test-lapse-host.cjs'
+      - 'tools/test-offsets.cjs'
+      - 'tools/test-launchers.py'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -39,6 +41,8 @@ jobs:
         run: node tools/test-host.cjs
       - name: Check Lapse asset failures and diagnostics
         run: node tools/test-lapse-host.cjs
+      - name: Check offsets coverage per routed firmware
+        run: node tools/test-offsets.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
